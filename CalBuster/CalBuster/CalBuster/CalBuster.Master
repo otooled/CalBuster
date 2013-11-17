@@ -1,0 +1,52 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="CalBuster.master.cs" Inherits="CalBuster.CalBuster" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head runat="server">
+        <link href="CalMaterStyle.css" rel="stylesheet" />
+        <title></title>
+        <asp:ContentPlaceHolder ID="head" runat="server">
+            </asp:ContentPlaceHolder>
+    </head>
+<body>
+    <form id="form1" runat="server">
+<!-- start header -->
+
+<div id="topbg">&nbsp;</div>
+<div id="header">
+	<h1>simplegreen</h1>
+	<p> design By Free CSS Templates</p>
+</div>
+<!-- end header -->
+<!-- start page -->
+
+        <div id="page">
+            <div class="bgtop">
+                <div class="bgbtm">
+                    <!-- start content -->
+                    <div id="leftcolumn">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            <div id="loginHeading" class="loginHeaderDiv">
+                                  
+                            </div>
+                        </asp:ContentPlaceHolder>
+                       
+                    </div>
+                     
+                </div>
+                
+            </div>
+           
+        </div>
+         <div id="rightcolumn" >
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder3" runat="server" >
+            
+        </asp:ContentPlaceHolder>
+                </div>
+      
+       
+    </form>
+
+</body>
+</html>

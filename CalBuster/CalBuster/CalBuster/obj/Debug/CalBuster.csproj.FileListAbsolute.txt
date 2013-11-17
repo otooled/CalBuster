@@ -1,0 +1,10 @@
+C:\Users\David\Desktop\CalBuster2\CalBuster\CalBuster\bin\CalBuster.dll
+C:\Users\David\Desktop\CalBuster2\CalBuster\CalBuster\bin\CalBuster.pdb
+C:\Users\David\Desktop\CalBuster2\CalBuster\CalBuster\obj\Debug\CalBuster.csprojResolveAssemblyReference.cache
+C:\Users\David\Desktop\CalBuster2\CalBuster\CalBuster\obj\Debug\CalBuster.dll
+C:\Users\David\Desktop\CalBuster2\CalBuster\CalBuster\obj\Debug\CalBuster.pdb
+C:\Users\David\Desktop\CalBuster\CalBuster\CalBuster\bin\CalBuster.dll
+C:\Users\David\Desktop\CalBuster\CalBuster\CalBuster\bin\CalBuster.pdb
+C:\Users\David\Desktop\CalBuster\CalBuster\CalBuster\obj\Debug\CalBuster.csprojResolveAssemblyReference.cache
+C:\Users\David\Desktop\CalBuster\CalBuster\CalBuster\obj\Debug\CalBuster.dll
+C:\Users\David\Desktop\CalBuster\CalBuster\CalBuster\obj\Debug\CalBuster.pdb
