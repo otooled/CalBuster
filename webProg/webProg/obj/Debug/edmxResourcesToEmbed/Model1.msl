@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbModelStoreContainer" CdmEntityContainer="dbEntities">
+    <EntitySetMapping Name="dinner_tbl">
+      <EntityTypeMapping TypeName="dbModel.dinner_tbl">
+        <MappingFragment StoreEntitySet="dinner_tbl">
+          <ScalarProperty Name="dinner_id" ColumnName="dinner_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="cost" ColumnName="cost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="double_tbl">
+      <EntityTypeMapping TypeName="dbModel.double_tbl">
+        <MappingFragment StoreEntitySet="double_tbl">
+          <ScalarProperty Name="dbl_id" ColumnName="dbl_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="cost" ColumnName="cost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="link_tbl">
+      <EntityTypeMapping TypeName="dbModel.link_tbl">
+        <MappingFragment StoreEntitySet="link_tbl">
+          <ScalarProperty Name="link_id" ColumnName="link_id" />
+          <ScalarProperty Name="dinner_id" ColumnName="dinner_id" />
+          <ScalarProperty Name="dbl_id" ColumnName="dbl_id" />
+          <ScalarProperty Name="meat_id" ColumnName="meat_id" />
+          <ScalarProperty Name="veg_id" ColumnName="veg_id" />
+          <ScalarProperty Name="item_id" ColumnName="item_id" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="meatFish_tbl">
+      <EntityTypeMapping TypeName="dbModel.meatFish_tbl">
+        <MappingFragment StoreEntitySet="meatFish_tbl">
+          <ScalarProperty Name="meat_id" ColumnName="meat_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="gPerUnit" ColumnName="gPerUnit" />
+          <ScalarProperty Name="pricePerGram" ColumnName="pricePerGram" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pastMeals_tbl">
+      <EntityTypeMapping TypeName="dbModel.pastMeals_tbl">
+        <MappingFragment StoreEntitySet="pastMeals_tbl">
+          <ScalarProperty Name="past_id" ColumnName="past_id" />
+          <ScalarProperty Name="dbl_id" ColumnName="dbl_id" />
+          <ScalarProperty Name="dinner_id1" ColumnName="dinner_id1" />
+          <ScalarProperty Name="dinner_id2" ColumnName="dinner_id2" />
+          <ScalarProperty Name="dinner_id3" ColumnName="dinner_id3" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="veg_tbl">
+      <EntityTypeMapping TypeName="dbModel.veg_tbl">
+        <MappingFragment StoreEntitySet="veg_tbl">
+          <ScalarProperty Name="calorie" ColumnName="calorie" />
+          <ScalarProperty Name="sodium" ColumnName="sodium" />
+          <ScalarProperty Name="fat" ColumnName="fat" />
+          <ScalarProperty Name="sugar" ColumnName="sugar" />
+          <ScalarProperty Name="carbs" ColumnName="carbs" />
+          <ScalarProperty Name="protien" ColumnName="protien" />
+          <ScalarProperty Name="kgPerUnit" ColumnName="kgPerUnit" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="veg_id" ColumnName="veg_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dryGoods_tbl">
+      <EntityTypeMapping TypeName="dbModel.dryGoods_tbl">
+        <MappingFragment StoreEntitySet="dryGoods_tbl">
+          <ScalarProperty Name="typeOf" ColumnName="typeOf" />
+          <ScalarProperty Name="calorie" ColumnName="calorie" />
+          <ScalarProperty Name="sodium" ColumnName="sodium" />
+          <ScalarProperty Name="fat" ColumnName="fat" />
+          <ScalarProperty Name="sugar" ColumnName="sugar" />
+          <ScalarProperty Name="carbs" ColumnName="carbs" />
+          <ScalarProperty Name="protien" ColumnName="protien" />
+          <ScalarProperty Name="pricePerItem" ColumnName="pricePerItem" />
+          <ScalarProperty Name="gPerUnit" ColumnName="gPerUnit" />
+          <ScalarProperty Name="itemName" ColumnName="itemName" />
+          <ScalarProperty Name="item_id" ColumnName="item_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

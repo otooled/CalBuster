@@ -1,0 +1,7 @@
+D:\New folder\webProg\webProg\bin\webProg.dll
+D:\New folder\webProg\webProg\bin\webProg.pdb
+D:\New folder\webProg\webProg\obj\Debug\webProg.dll
+D:\New folder\webProg\webProg\obj\Debug\webProg.pdb
+D:\New folder\webProg\webProg\bin\EntityFramework.dll
+D:\New folder\webProg\webProg\bin\EntityFramework.xml
+D:\New folder\webProg\webProg\obj\Debug\webProg.csprojResolveAssemblyReference.cache
