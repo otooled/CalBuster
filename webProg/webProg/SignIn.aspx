@@ -6,12 +6,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 
     
-    <div id="leftcolumn">
+    <%--<div id="leftcolumn">--%>
 
         <div id="signInHeader">
             <asp:Label ID="lblSignInHeader" runat="server" Text="Enter your details to join CalBuster" CssClass="loginHeader"></asp:Label>
         </div>
-    <%--<div id="signIn">--%>
+    <div id="signIn">
         
         <p><asp:Label ID="lblFirstName" runat="server" Text="*First name:" CssClass="SignInTBandLab"></asp:Label>
             <asp:Label ID="lblSurname" runat="server" Text="*Surname:" CssClass="signInLabel"></asp:Label>

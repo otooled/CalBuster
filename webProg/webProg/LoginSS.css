@@ -156,7 +156,10 @@
      border: red;
  }
  #signIn {
-     
+     border-color: green;
+     border-style: ridge;
+     border-radius: 10px;
+     max-width:70%;
  }
  .SignInTBandLab {
      margin-left: 10px;
@@ -187,8 +190,5 @@
 #rightcolumn { width:45%;  margin:0 20px 0 60%; position:relative;
 }
 #leftcolumn { width:45%;  margin:10px 0 0 0; position:absolute;
-              border-color: green;
-     border-style: ridge;
-     border-radius: 10px;
-     
+
 }
