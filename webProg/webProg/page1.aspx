@@ -114,6 +114,14 @@
                     <asp:TableCell ID="TableCell41" runat="server" class="alt2"></asp:TableCell>
                     <asp:TableCell ID="TableCell42" runat="server" class="alt2"></asp:TableCell>
               </asp:TableRow>
+            <asp:TableRow ID="TotalsRow" runat="server"  >
+                    <asp:TableCell ID="TableCell43" runat="server" class="firstalt">Totals</asp:TableCell>                       
+                    <asp:TableCell ID="TableCell44" runat="server" class="alt2"></asp:TableCell>
+                    <asp:TableCell ID="TableCell45" runat="server" class="alt2"></asp:TableCell>
+                    <asp:TableCell ID="TableCell46" runat="server" class="alt2"></asp:TableCell>
+                    <asp:TableCell ID="TableCell47" runat="server" class="alt2"></asp:TableCell>
+                    <asp:TableCell ID="TableCell48" runat="server" class="alt2"></asp:TableCell>
+                </asp:TableRow>
         </asp:Table>
          
        <%-- </form>--%>

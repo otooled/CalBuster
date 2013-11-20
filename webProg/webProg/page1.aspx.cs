@@ -36,7 +36,7 @@ namespace webProg
                         bc = 2;
                         foreach (var item in brekyItems)
                         {
-                            addRowCalCount(item, bc);
+                            addRowCalCountOnPostBack(item, bc);
                             bc++;
                         }
                     }
@@ -46,7 +46,7 @@ namespace webProg
                         
                         foreach (var item in lunchItems)
                         {
-                            addRowCalCount(item, lc);
+                            addRowCalCountOnPostBack(item, lc);
                             lc++;
                         }
                     }
@@ -57,6 +57,15 @@ namespace webProg
             TreeView1.RootNodeStyle.ImageUrl = "images/cuts.jpg";
             if (!Page.IsPostBack)
             {
+                for (int i = 1; i < 6; i++)                     // set total to 0
+                {
+                    TotalsRow.Cells[i].Text = "";
+                }
+                Session.Add("totalCal", 0);
+                Session.Add("totalCarb", 0.0);
+                Session.Add("totalFat", 0.0);
+                Session.Add("totalProtien", 0.0);
+                Session.Add("totalSugar", 0.0);
                 lunchItems.Clear();
                 brekyItems.Clear();
                 TreeView1.Nodes.Add(new TreeNode("Breakfast"));
@@ -133,6 +142,32 @@ namespace webProg
             //type = lb.ID;
             Session.Add("type", type);
         }
+
+        private void addRowCalCountOnPostBack(item one, int cc)
+        {
+            TableRow row = new TableRow();
+            for (int i = 0; i < 6; i++)
+            {
+                TableCell tc = new TableCell();
+                tc.CssClass = "alt2";
+                row.Cells.Add(tc);
+            }
+            row.Cells[0].CssClass = "lside";
+            row.Cells[0].Text = one.name.ToString();
+            row.Cells[1].Text = one.cal.ToString();
+            row.Cells[2].Text = one.carb.ToString();
+            row.Cells[3].Text = one.fat.ToString();
+            row.Cells[4].Text = one.protien.ToString();
+            row.Cells[5].Text = one.sugar.ToString();
+            tblAdded.Rows.AddAt(cc, row);
+
+            if (Session["totalCal"] != null) { TotalsRow.Cells[1].Text = ((int)Session["totalCal"]).ToString(); }
+            if (Session["totalCarb"] != null) { TotalsRow.Cells[2].Text = ((double)Session["totalCarb"]).ToString(); }
+            if (Session["totalFat"] != null) { TotalsRow.Cells[3].Text = ((double)Session["totalFat"]).ToString(); }
+            if (Session["totalProtien"] != null) { TotalsRow.Cells[4].Text = ((double)Session["totalProtien"]).ToString(); }
+            if (Session["totalSugar"] != null) { TotalsRow.Cells[5].Text = ((double)Session["totalSugar"]).ToString(); }
+        }
+
         private void addRowCalCount(item one, int cc)
         {
             TableRow row = new TableRow();
@@ -150,9 +185,25 @@ namespace webProg
             row.Cells[4].Text = one.protien.ToString();
             row.Cells[5].Text = one.sugar.ToString();
             tblAdded.Rows.AddAt(cc, row);
+
+           if(Session["totalCal"] != null){ TotalsRow.Cells[1].Text = (((int)Session["totalCal"]) + (one.cal)).ToString(); }
+           Session.Add("totalCal", (Convert.ToInt32(TotalsRow.Cells[1].Text)));
+           if (Session["totalCarb"] != null) { TotalsRow.Cells[2].Text = (((double)Session["totalCarb"]) + (one.carb)).ToString(); }
+           Session.Add("totalCarb", (Convert.ToDouble(TotalsRow.Cells[2].Text)));
+           if (Session["totalFat"] != null) { TotalsRow.Cells[3].Text = (((double)Session["totalFat"]) + (one.fat)).ToString(); }
+           Session.Add("totalFat", (Convert.ToDouble(TotalsRow.Cells[3].Text)));
+           if (Session["totalProtien"] != null) { TotalsRow.Cells[4].Text = (((double)Session["totalProtien"]) + (one.protien)).ToString(); }
+           Session.Add("totalProtien", (Convert.ToDouble(TotalsRow.Cells[4].Text)));
+           if (Session["totalSugar"] != null) { TotalsRow.Cells[5].Text = (((double)Session["totalSugar"]) + (one.sugar)).ToString(); }
+           Session.Add("totalSugar", (Convert.ToDouble(TotalsRow.Cells[5].Text)));
+            //TotalsRow.Cells[2].Text = ((Convert.ToDouble(TotalsRow.Cells[2].Text)) + (one.carb)).ToString();
+            //TotalsRow.Cells[3].Text = ((Convert.ToDouble(TotalsRow.Cells[3].Text)) + (one.fat)).ToString();
+            //TotalsRow.Cells[4].Text = ((Convert.ToDouble(TotalsRow.Cells[4].Text)) + (one.protien)).ToString();
+            //TotalsRow.Cells[5].Text = ((Convert.ToDouble(TotalsRow.Cells[5].Text)) + (one.sugar)).ToString();
+
         }
 
-        protected void goBack_Click(object sender, EventArgs e)
+        protected void goBack_Click(object sender, EventArgs e)     //button to add selected food to daily record
         {
             if (type == "brek") { counter++; }
             else if (type == "lunch") { lunchCount++; }
@@ -166,6 +217,7 @@ namespace webProg
             title.Visible = true;
             if (type == "brek") { addRowCalCount(food, counter); brekyItems.Add(food); }
             else if (type == "lunch") { addRowCalCount(food, lunchCount); lunchItems.Add(food); }
+            
             Session.Add("counter", counter);
             Session.Add("lunchCount", lunchCount);
             
