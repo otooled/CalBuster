@@ -1,0 +1,62 @@
+﻿body {
+}
+
+/* Content */
+.dailyTable {   
+    width:700px;
+    display: table-column;
+}
+.mainContent {
+    width:700px;
+    display: table-column;
+}
+.lSide {
+    width: 400px;
+    text-align:left;
+}
+.rSide {
+    max-width: 100px;
+    text-align: center;
+}
+.firstalt {
+    background: none;
+    border: none;
+    color: #0a5282;
+    font-size: 18px;
+    font-weight: bold;
+    padding-left: 0;
+    text-transform: capitalize;
+    text-align: left;
+    padding: 15px 0 10px 0;
+}
+.alt{
+    background: #0a5282;
+    color: #fff;
+    padding: 5px 10px 5px 10px;
+    
+    font-size: 12px;
+    font-weight: normal;
+    text-align: center;
+    text-transform: capitalize;
+}
+.addLink {
+    border-bottom:1px solid #66A342;
+    width: 400px;
+}
+.alt2 {
+    border-bottom: 1px solid #66A342;
+    text-align: center;
+    width: 100px;
+}
+.treeV {
+    max-width: 45%;
+}
+#search_boxes {
+   display:inline;
+}
+.listb {
+    float:right;
+    width:55%;
+    margin-top: 0px;
+}
+

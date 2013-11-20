@@ -2,7 +2,6 @@
 <Schema Namespace="dbModel.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityContainer Name="dbModelStoreContainer">
     <EntitySet Name="dinner_tbl" EntityType="dbModel.Store.dinner_tbl" store:Type="Tables" />
-    <EntitySet Name="double_tbl" EntityType="dbModel.Store.double_tbl" store:Type="Tables" />
     <EntitySet Name="dryGoods_tbl" EntityType="dbModel.Store.dryGoods_tbl" store:Type="Tables" />
     <EntitySet Name="link_tbl" EntityType="dbModel.Store.link_tbl" store:Type="Tables" />
     <EntitySet Name="meatFish_tbl" EntityType="dbModel.Store.meatFish_tbl" store:Type="Tables" />
@@ -14,14 +13,6 @@
       <PropertyRef Name="dinner_id" />
     </Key>
     <Property Name="dinner_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="name" Type="nvarchar" MaxLength="100" />
-    <Property Name="cost" Type="money" />
-  </EntityType>
-  <EntityType Name="double_tbl">
-    <Key>
-      <PropertyRef Name="dbl_id" />
-    </Key>
-    <Property Name="dbl_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="name" Type="nvarchar" MaxLength="100" />
     <Property Name="cost" Type="money" />
   </EntityType>

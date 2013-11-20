@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <link href="style.css" rel="stylesheet" />
+    <%--<link href="CalMaterStyle.css" rel="stylesheet" />--%>
     <script src="jquery-1.9.1.js"></script> 
     
     <title></title>
@@ -12,9 +13,9 @@
         
     </asp:ContentPlaceHolder>
 </head>
-<body  onload="startUp()">
+<body  >
    
-
+    <form id="form1" runat="server">
         <!-- start header -->
             <div id="topbg">&nbsp;</div>
             <div id="header">
@@ -30,10 +31,17 @@
 			<div class="bgbtm">
 
 				<!-- start content -->
-                    <div id="content">
+                    
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                            <div id="loginHeading" class="loginHeaderDiv"> </div>                          
+                        </asp:ContentPlaceHolder>                      
+                         
 				        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" >       
                         </asp:ContentPlaceHolder>				
-                    </div>
+                                      
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder3" runat="server" >            
+                        </asp:ContentPlaceHolder>
+                    
                 <!-- end content -->
 				
                 
@@ -41,12 +49,15 @@
 			</div>
 		</div>
 	</div>
+
+    
+
 <div id="footer">
 	<p>&copy;2007 All Rights Reserved &nbsp;&bull;&nbsp; Design by <a href="http://www.freecsstemplates.org/">Free CSS Templates</a> &nbsp;&bull;&nbsp; Icons by <a href="http://www.famfamfam.com/">FAMFAMFAM</a>.</p>
 </div>
 <div >This template  downloaded form <a href='http://all-free-download.com/free-website-templates/'>free website templates</a>
 
 </div>
-
+        </form>
 </body>
 </html>

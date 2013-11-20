@@ -13,7 +13,8 @@ namespace webProg
         private string type = "" ;
         private int counter = 1;
         private int lunchCount = 3;
-        dbEntities cd = new dbEntities();
+        
+        dbEntities1 cd = new dbEntities1();
         private List<item> brekyItems = new List<item>();
         private List<item> lunchItems = new List<item>();
         protected void Page_Load(object sender, EventArgs e)

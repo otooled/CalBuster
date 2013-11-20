@@ -1,13 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="dbModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityContainer Name="dbEntities" p1:LazyLoadingEnabled="true">
+  <EntityContainer Name="dbEntities1" p1:LazyLoadingEnabled="true">
     <EntitySet Name="dinner_tbl" EntityType="dbModel.dinner_tbl" />
-    <EntitySet Name="double_tbl" EntityType="dbModel.double_tbl" />
+    <EntitySet Name="dryGoods_tbl" EntityType="dbModel.dryGoods_tbl" />
     <EntitySet Name="link_tbl" EntityType="dbModel.link_tbl" />
     <EntitySet Name="meatFish_tbl" EntityType="dbModel.meatFish_tbl" />
     <EntitySet Name="pastMeals_tbl" EntityType="dbModel.pastMeals_tbl" />
     <EntitySet Name="veg_tbl" EntityType="dbModel.veg_tbl" />
-    <EntitySet Name="dryGoods_tbl" EntityType="dbModel.dryGoods_tbl" />
   </EntityContainer>
   <EntityType Name="dinner_tbl">
     <Key>
@@ -17,13 +16,21 @@
     <Property Name="name" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
     <Property Name="cost" Type="Decimal" Precision="19" Scale="4" />
   </EntityType>
-  <EntityType Name="double_tbl">
+  <EntityType Name="dryGoods_tbl">
     <Key>
-      <PropertyRef Name="dbl_id" />
+      <PropertyRef Name="item_id" />
     </Key>
-    <Property Name="dbl_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-    <Property Name="name" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
-    <Property Name="cost" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="item_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="itemName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="gPerUnit" Type="Int32" />
+    <Property Name="pricePerItem" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="protien" Type="Double" />
+    <Property Name="carbs" Type="Double" />
+    <Property Name="sugar" Type="Double" />
+    <Property Name="fat" Type="Double" />
+    <Property Name="sodium" Type="Double" />
+    <Property Name="calorie" Type="Double" />
+    <Property Name="typeOf" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
   </EntityType>
   <EntityType Name="link_tbl">
     <Key>
@@ -61,30 +68,14 @@
     <Key>
       <PropertyRef Name="veg_id" />
     </Key>
-    <Property Type="Int32" Name="veg_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="description" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Type="Int16" Name="kgPerUnit" />
-    <Property Type="Double" Name="protien" />
-    <Property Type="Double" Name="carbs" />
-    <Property Type="Double" Name="sugar" />
-    <Property Type="Double" Name="fat" />
-    <Property Type="Double" Name="sodium" />
-    <Property Type="Int32" Name="calorie" />
-  </EntityType>
-  <EntityType Name="dryGoods_tbl">
-    <Key>
-      <PropertyRef Name="item_id" />
-    </Key>
-    <Property Type="Int32" Name="item_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="itemName" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Type="Int32" Name="gPerUnit" />
-    <Property Type="Decimal" Name="pricePerItem" Precision="19" Scale="4" />
-    <Property Type="Double" Name="protien" />
-    <Property Type="Double" Name="carbs" />
-    <Property Type="Double" Name="sugar" />
-    <Property Type="Double" Name="fat" />
-    <Property Type="Double" Name="sodium" />
-    <Property Type="Double" Name="calorie" />
-    <Property Type="String" Name="typeOf" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="veg_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="description" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="kgPerUnit" Type="Int16" />
+    <Property Name="protien" Type="Double" />
+    <Property Name="carbs" Type="Double" />
+    <Property Name="sugar" Type="Double" />
+    <Property Name="fat" Type="Double" />
+    <Property Name="sodium" Type="Double" />
+    <Property Name="calorie" Type="Int32" />
   </EntityType>
 </Schema>

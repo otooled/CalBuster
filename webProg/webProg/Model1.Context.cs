@@ -13,10 +13,10 @@ namespace webProg
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class dbEntities : DbContext
+    public partial class dbEntities1 : DbContext
     {
-        public dbEntities()
-            : base("name=dbEntities")
+        public dbEntities1()
+            : base("name=dbEntities1")
         {
         }
     
@@ -26,11 +26,10 @@ namespace webProg
         }
     
         public DbSet<dinner_tbl> dinner_tbl { get; set; }
-        public DbSet<double_tbl> double_tbl { get; set; }
+        public DbSet<dryGoods_tbl> dryGoods_tbl { get; set; }
         public DbSet<link_tbl> link_tbl { get; set; }
         public DbSet<meatFish_tbl> meatFish_tbl { get; set; }
         public DbSet<pastMeals_tbl> pastMeals_tbl { get; set; }
         public DbSet<veg_tbl> veg_tbl { get; set; }
-        public DbSet<dryGoods_tbl> dryGoods_tbl { get; set; }
     }
 }

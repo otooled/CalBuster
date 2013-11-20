@@ -1,12 +1,12 @@
 ﻿<%@ Page Title="" Language="C#"  MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="page1.aspx.cs" Inherits="webProg.page1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server" >
-
+    <link href="dailyFood.css" rel="stylesheet" />
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server"  >
-    
+    <div id="content">
     <div id="title" runat="server" >  <h2>bla bla bla </h2>    </div>
-    <form id="form1" runat="server">
+    <%--<form id="form1" runat="server">--%>
     <div id="searchForMeal" runat="server"  > 
         
       <h1 id="keepTop" class="main-title">Add Food To Breakfast </h1>
@@ -116,9 +116,9 @@
               </asp:TableRow>
         </asp:Table>
          
-        </form>
+       <%-- </form>--%>
     
-
+</div>
     <script type="text/javascript">
         function startUp() {         
             $("#searchForMeal").hide();

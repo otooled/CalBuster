@@ -4,10 +4,9 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="dbModel.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="dbModel.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="dbModelStoreContainer">
           <EntitySet Name="dinner_tbl" EntityType="dbModel.Store.dinner_tbl" store:Type="Tables" />
-          <EntitySet Name="double_tbl" EntityType="dbModel.Store.double_tbl" store:Type="Tables" />
           <EntitySet Name="dryGoods_tbl" EntityType="dbModel.Store.dryGoods_tbl" store:Type="Tables" />
           <EntitySet Name="link_tbl" EntityType="dbModel.Store.link_tbl" store:Type="Tables" />
           <EntitySet Name="meatFish_tbl" EntityType="dbModel.Store.meatFish_tbl" store:Type="Tables" />
@@ -19,14 +18,6 @@
             <PropertyRef Name="dinner_id" />
           </Key>
           <Property Name="dinner_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="nvarchar" MaxLength="100" />
-          <Property Name="cost" Type="money" />
-        </EntityType>
-        <EntityType Name="double_tbl">
-          <Key>
-            <PropertyRef Name="dbl_id" />
-          </Key>
-          <Property Name="dbl_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="nvarchar" MaxLength="100" />
           <Property Name="cost" Type="money" />
         </EntityType>
@@ -92,18 +83,18 @@
           <Property Name="sodium" Type="float" />
           <Property Name="calorie" Type="int" />
         </EntityType>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="dbModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="dbEntities" p1:LazyLoadingEnabled="true">
+        <EntityContainer Name="dbEntities1" p1:LazyLoadingEnabled="true">
           <EntitySet Name="dinner_tbl" EntityType="dbModel.dinner_tbl" />
-          <EntitySet Name="double_tbl" EntityType="dbModel.double_tbl" />
+          <EntitySet Name="dryGoods_tbl" EntityType="dbModel.dryGoods_tbl" />
           <EntitySet Name="link_tbl" EntityType="dbModel.link_tbl" />
           <EntitySet Name="meatFish_tbl" EntityType="dbModel.meatFish_tbl" />
           <EntitySet Name="pastMeals_tbl" EntityType="dbModel.pastMeals_tbl" />
           <EntitySet Name="veg_tbl" EntityType="dbModel.veg_tbl" />
-          <EntitySet Name="dryGoods_tbl" EntityType="dbModel.dryGoods_tbl" />
         </EntityContainer>
         <EntityType Name="dinner_tbl">
           <Key>
@@ -113,13 +104,21 @@
           <Property Name="name" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="cost" Type="Decimal" Precision="19" Scale="4" />
         </EntityType>
-        <EntityType Name="double_tbl">
+        <EntityType Name="dryGoods_tbl">
           <Key>
-            <PropertyRef Name="dbl_id" />
+            <PropertyRef Name="item_id" />
           </Key>
-          <Property Name="dbl_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
-          <Property Name="cost" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="item_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="itemName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="gPerUnit" Type="Int32" />
+          <Property Name="pricePerItem" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="protien" Type="Double" />
+          <Property Name="carbs" Type="Double" />
+          <Property Name="sugar" Type="Double" />
+          <Property Name="fat" Type="Double" />
+          <Property Name="sodium" Type="Double" />
+          <Property Name="calorie" Type="Double" />
+          <Property Name="typeOf" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
         </EntityType>
         <EntityType Name="link_tbl">
           <Key>
@@ -157,38 +156,22 @@
           <Key>
             <PropertyRef Name="veg_id" />
           </Key>
-          <Property Type="Int32" Name="veg_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="description" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Type="Int16" Name="kgPerUnit" />
-          <Property Type="Double" Name="protien" />
-          <Property Type="Double" Name="carbs" />
-          <Property Type="Double" Name="sugar" />
-          <Property Type="Double" Name="fat" />
-          <Property Type="Double" Name="sodium" />
-          <Property Type="Int32" Name="calorie" />
-        </EntityType>
-        <EntityType Name="dryGoods_tbl">
-          <Key>
-            <PropertyRef Name="item_id" />
-          </Key>
-          <Property Type="Int32" Name="item_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="itemName" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="gPerUnit" />
-          <Property Type="Decimal" Name="pricePerItem" Precision="19" Scale="4" />
-          <Property Type="Double" Name="protien" />
-          <Property Type="Double" Name="carbs" />
-          <Property Type="Double" Name="sugar" />
-          <Property Type="Double" Name="fat" />
-          <Property Type="Double" Name="sodium" />
-          <Property Type="Double" Name="calorie" />
-          <Property Type="String" Name="typeOf" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="veg_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="description" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="kgPerUnit" Type="Int16" />
+          <Property Name="protien" Type="Double" />
+          <Property Name="carbs" Type="Double" />
+          <Property Name="sugar" Type="Double" />
+          <Property Name="fat" Type="Double" />
+          <Property Name="sodium" Type="Double" />
+          <Property Name="calorie" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="dbModelStoreContainer" CdmEntityContainer="dbEntities">
+        <EntityContainerMapping StorageEntityContainer="dbModelStoreContainer" CdmEntityContainer="dbEntities1">
           <EntitySetMapping Name="dinner_tbl">
             <EntityTypeMapping TypeName="dbModel.dinner_tbl">
               <MappingFragment StoreEntitySet="dinner_tbl">
@@ -198,12 +181,20 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="double_tbl">
-            <EntityTypeMapping TypeName="dbModel.double_tbl">
-              <MappingFragment StoreEntitySet="double_tbl">
-                <ScalarProperty Name="dbl_id" ColumnName="dbl_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="cost" ColumnName="cost" />
+          <EntitySetMapping Name="dryGoods_tbl">
+            <EntityTypeMapping TypeName="dbModel.dryGoods_tbl">
+              <MappingFragment StoreEntitySet="dryGoods_tbl">
+                <ScalarProperty Name="item_id" ColumnName="item_id" />
+                <ScalarProperty Name="itemName" ColumnName="itemName" />
+                <ScalarProperty Name="gPerUnit" ColumnName="gPerUnit" />
+                <ScalarProperty Name="pricePerItem" ColumnName="pricePerItem" />
+                <ScalarProperty Name="protien" ColumnName="protien" />
+                <ScalarProperty Name="carbs" ColumnName="carbs" />
+                <ScalarProperty Name="sugar" ColumnName="sugar" />
+                <ScalarProperty Name="fat" ColumnName="fat" />
+                <ScalarProperty Name="sodium" ColumnName="sodium" />
+                <ScalarProperty Name="calorie" ColumnName="calorie" />
+                <ScalarProperty Name="typeOf" ColumnName="typeOf" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -245,32 +236,15 @@
           <EntitySetMapping Name="veg_tbl">
             <EntityTypeMapping TypeName="dbModel.veg_tbl">
               <MappingFragment StoreEntitySet="veg_tbl">
-                <ScalarProperty Name="calorie" ColumnName="calorie" />
-                <ScalarProperty Name="sodium" ColumnName="sodium" />
-                <ScalarProperty Name="fat" ColumnName="fat" />
-                <ScalarProperty Name="sugar" ColumnName="sugar" />
-                <ScalarProperty Name="carbs" ColumnName="carbs" />
-                <ScalarProperty Name="protien" ColumnName="protien" />
-                <ScalarProperty Name="kgPerUnit" ColumnName="kgPerUnit" />
-                <ScalarProperty Name="description" ColumnName="description" />
                 <ScalarProperty Name="veg_id" ColumnName="veg_id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="dryGoods_tbl">
-            <EntityTypeMapping TypeName="dbModel.dryGoods_tbl">
-              <MappingFragment StoreEntitySet="dryGoods_tbl">
-                <ScalarProperty Name="typeOf" ColumnName="typeOf" />
-                <ScalarProperty Name="calorie" ColumnName="calorie" />
-                <ScalarProperty Name="sodium" ColumnName="sodium" />
-                <ScalarProperty Name="fat" ColumnName="fat" />
-                <ScalarProperty Name="sugar" ColumnName="sugar" />
-                <ScalarProperty Name="carbs" ColumnName="carbs" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="kgPerUnit" ColumnName="kgPerUnit" />
                 <ScalarProperty Name="protien" ColumnName="protien" />
-                <ScalarProperty Name="pricePerItem" ColumnName="pricePerItem" />
-                <ScalarProperty Name="gPerUnit" ColumnName="gPerUnit" />
-                <ScalarProperty Name="itemName" ColumnName="itemName" />
-                <ScalarProperty Name="item_id" ColumnName="item_id" />
+                <ScalarProperty Name="carbs" ColumnName="carbs" />
+                <ScalarProperty Name="sugar" ColumnName="sugar" />
+                <ScalarProperty Name="fat" ColumnName="fat" />
+                <ScalarProperty Name="sodium" ColumnName="sodium" />
+                <ScalarProperty Name="calorie" ColumnName="calorie" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

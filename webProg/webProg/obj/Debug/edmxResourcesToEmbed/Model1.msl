@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="dbModelStoreContainer" CdmEntityContainer="dbEntities">
+  <EntityContainerMapping StorageEntityContainer="dbModelStoreContainer" CdmEntityContainer="dbEntities1">
     <EntitySetMapping Name="dinner_tbl">
       <EntityTypeMapping TypeName="dbModel.dinner_tbl">
         <MappingFragment StoreEntitySet="dinner_tbl">
@@ -10,12 +10,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="double_tbl">
-      <EntityTypeMapping TypeName="dbModel.double_tbl">
-        <MappingFragment StoreEntitySet="double_tbl">
-          <ScalarProperty Name="dbl_id" ColumnName="dbl_id" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="cost" ColumnName="cost" />
+    <EntitySetMapping Name="dryGoods_tbl">
+      <EntityTypeMapping TypeName="dbModel.dryGoods_tbl">
+        <MappingFragment StoreEntitySet="dryGoods_tbl">
+          <ScalarProperty Name="item_id" ColumnName="item_id" />
+          <ScalarProperty Name="itemName" ColumnName="itemName" />
+          <ScalarProperty Name="gPerUnit" ColumnName="gPerUnit" />
+          <ScalarProperty Name="pricePerItem" ColumnName="pricePerItem" />
+          <ScalarProperty Name="protien" ColumnName="protien" />
+          <ScalarProperty Name="carbs" ColumnName="carbs" />
+          <ScalarProperty Name="sugar" ColumnName="sugar" />
+          <ScalarProperty Name="fat" ColumnName="fat" />
+          <ScalarProperty Name="sodium" ColumnName="sodium" />
+          <ScalarProperty Name="calorie" ColumnName="calorie" />
+          <ScalarProperty Name="typeOf" ColumnName="typeOf" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -57,32 +65,15 @@
     <EntitySetMapping Name="veg_tbl">
       <EntityTypeMapping TypeName="dbModel.veg_tbl">
         <MappingFragment StoreEntitySet="veg_tbl">
-          <ScalarProperty Name="calorie" ColumnName="calorie" />
-          <ScalarProperty Name="sodium" ColumnName="sodium" />
-          <ScalarProperty Name="fat" ColumnName="fat" />
-          <ScalarProperty Name="sugar" ColumnName="sugar" />
-          <ScalarProperty Name="carbs" ColumnName="carbs" />
-          <ScalarProperty Name="protien" ColumnName="protien" />
-          <ScalarProperty Name="kgPerUnit" ColumnName="kgPerUnit" />
-          <ScalarProperty Name="description" ColumnName="description" />
           <ScalarProperty Name="veg_id" ColumnName="veg_id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="dryGoods_tbl">
-      <EntityTypeMapping TypeName="dbModel.dryGoods_tbl">
-        <MappingFragment StoreEntitySet="dryGoods_tbl">
-          <ScalarProperty Name="typeOf" ColumnName="typeOf" />
-          <ScalarProperty Name="calorie" ColumnName="calorie" />
-          <ScalarProperty Name="sodium" ColumnName="sodium" />
-          <ScalarProperty Name="fat" ColumnName="fat" />
-          <ScalarProperty Name="sugar" ColumnName="sugar" />
-          <ScalarProperty Name="carbs" ColumnName="carbs" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="kgPerUnit" ColumnName="kgPerUnit" />
           <ScalarProperty Name="protien" ColumnName="protien" />
-          <ScalarProperty Name="pricePerItem" ColumnName="pricePerItem" />
-          <ScalarProperty Name="gPerUnit" ColumnName="gPerUnit" />
-          <ScalarProperty Name="itemName" ColumnName="itemName" />
-          <ScalarProperty Name="item_id" ColumnName="item_id" />
+          <ScalarProperty Name="carbs" ColumnName="carbs" />
+          <ScalarProperty Name="sugar" ColumnName="sugar" />
+          <ScalarProperty Name="fat" ColumnName="fat" />
+          <ScalarProperty Name="sodium" ColumnName="sodium" />
+          <ScalarProperty Name="calorie" ColumnName="calorie" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
