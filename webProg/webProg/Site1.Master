@@ -4,8 +4,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <link href="style.css" rel="stylesheet" />
-    <%--<link href="CalMaterStyle.css" rel="stylesheet" />--%>
+    <%--<link href="style.css" rel="stylesheet" />--%>
+    <link href="CalMaterStyle.css" rel="stylesheet" />
     <script src="jquery-1.9.1.js"></script> 
     
     <title></title>
@@ -38,9 +38,9 @@
                          
 				        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" >       
                         </asp:ContentPlaceHolder>				
-                                      
+                        <%--              
                         <asp:ContentPlaceHolder ID="ContentPlaceHolder3" runat="server" >            
-                        </asp:ContentPlaceHolder>
+                        </asp:ContentPlaceHolder>--%>
                     
                 <!-- end content -->
 				

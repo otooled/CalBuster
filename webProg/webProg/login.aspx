@@ -4,6 +4,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+<div id="content" >
   <div id="leftcolumn">
         <div>
         <asp:Label ID="lblLoginHeading" runat="server" Text="Login to CalBuster" CssClass="loginHeader"></asp:Label>
@@ -31,8 +32,8 @@
     </p>
       
 </div>
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">
+<%--</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">--%>
    <div id="rightcolumn" >
     <div>
 
@@ -62,6 +63,7 @@
         <asp:Label ID="lblDisplayBMI" runat="server" Text="Your calculated BMI"></asp:Label>
         <p>&nbsp;</p>
 
+    </div>
     </div>
     </div>
 </asp:Content>

@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Cal_BusterModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Cal_BusterEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="FoodItem_tbl" EntityType="Cal_BusterModel.FoodItem_tbl" />
+    <EntitySet Name="Link_tbl" EntityType="Cal_BusterModel.Link_tbl" />
+    <EntitySet Name="Meal_tbl" EntityType="Cal_BusterModel.Meal_tbl" />
+    <EntitySet Name="PastLink_tbl" EntityType="Cal_BusterModel.PastLink_tbl" />
+    <EntitySet Name="PastMeal_tbl" EntityType="Cal_BusterModel.PastMeal_tbl" />
+    <EntitySet Name="sysdiagrams" EntityType="Cal_BusterModel.sysdiagram" />
+    <EntitySet Name="User_tbl" EntityType="Cal_BusterModel.User_tbl" />
+    <AssociationSet Name="FK_Link_tbl_FoodItem_tbl" Association="Cal_BusterModel.FK_Link_tbl_FoodItem_tbl">
+      <End Role="FoodItem_tbl" EntitySet="FoodItem_tbl" />
+      <End Role="Link_tbl" EntitySet="Link_tbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Link_tbl_Meal_tbl" Association="Cal_BusterModel.FK_Link_tbl_Meal_tbl">
+      <End Role="Meal_tbl" EntitySet="Meal_tbl" />
+      <End Role="Link_tbl" EntitySet="Link_tbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PastLink_tbl_Meal_tbl" Association="Cal_BusterModel.FK_PastLink_tbl_Meal_tbl">
+      <End Role="Meal_tbl" EntitySet="Meal_tbl" />
+      <End Role="PastLink_tbl" EntitySet="PastLink_tbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PastLink_tbl_PastMeal_tbl" Association="Cal_BusterModel.FK_PastLink_tbl_PastMeal_tbl">
+      <End Role="PastMeal_tbl" EntitySet="PastMeal_tbl" />
+      <End Role="PastLink_tbl" EntitySet="PastLink_tbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PastMeal_tbl_User_tbl" Association="Cal_BusterModel.FK_PastMeal_tbl_User_tbl">
+      <End Role="User_tbl" EntitySet="User_tbl" />
+      <End Role="PastMeal_tbl" EntitySet="PastMeal_tbl" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="FoodItem_tbl">
+    <Key>
+      <PropertyRef Name="Item_id" />
+    </Key>
+    <Property Name="Item_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="GramPerPortion" Type="Int32" />
+    <Property Name="Protein" Type="Double" />
+    <Property Name="Carbs" Type="Double" />
+    <Property Name="Sugar" Type="Double" />
+    <Property Name="Fat" Type="Double" />
+    <Property Name="Sodium" Type="Double" />
+    <Property Name="Calories" Type="Int32" />
+    <Property Name="TypeOf" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="FoodCatagory" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Link_tbl" Relationship="Cal_BusterModel.FK_Link_tbl_FoodItem_tbl" FromRole="FoodItem_tbl" ToRole="Link_tbl" />
+  </EntityType>
+  <EntityType Name="Link_tbl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Meal_id" Type="Int32" />
+    <Property Name="Item_id" Type="Int32" />
+    <Property Name="Quantity" Type="Int32" />
+    <NavigationProperty Name="FoodItem_tbl" Relationship="Cal_BusterModel.FK_Link_tbl_FoodItem_tbl" FromRole="Link_tbl" ToRole="FoodItem_tbl" />
+    <NavigationProperty Name="Meal_tbl" Relationship="Cal_BusterModel.FK_Link_tbl_Meal_tbl" FromRole="Link_tbl" ToRole="Meal_tbl" />
+  </EntityType>
+  <EntityType Name="Meal_tbl">
+    <Key>
+      <PropertyRef Name="meal_id" />
+    </Key>
+    <Property Name="meal_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="TypeOf" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Link_tbl" Relationship="Cal_BusterModel.FK_Link_tbl_Meal_tbl" FromRole="Meal_tbl" ToRole="Link_tbl" />
+    <NavigationProperty Name="PastLink_tbl" Relationship="Cal_BusterModel.FK_PastLink_tbl_Meal_tbl" FromRole="Meal_tbl" ToRole="PastLink_tbl" />
+  </EntityType>
+  <EntityType Name="PastLink_tbl">
+    <Key>
+      <PropertyRef Name="PastLink_id" />
+    </Key>
+    <Property Name="PastLink_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Meal_id" Type="Int32" Nullable="false" />
+    <Property Name="Past_Meal_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Meal_tbl" Relationship="Cal_BusterModel.FK_PastLink_tbl_Meal_tbl" FromRole="PastLink_tbl" ToRole="Meal_tbl" />
+    <NavigationProperty Name="PastMeal_tbl" Relationship="Cal_BusterModel.FK_PastLink_tbl_PastMeal_tbl" FromRole="PastLink_tbl" ToRole="PastMeal_tbl" />
+  </EntityType>
+  <EntityType Name="PastMeal_tbl">
+    <Key>
+      <PropertyRef Name="PastMeal_id" />
+    </Key>
+    <Property Name="PastMeal_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="User_id" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="PastLink_tbl" Relationship="Cal_BusterModel.FK_PastLink_tbl_PastMeal_tbl" FromRole="PastMeal_tbl" ToRole="PastLink_tbl" />
+    <NavigationProperty Name="User_tbl" Relationship="Cal_BusterModel.FK_PastMeal_tbl_User_tbl" FromRole="PastMeal_tbl" ToRole="User_tbl" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User_tbl">
+    <Key>
+      <PropertyRef Name="User_id" />
+    </Key>
+    <Property Name="User_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Password" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="PastMeal_tbl" Relationship="Cal_BusterModel.FK_PastMeal_tbl_User_tbl" FromRole="User_tbl" ToRole="PastMeal_tbl" />
+  </EntityType>
+  <Association Name="FK_Link_tbl_FoodItem_tbl">
+    <End Role="FoodItem_tbl" Type="Cal_BusterModel.FoodItem_tbl" Multiplicity="0..1" />
+    <End Role="Link_tbl" Type="Cal_BusterModel.Link_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FoodItem_tbl">
+        <PropertyRef Name="Item_id" />
+      </Principal>
+      <Dependent Role="Link_tbl">
+        <PropertyRef Name="Item_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Link_tbl_Meal_tbl">
+    <End Role="Meal_tbl" Type="Cal_BusterModel.Meal_tbl" Multiplicity="0..1" />
+    <End Role="Link_tbl" Type="Cal_BusterModel.Link_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Meal_tbl">
+        <PropertyRef Name="meal_id" />
+      </Principal>
+      <Dependent Role="Link_tbl">
+        <PropertyRef Name="Meal_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PastLink_tbl_Meal_tbl">
+    <End Role="Meal_tbl" Type="Cal_BusterModel.Meal_tbl" Multiplicity="1" />
+    <End Role="PastLink_tbl" Type="Cal_BusterModel.PastLink_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Meal_tbl">
+        <PropertyRef Name="meal_id" />
+      </Principal>
+      <Dependent Role="PastLink_tbl">
+        <PropertyRef Name="Meal_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PastLink_tbl_PastMeal_tbl">
+    <End Role="PastMeal_tbl" Type="Cal_BusterModel.PastMeal_tbl" Multiplicity="1" />
+    <End Role="PastLink_tbl" Type="Cal_BusterModel.PastLink_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PastMeal_tbl">
+        <PropertyRef Name="PastMeal_id" />
+      </Principal>
+      <Dependent Role="PastLink_tbl">
+        <PropertyRef Name="Past_Meal_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PastMeal_tbl_User_tbl">
+    <End Role="User_tbl" Type="Cal_BusterModel.User_tbl" Multiplicity="1" />
+    <End Role="PastMeal_tbl" Type="Cal_BusterModel.PastMeal_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User_tbl">
+        <PropertyRef Name="User_id" />
+      </Principal>
+      <Dependent Role="PastMeal_tbl">
+        <PropertyRef Name="User_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

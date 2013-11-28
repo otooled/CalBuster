@@ -12,14 +12,14 @@ namespace webProg
     using System;
     using System.Collections.Generic;
     
-    public partial class link_tbl
+    public partial class Link_tbl
     {
-        public int link_id { get; set; }
-        public Nullable<int> dinner_id { get; set; }
-        public Nullable<int> dbl_id { get; set; }
-        public Nullable<int> meat_id { get; set; }
-        public Nullable<int> veg_id { get; set; }
-        public Nullable<int> item_id { get; set; }
-        public Nullable<decimal> amount { get; set; }
+        public int Id { get; set; }
+        public Nullable<int> Meal_id { get; set; }
+        public Nullable<int> Item_id { get; set; }
+        public Nullable<int> Quantity { get; set; }
+    
+        public virtual FoodItem_tbl FoodItem_tbl { get; set; }
+        public virtual Meal_tbl Meal_tbl { get; set; }
     }
 }

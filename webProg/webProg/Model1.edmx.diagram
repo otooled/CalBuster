@@ -4,13 +4,19 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="7bed334afee14af9a6b85867694c71f3" Name="Diagram1">
-        <EntityTypeShape EntityType="dbModel.dinner_tbl" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbModel.dryGoods_tbl" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbModel.link_tbl" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbModel.meatFish_tbl" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbModel.pastMeals_tbl" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbModel.veg_tbl" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+      <Diagram DiagramId="e97314bbc84b4717ade831cc1492f8e5" Name="Diagram1">
+        <EntityTypeShape EntityType="Cal_BusterModel.FoodItem_tbl" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cal_BusterModel.Link_tbl" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cal_BusterModel.Meal_tbl" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cal_BusterModel.PastLink_tbl" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cal_BusterModel.PastMeal_tbl" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cal_BusterModel.sysdiagram" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cal_BusterModel.User_tbl" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="Cal_BusterModel.FK_Link_tbl_FoodItem_tbl" ManuallyRouted="false" />
+        <AssociationConnector Association="Cal_BusterModel.FK_Link_tbl_Meal_tbl" ManuallyRouted="false" />
+        <AssociationConnector Association="Cal_BusterModel.FK_PastLink_tbl_Meal_tbl" ManuallyRouted="false" />
+        <AssociationConnector Association="Cal_BusterModel.FK_PastLink_tbl_PastMeal_tbl" ManuallyRouted="false" />
+        <AssociationConnector Association="Cal_BusterModel.FK_PastMeal_tbl_User_tbl" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

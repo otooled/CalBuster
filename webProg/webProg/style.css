@@ -3,7 +3,7 @@ body {
 	margin: 0;
 	padding: 0;
 	background: #FFFFFF;
-	font-size: 13px;
+	font-size: 14px;
 	text-align: justify;
 }
 
@@ -12,7 +12,7 @@ body, th, td, input, textarea, select, option {
 	color: #61492D;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
 	font-family: Georgia, "Times New Roman", Times, serif;
 	font-weight: normal;
 	color: #66A342;
@@ -29,7 +29,10 @@ h2 {
 }
 
 h3 {
-	font-size: 1em;
+	font-size: 1.5em;
+}
+h4 {
+	font-size: 1.3em;
 }
 
 p, ul, ol {
@@ -120,13 +123,7 @@ hr {
 
 
 
-#content {
-	
-	/*width: 630px;*/
-	margin: 0;
-	padding-left: 30px;
-	color: #666666;
-}
+
 
 .post {
 	padding: 0px 0 0 0;
@@ -346,21 +343,4 @@ img.left {
 img.right {
 	float: right;
 	margin: 3px 0px 10px 30px;
-}
-
-        /*dave's*/
-.loginHeaderDiv {
-    width:100px;
-    float:left
-
-}
-
-
-.divlogin {
-    background-color: seashell;
-    width: 400px;
-}
-#rightcolumn { width:30%;  margin:0 20px 0 60%; position:relative;
-}
-#leftcolumn { width:40%;  margin:10px 0 0 0; position:absolute;
 }

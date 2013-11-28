@@ -187,8 +187,15 @@
     background-color: seashell;
     width: 400px;
 }
-#rightcolumn { width:45%;  margin:0 20px 0 60%; position:relative;
+#rightcolumn { width:50%;  margin:0px; float:right;
 }
-#leftcolumn { width:45%;  margin:10px 0 0 0; position:absolute;
+#leftcolumn { width:50%;  margin:0px 0px 0px 0px; float:left;
 
+}
+#content {
+	
+	width: 750px;
+	margin: 13px;
+	padding-left: 30px;
+	color: #666666;
 }

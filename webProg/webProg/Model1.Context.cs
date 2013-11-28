@@ -13,10 +13,10 @@ namespace webProg
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class dbEntities1 : DbContext
+    public partial class Cal_BusterEntities1 : DbContext
     {
-        public dbEntities1()
-            : base("name=dbEntities1")
+        public Cal_BusterEntities1()
+            : base("name=Cal_BusterEntities1")
         {
         }
     
@@ -25,11 +25,12 @@ namespace webProg
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<dinner_tbl> dinner_tbl { get; set; }
-        public DbSet<dryGoods_tbl> dryGoods_tbl { get; set; }
-        public DbSet<link_tbl> link_tbl { get; set; }
-        public DbSet<meatFish_tbl> meatFish_tbl { get; set; }
-        public DbSet<pastMeals_tbl> pastMeals_tbl { get; set; }
-        public DbSet<veg_tbl> veg_tbl { get; set; }
+        public DbSet<FoodItem_tbl> FoodItem_tbl { get; set; }
+        public DbSet<Link_tbl> Link_tbl { get; set; }
+        public DbSet<Meal_tbl> Meal_tbl { get; set; }
+        public DbSet<PastLink_tbl> PastLink_tbl { get; set; }
+        public DbSet<PastMeal_tbl> PastMeal_tbl { get; set; }
+        public DbSet<sysdiagram> sysdiagrams { get; set; }
+        public DbSet<User_tbl> User_tbl { get; set; }
     }
 }

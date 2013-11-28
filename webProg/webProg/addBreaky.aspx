@@ -4,12 +4,18 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 
- 
-
     <div id="main"> 
       <h1 class="main-title">Add Food To Breakfast </h1>
         <form id="form1" runat="server"> 
                     <div id="searchForm">
+
+
+
+
+
+
+
+
                             <h3 class="secondary-title">Search our food database by name:</h3>
                                 <p>
                                     <input autocomplete="on" class="text" id="search" name="search" type="text" value="coco pops"/>		
