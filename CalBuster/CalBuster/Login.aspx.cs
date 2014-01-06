@@ -60,12 +60,29 @@ namespace CalBuster
             
         }
 
-        protected void btnClear_Click(object sender, EventArgs e)
+        public delegate void ClearBMI();
+
+
+
+        public void ClearText()
         {
             txtHeightFeet.Text = "";
             txtHeightInces.Text = "";
             txtWeight.Text = "";
+        }
+
+        public void ClearDisplay()
+        {
             lblDisplayBMI.Text = "";
+        }
+
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            ClearBMI cBMI = new ClearBMI(ClearText);
+            cBMI();
+            cBMI = new ClearBMI(ClearDisplay);
+            cBMI();
+
         }
 
         protected void btnJoin_Click(object sender, EventArgs e)
