@@ -58,7 +58,7 @@
             <p>
                 <br/>
                 
-                <asp:Button ID="btnRegister" runat="server" Text="Register your details" CssClass="btnRegForgot"  />
+                <asp:Button ID="btnRegister" runat="server" Text="Register your details" CssClass="btnRegForgot" OnClick="btnRegister_Click"  />
                 
             </p>
         <p>
