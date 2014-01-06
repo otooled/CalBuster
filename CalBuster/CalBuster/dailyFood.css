@@ -1,0 +1,101 @@
+﻿body {
+}
+
+/* Content */
+
+#content {
+	
+	width: 740px;
+	margin: 10px;
+	padding-left: 30px;
+	color: #666666;
+}
+
+.lSide {
+    width: 400px;
+    text-align:left;
+}
+.rSide {
+    max-width: 100px;
+    text-align: center;
+}
+.firstalt {
+    background: none;
+    border: none;
+    color: #0a5282;
+    font-size: 18px;
+    font-weight: bold;
+    padding-left: 0;
+    text-transform: capitalize;
+    text-align: left;
+    padding: 15px 0 10px 0;
+}
+.alt{
+    background: #0a5282;
+    color: #fff;
+    padding: 5px 10px 5px 10px;
+    
+    font-size: 12px;
+    font-weight: normal;
+    text-align: center;
+    text-transform: capitalize;
+}
+.addLink {
+    border-bottom:1px solid #66A342;
+    width: 400px;
+}
+.alt2 {
+    border-bottom: 1px solid #66A342;
+    text-align: center;
+    width: 100px;
+}
+.treeV {
+    max-width: 45%;
+    margin-top:40px;
+}
+.searchForMeal {
+    margin-bottom:40px;
+}
+#search_boxes {
+   display:inline;
+}
+.calendar {
+    margin-bottom:24px;
+}
+
+.listb {
+    float:right;
+    width:55%;
+    margin-top: 0px;
+}
+.titled {
+    font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight: normal;
+	color: #66A342;    
+	font-size: 2em;
+}
+#portionSection {
+    width: 60%;
+    float:right;
+}
+.potionLabel {
+    margin-left: 0px;
+    margin-bottom: 2px;
+}
+.txtPortions {
+    width: 40px;
+}
+.lblSevings {
+    margin-left: 15px;
+    font-style:oblique;
+}
+.lblSelectedItem {
+    margin-left: 25px;
+    font-weight: 600;
+}
+.addButton {
+    margin-top: 15px;
+}
+.addAllButton {
+
+}

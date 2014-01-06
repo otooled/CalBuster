@@ -32,8 +32,7 @@
                             <div id="loginHeading" class="loginHeaderDiv">
                                   
                             </div>
-                        </asp:ContentPlaceHolder>
-                       
+                        </asp:ContentPlaceHolder>                      
                     </div>
                      
                 </div>
