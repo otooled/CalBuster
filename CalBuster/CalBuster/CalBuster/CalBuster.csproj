@@ -80,6 +80,7 @@
     <Content Include="dailyFood.css" />
     <Content Include="images\img02.jpg" />
     <Content Include="LoginSS.css" />
+    <Content Include="SignIn.css" />
     <Content Include="Test.aspx" />
     <Content Include="Web.config" />
     <Content Include="Login.aspx" />

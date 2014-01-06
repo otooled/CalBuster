@@ -95,6 +95,11 @@
     <Property Name="User_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="UserName" Type="varchar" MaxLength="50" />
     <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="Fname" Type="varchar" MaxLength="50" />
+    <Property Name="Sname" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Gender" Type="varchar" MaxLength="10" />
+    <Property Name="DOB" Type="date" />
   </EntityType>
   <Association Name="FK_Link_tbl_FoodItem_tbl">
     <End Role="FoodItem_tbl" Type="Calorie_BusterModel.Store.FoodItem_tbl" Multiplicity="0..1" />

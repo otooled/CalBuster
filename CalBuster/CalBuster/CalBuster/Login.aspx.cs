@@ -62,10 +62,11 @@ namespace CalBuster
 
         protected void btnClear_Click(object sender, EventArgs e)
         {
-            txtHeightFeet.Text = "";
-            txtHeightInces.Text = "";
-            txtWeight.Text = "";
-            lblDisplayBMI.Text = "";
+            ClearBMI cBMI = new ClearBMI(ClearDetails);
+            //cBMI = new ClearBMI(ClearDetails);
+            cBMI();
+            cBMI = new ClearBMI(ClearDisplay);
+            cBMI();
         }
 
         protected void btnJoin_Click(object sender, EventArgs e)
@@ -73,7 +74,18 @@ namespace CalBuster
             Response.Redirect("SignIn.aspx");
         }
 
-       
-        
+        public delegate void ClearBMI();
+
+        public void ClearDetails()
+        {
+            txtHeightFeet.Text = "";
+            txtHeightInces.Text = "";
+            txtWeight.Text = "";
+           
+        }
+        public void ClearDisplay()
+        {
+            lblDisplayBMI.Text = "";
+        }
     }
 }
