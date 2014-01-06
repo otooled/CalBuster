@@ -61,7 +61,7 @@
                 <asp:Button ID="btnRegister" runat="server" Text="Register your details" CssClass="btnRegForgot" OnClick="btnRegister_Click"  />
                 
             </p>
-        <p>
+        <p></p>
             <asp:ValidationSummary ID="vsRequiredFields" HeaderText="You must enter a value in the following fields:" runat="server" ShowMessageBox="True" ShowModelStateErrors="False" ShowSummary="False" />
     </div>
 </asp:Content>
