@@ -346,21 +346,6 @@ img.right {
 	margin: 3px 0px 10px 30px;
 }
 
-.loginHeaderDiv {
-    width:100px;
-    float:left
-
-}
-
-
-.divlogin {
-    background-color: seashell;
-    width: 400px;
-}
-#rightcolumn { width:30%;  margin:0 20px 0 60%; position:relative;
-}
-#leftcolumn { width:40%;  margin:10px 0 0 0; position:absolute;
-}
 
 
 

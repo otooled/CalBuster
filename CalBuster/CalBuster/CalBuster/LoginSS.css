@@ -171,3 +171,20 @@
   border: 1px solid rgba(81, 203, 238, 1);
 }
 
+.loginHeaderDiv {
+    width:100px;
+    float:left
+
+}
+
+
+.divlogin {
+    background-color: seashell;
+    width: 400px;
+}
+#rightcolumn { width:30%;float: right;margin-right: 100px;
+}
+#leftcolumn { width:60%;float: left;
+}
+
+
