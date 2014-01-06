@@ -4,11 +4,15 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Security;
 
 namespace CalBuster
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
+        //database 
+        Calorie_BusterEntities db = new Calorie_BusterEntities();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             

@@ -84,6 +84,7 @@
     <Content Include="Web.config" />
     <Content Include="Login.aspx" />
     <Content Include="SignIn.aspx" />
+    <Content Include="ForgottenDetails.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CalBuster.Master.cs">
@@ -151,6 +152,13 @@
     </Compile>
     <Compile Include="User_tbl.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ForgottenDetails.aspx.cs">
+      <DependentUpon>ForgottenDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ForgottenDetails.aspx.designer.cs">
+      <DependentUpon>ForgottenDetails.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
