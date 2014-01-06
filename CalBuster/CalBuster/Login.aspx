@@ -18,7 +18,14 @@
     </p>
     <p>
         <asp:Button ID="btnLogin" runat="server" Text="Login" CssClass="loginBtn" />
-        <asp:Button ID="btnForgotDetails" runat="server" Text="Forgot user name or password?" CssClass="btnRegForgot" />
+       
+    </p>
+    <p>
+        <label>Forgot your <asp:HyperLink ID="hypUserName" runat="server" NavigateUrl="~/ForgottenDetails.aspx">UserName</asp:HyperLink>
+            <label> or <asp:HyperLink ID="hypPassword" runat="server" NavigateUrl="~/ForgottenDetails.aspx">Password?</asp:HyperLink></label>
+        </label>
+         
+        
     </p>
     <asp:Label ID="lblNewUser" runat="server" Text="Not a member yet?  Click on the button below to join."
         CssClass="loginHeader"></asp:Label>
