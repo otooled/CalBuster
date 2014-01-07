@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CalBuster.Master" AutoEventWireup="true" CodeBehind="SignIn.aspx.cs" Inherits="CalBuster.WebForm2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="LoginSS.css" rel="stylesheet" />
+    <link href="SignIn.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="signInHeader">
@@ -11,7 +11,7 @@
         <p><asp:Label ID="lblFirstName" runat="server" Text="*First name:" CssClass="SignInTBandLab"></asp:Label>
             <asp:Label ID="lblSurname" runat="server" Text="*Surname:" CssClass="signInLabel"></asp:Label>
             <br/>
-            <asp:TextBox ID="txtFirstName" runat="server" CssClass="SignInTBandLab"></asp:TextBox>
+            <asp:TextBox ID="txtFirstName" runat="server" CssClass="highightTextbox"></asp:TextBox>
             <asp:TextBox ID="txtSurame" runat="server" CssClass="signInTextBox"></asp:TextBox>
             <asp:RequiredFieldValidator ID="rfvFirstName" runat="server" ControlToValidate="txtFirstName" CssClass="registerVal"></asp:RequiredFieldValidator>
         </p>
@@ -53,7 +53,7 @@
             <br/>
             <asp:TextBox ID="txtDay" runat="server" placeholder="Day" CssClass="SignInTBandLab"></asp:TextBox>
                  <asp:TextBox ID="txtMonth" runat="server" placeholder="Month" CssClass="SignInTBandLab"></asp:TextBox>
-                 <asp:TextBox ID="Year" runat="server" placeholder="Year" CssClass="SignInTBandLab"></asp:TextBox>
+                 <asp:TextBox ID="txtYear" runat="server" placeholder="Year" CssClass="SignInTBandLab"></asp:TextBox>
             </p>
             <p>
                 <br/>

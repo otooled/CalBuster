@@ -202,13 +202,13 @@ namespace CalBuster {
         protected global::System.Web.UI.WebControls.TextBox txtMonth;
         
         /// <summary>
-        /// Year control.
+        /// txtYear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Year;
+        protected global::System.Web.UI.WebControls.TextBox txtYear;
         
         /// <summary>
         /// btnRegister control.

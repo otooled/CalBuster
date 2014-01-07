@@ -22,6 +22,11 @@ namespace CalBuster
         public int User_id { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
+        public string Fname { get; set; }
+        public string Sname { get; set; }
+        public string Email { get; set; }
+        public string Gender { get; set; }
+        public Nullable<System.DateTime> DOB { get; set; }
     
         public virtual ICollection<PastMeal_tbl> PastMeal_tbl { get; set; }
     }

@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace CalBuster
 {
-    public partial class WebForm4 : System.Web.UI.Page
+    public partial class PlannerPage : System.Web.UI.Page
     {
 
         private string type = "";
@@ -121,6 +121,7 @@ namespace CalBuster
                 foreach (var item in q)
                 {
                     TreeView1.Nodes[0].ChildNodes[0].ChildNodes.Add(new TreeNode(item.Name, item.Item_id.ToString()));
+                    
                 }
                 var fry = cd.Meal_tbl.Where(a => a.TypeOf == "fry");
                 foreach (var item in fry)
@@ -136,6 +137,7 @@ namespace CalBuster
                 TreeView1.Nodes[1].ChildNodes.Add(new TreeNode("Sandwiches"));
                 TreeView1.Nodes[1].ChildNodes.Add(new TreeNode("Wraps"));
                 TreeView1.Nodes[1].ChildNodes.Add(new TreeNode("chipper"));
+                
 
                 var sambo = cd.FoodItem_tbl.Where(a => a.TypeOf == "sambo");
                 foreach (var item in sambo)
@@ -143,11 +145,23 @@ namespace CalBuster
                     TreeView1.Nodes[1].ChildNodes[0].ChildNodes.Add(new TreeNode(item.Name, item.Item_id.ToString()));
                 }
 
+                var wrap = cd.FoodItem_tbl.Where(a => a.TypeOf == "wrap");
+                foreach (var item in wrap)
+                {
+                    TreeView1.Nodes[1].ChildNodes[1].ChildNodes.Add(new TreeNode(item.Name, item.Item_id.ToString()));
+                }
+
+                var chipper = cd.FoodItem_tbl.Where(a => a.TypeOf == "chipper");
+                foreach (var item in chipper)
+                {
+                    TreeView1.Nodes[1].ChildNodes[2].ChildNodes.Add(new TreeNode(item.Name, item.Item_id.ToString()));
+                }
 
                 TreeView1.Nodes[2].ChildNodes.Add(new TreeNode("Chicken"));
                 TreeView1.Nodes[2].ChildNodes.Add(new TreeNode("Beef"));
                 TreeView1.Nodes[2].ChildNodes.Add(new TreeNode("Pork"));
                 TreeView1.Nodes[2].ChildNodes.Add(new TreeNode("Fish"));
+                
 
                 TreeView1.Nodes[2].ChildNodes[0].ChildNodes.Add(new TreeNode("1"));
                 TreeView1.Nodes[2].ChildNodes[0].ChildNodes.Add(new TreeNode("2"));
@@ -157,9 +171,31 @@ namespace CalBuster
                 TreeView1.Nodes[3].ChildNodes.Add(new TreeNode("choclate"));
                 TreeView1.Nodes[3].ChildNodes.Add(new TreeNode("Cake"));
 
-                TreeView1.Nodes[3].ChildNodes[0].ChildNodes.Add(new TreeNode("1"));
-                TreeView1.Nodes[3].ChildNodes[0].ChildNodes.Add(new TreeNode("2"));
-                TreeView1.Nodes[3].ChildNodes[0].ChildNodes.Add(new TreeNode("3"));
+                var drinks = cd.Meal_tbl.Where(a => a.TypeOf == "drinks");
+                foreach (var item in drinks)
+                {
+                    TreeView1.Nodes[3].ChildNodes[0].ChildNodes.Add(new TreeNode(item.Name, item.meal_id.ToString()));
+                }
+                var choc = cd.Meal_tbl.Where(a => a.TypeOf == "choc");
+                foreach (var item in choc)
+                {
+                    TreeView1.Nodes[3].ChildNodes[1].ChildNodes.Add(new TreeNode(item.Name, item.meal_id.ToString()));
+                }
+                var cake = cd.Meal_tbl.Where(a => a.TypeOf == "cake");
+                foreach (var item in cake)
+                {
+                    TreeView1.Nodes[3].ChildNodes[2].ChildNodes.Add(new TreeNode(item.Name, item.meal_id.ToString()));
+                }
+
+                for (int i = 0; i < TreeView1.Nodes.Count; i++)                     // disable all nodes except leaf nodes
+                {
+                    TreeView1.Nodes[i].SelectAction = TreeNodeSelectAction.None;
+                    for (int j = 0; j < TreeView1.Nodes[0].ChildNodes.Count; j++)
+                    {
+                        TreeView1.Nodes[i].ChildNodes[j].SelectAction = TreeNodeSelectAction.None;
+                    }
+                }
+                
             }
         }
 
@@ -321,6 +357,7 @@ namespace CalBuster
         }
         protected void TreeV_SelectedNodeChanged(object sender, EventArgs e)
         {
+            
             lblSelectedItem.Text = TreeView1.SelectedNode.Text;
             hidFoodId.Value = TreeView1.SelectedValue.ToString();
         }
@@ -330,11 +367,41 @@ namespace CalBuster
             PastMeal_tbl pm = new PastMeal_tbl { User_id = 1, Date = DateTime.Now };
             cd.PastMeal_tbl.Add(pm);
             cd.SaveChanges();
-            foreach (var item in brekyItems)
+            if (brekyItems.Count() != 0)
             {
-                PastLink_tbl pl = new PastLink_tbl { Meal_id = item.id, Past_Meal_id = pm.PastMeal_id };
-                cd.PastLink_tbl.Add(pl);
-                cd.SaveChanges();
+                foreach (var item in brekyItems)
+                {
+                    PastLink_tbl pl = new PastLink_tbl { Meal_id = item.id, Past_Meal_id = pm.PastMeal_id };
+                    cd.PastLink_tbl.Add(pl);
+                    cd.SaveChanges();
+                }
+            }
+            if (lunchItems.Count() != 0)
+            {
+                foreach (var item in lunchItems)
+                {
+                    PastLink_tbl pl = new PastLink_tbl { Meal_id = item.id, Past_Meal_id = pm.PastMeal_id };
+                    cd.PastLink_tbl.Add(pl);
+                    cd.SaveChanges();
+                }
+            }
+            if (dinnerItems.Count() != 0)
+            {
+                foreach (var item in dinnerItems)
+                {
+                    PastLink_tbl pl = new PastLink_tbl { Meal_id = item.id, Past_Meal_id = pm.PastMeal_id };
+                    cd.PastLink_tbl.Add(pl);
+                    cd.SaveChanges();
+                }
+            }
+            if (snacksItems.Count() != 0)
+            {
+                foreach (var item in snacksItems)
+                {
+                    PastLink_tbl pl = new PastLink_tbl { Meal_id = item.id, Past_Meal_id = pm.PastMeal_id };
+                    cd.PastLink_tbl.Add(pl);
+                    cd.SaveChanges();
+                }
             }
         }
     }

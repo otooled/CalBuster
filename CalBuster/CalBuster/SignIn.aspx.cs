@@ -15,11 +15,7 @@ namespace CalBuster
     public partial class WebForm2 : System.Web.UI.Page
     {
 
-        //static string connString = WebConfigurationManager.ConnectionStrings["Calorie_BusterEntities"].ConnectionString;
-
-        //SqlConnection conn = new SqlConnection(connString);
-        //SqlCommand command = new SqlCommand();
-        //SqlDataReader queryResults;
+        Calorie_BusterEntities db = new Calorie_BusterEntities();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -44,37 +40,18 @@ namespace CalBuster
 
         protected void btnRegister_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    conn.Open();
-            //    command.Connection = conn;
-
-            //    //insert data into the database
-            //    command.CommandText = "insert into User_tbl values ('" + txtFirstName.Text + "', '" + GetMd5Hash(txtConfirmPassword.Text) + "')";
-            //    command.ExecuteNonQuery();
-
-            //    //read data from the database
-            //    //command.CommandText = "select UserName, UserPassword from usersTbl where UserName='Joe'";
-            //    //queryResults = command.ExecuteReader();
-
-            //    //if (queryResults.Read())
-            //    //    lblDisplay1.Text = queryResults["UserName"] + " has password : " + queryResults["UserPassword"];
-            //    //else
-            //    //    lblDisplay1.Text = "no such user";
-
-            //    queryResults.Close();
-
-            //}
-            //catch (Exception ex)
-            //{
-            //    //lblEmail.Text = ex.Message;
-            //}
-
-            //finally
-            //{
-
-            //    conn.Close();
-            //}
+            User_tbl us = new User_tbl
+                              {
+                                  Fname = txtFirstName.Text,
+                                  Sname = txtSurame.Text,
+                                  Email = txtConfirmEmail.Text,
+                                  Gender = rdlGender.SelectedValue,
+                                  Password = GetMd5Hash(txtConfirmPassword.Text),
+                                  UserName = txtCreateUserName.Text,
+                                  //DOB = String.Format(txtDay.Text + txtMonth.Text + txtYear.Text)
+                              };
+            db.User_tbl.Add(us);
+            db.SaveChanges();
         }
     }
 }

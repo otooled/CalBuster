@@ -4,7 +4,7 @@
 /* Content */
 
 #content {
-	
+	/*background: #FBFBEF ;*/
 	width: 740px;
 	margin: 10px;
 	padding-left: 30px;
@@ -35,7 +35,7 @@
     color: #fff;
     padding: 5px 10px 5px 10px;
     
-    font-size: 12px;
+    font-size: 14px;
     font-weight: normal;
     text-align: center;
     text-transform: capitalize;
@@ -98,4 +98,62 @@
 }
 .addAllButton {
 
+}
+.addMealLists {
+    min-width:250px;
+    margin-bottom:30px;
+}
+.addMealLists2 {
+    min-width:200px;
+}
+
+
+    /*forgottenDetails section*/
+#headerrr {
+    text-decoration: lightblue;
+    font-size: 18px;
+    font-weight: lighter;
+    margin: 15px 40px 15px 35px;
+}
+#forgotUserName {
+    text-align:center;
+    align-content:center;
+    margin-bottom: 15px;
+}
+.emailtxt {
+    min-width:200px;
+    margin-left:40px;
+}
+#passLabels {
+    float:right;
+    width:37%;
+}
+#passTxts {
+    float:right;
+    width:63%;
+}
+#changePassword {
+    width:80%;
+    align-content:center;
+    line-height:24px;
+}
+#pLabels {
+    
+}
+#btnChangePassword {
+    min-width:80px;
+}
+#subBtn {
+    margin-left: 250px;
+   margin-top:50px;
+}
+.submitBtn{
+    background: #0a5282;
+    color: #fff;
+    padding: 5px 10px 5px 10px;
+    margin-top:30px;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: center;
+    text-transform: capitalize;
 }

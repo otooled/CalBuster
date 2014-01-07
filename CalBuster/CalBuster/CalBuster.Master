@@ -16,8 +16,8 @@
 
 <div id="topbg">&nbsp;</div>
 <div id="header">
-	<h1>simplegreen</h1>
-	<p> design By Free CSS Templates</p>
+	<%--<h1>simplegreen</h1>
+	<p> design By Free CSS Templates</p>--%>
 </div>
 <!-- end header -->
 <!-- start page -->
@@ -36,7 +36,7 @@
                        
                     </div>
                      <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server" >       
-                        </asp:ContentPlaceHolder>
+                     </asp:ContentPlaceHolder>
                 </div>
                 
             </div>

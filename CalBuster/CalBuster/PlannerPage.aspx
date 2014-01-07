@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CalBuster.Master" AutoEventWireup="true" CodeBehind="WebForm4.aspx.cs" Inherits="CalBuster.WebForm4" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CalBuster.Master" AutoEventWireup="true" CodeBehind="PlannerPage.aspx.cs" Inherits="CalBuster.PlannerPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="dailyFood.css" rel="stylesheet" />
 </asp:Content>
@@ -11,7 +11,7 @@
                 <%--<asp:Label ID="lblDate" runat="server" Text="26 November 2013"></asp:Label>--%>
                 <asp:TextBox ID="lblDate" runat="server" Width="220px"></asp:TextBox>
                 <asp:Button ID="Button2" runat="server" Text="&gt;&gt;" />
-               <%-- <asp:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="lblDate"></asp:CalendarExtender>--%>
+                <ajaxtoolkit:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="lblDate"></ajaxtoolkit:CalendarExtender>
             </div>
         </div>
             <%-- </form>--%>
@@ -22,9 +22,9 @@
                 <h4>Search our food database by name:</h4>
                 <p>
                   <asp:TextBox ID="txtSearch" runat="server"></asp:TextBox>                                   
-                  <asp:Button ID="btnSubmit" runat="server"  Text="Search"   OnClick="btnSubmit_Click"   />                                			
-                    <%--<asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server"></asp:ToolkitScriptManager>
-                    <asp:AutoCompleteExtender ID="AutoCompleteExtender1" runat="server" TargetControlID="txtSearch" ServiceMethod="GetCompletionList" UseContextKey="True" ></asp:AutoCompleteExtender>--%>
+                  <asp:Button ID="btnSubmit" runat="server"  Text="Search"   OnClick="btnSubmit_Click" class="alt"  />                                			
+                    <ajaxtoolkit:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server"></ajaxtoolkit:ToolkitScriptManager>
+                    <ajaxtoolkit:AutoCompleteExtender ID="AutoCompleteExtender1" runat="server" TargetControlID="txtSearch" ServiceMethod="GetCompletionList" UseContextKey="True" ></ajaxtoolkit:AutoCompleteExtender>
                 </p>
                 
             </div>
@@ -35,11 +35,11 @@
                 <asp:TextBox ID="txtPortions" runat="server" class="txtPortions" >1</asp:TextBox>
                 <asp:Label ID="lblSevings" CssClass="lblSevings"  runat="server" Text="Serving of "></asp:Label>
                 <asp:Label ID="lblSelectedItem" CssClass="lblSelectedItem" runat="server"></asp:Label><br />
-                <asp:Button ID="goBack" runat="server"  Text="click to add selected meal"   OnClick="goBack_Click" CssClass="addButton"   />
+                <asp:Button ID="goBack" runat="server"  Text="click to add selected meal"   OnClick="goBack_Click" CssClass="alt"   />
             </div>
                  <div id ="search_boxes">
                     <asp:TreeView class="treeV" ID="TreeView1" OnSelectedNodeChanged="TreeV_SelectedNodeChanged" RootNodeStyle-ImageUrl="images/cuts.jpg" runat="server" ImageSet="Arrows"
-                        ExpandDepth="0" Font-Italic="True" Font-Size="Medium" >               
+                        ExpandDepth="0" Font-Italic="True"  Font-Size="Medium" >               
                     </asp:TreeView>                                      
                 </div>
             <asp:EntityDataSource 
@@ -139,7 +139,7 @@
                 </asp:TableRow>
         </asp:Table>
          
-        <asp:Button ID="btnAddAllToDb" OnClick="btnAddAllToDb_Click" CssClass="addAllButton" runat="server" Text="Save All" />
+        <asp:Button ID="btnAddAllToDb" CssClass="alt" OnClick="btnAddAllToDb_Click"  runat="server" Text="Save All" />
 
        <%-- </form>--%>
     
