@@ -9,7 +9,7 @@
      <div id="forgotUserName" runat="server">
         <div id="headerrr"><asp:Label ID="Label1"  runat="server" Text="Label">Please enter your email address:</asp:Label></div><br/>
         <asp:TextBox ID="txtEmail" CssClass="emailtxt" runat="server"></asp:TextBox>
-        <asp:Button ID="btnSendEmail" runat="server" Text="Send For Details" OnClick="btnSendEmail_Click" />
+        <asp:Button ID="btnSendEmail" CssClass="alt" runat="server" Text="Send For Details" OnClick="btnSendEmail_Click" />
     </div>
     <div id="changePassword" runat="server">       
         <div id="passTxts">
