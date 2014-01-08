@@ -8,14 +8,15 @@
     <File id="1C02993F-66FB-4F78-B238-0DCBE268EE5E/f:item.cs" caret="877" fromTop="14" />
     <File id="1C02993F-66FB-4F78-B238-0DCBE268EE5E/f:Model1.edmx.diagram" caret="0" fromTop="0" />
     <File id="1C02993F-66FB-4F78-B238-0DCBE268EE5E/f:Web.config" caret="0" fromTop="0" />
-    <File id="1C02993F-66FB-4F78-B238-0DCBE268EE5E/f:ForgottenDetails.aspx" caret="457" fromTop="7" />
     <File id="1C02993F-66FB-4F78-B238-0DCBE268EE5E/f:LoginSS.css" caret="3955" fromTop="31" />
     <File id="1C02993F-66FB-4F78-B238-0DCBE268EE5E/f:SignIn.aspx.cs" caret="1782" fromTop="14" />
     <File id="1C02993F-66FB-4F78-B238-0DCBE268EE5E/f:SignIn.css" caret="1835" fromTop="14" />
     <File id="1C02993F-66FB-4F78-B238-0DCBE268EE5E/f:User.cs" caret="424" fromTop="20" />
     <File id="1C02993F-66FB-4F78-B238-0DCBE268EE5E/f:Login.aspx" caret="0" fromTop="0" />
     <File id="1C02993F-66FB-4F78-B238-0DCBE268EE5E/f:SignIn.aspx" caret="0" fromTop="0" />
-    <File id="1C02993F-66FB-4F78-B238-0DCBE268EE5E/f:Login.aspx.cs" caret="3162" fromTop="24" />
+    <File id="1C02993F-66FB-4F78-B238-0DCBE268EE5E/f:ForgottenDetails.aspx" caret="457" fromTop="7" />
+    <File id="1C02993F-66FB-4F78-B238-0DCBE268EE5E/f:ForgottenDetails.aspx.cs" caret="0" fromTop="0" />
+    <File id="1C02993F-66FB-4F78-B238-0DCBE268EE5E/f:Login.aspx.cs" caret="3162" fromTop="106" />
   </RecentFiles>
   <RecentEdits>
     <File id="1C02993F-66FB-4F78-B238-0DCBE268EE5E/f:Web.config" caret="462" fromTop="15" />
