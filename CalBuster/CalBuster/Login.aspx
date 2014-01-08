@@ -17,7 +17,7 @@
         <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="highightTextbox"></asp:TextBox>
     </p>
     <p>
-        <asp:Button ID="btnLogin" runat="server" Text="Login" CssClass="loginBtn" />
+        <asp:Button ID="btnLogin" runat="server" Text="Login" CssClass="loginBtn" OnClick="btnLogin_Click" />
        
     </p>
     <p>

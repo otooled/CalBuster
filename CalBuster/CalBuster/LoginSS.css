@@ -155,15 +155,8 @@
  .registerVal {
      border: red;
  }
- #signIn {
-     border-color: green;
-     border-style: ridge;
-     border-radius: 10px;
- }
- .SignInTBandLab {
-     margin-left: 10px;
-     
- }
+
+ 
 .highightTextbox:focus, textarea:focus {
   box-shadow: 0 0 5px rgba(81, 203, 238, 1);
   padding: 3px 0px 3px 3px;

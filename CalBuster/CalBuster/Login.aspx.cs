@@ -15,7 +15,16 @@ namespace CalBuster
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (!IsPostBack)
+            {
+                //Create session
+                if (Session["userDetails"] != null)
+                {
+                    User values = (User) Session["userDetails"];
+                    txtUserName.Text = values.userName;
+                    txtPassword.Text = values.password;
+                }
+            }
         }
 
         protected void btnBmiResult_Click(object sender, EventArgs e)
@@ -60,8 +69,8 @@ namespace CalBuster
             
         }
 
+        //Delegate
         public delegate void ClearBMI();
-
 
 
         public void ClearText()
@@ -78,6 +87,7 @@ namespace CalBuster
 
         protected void btnClear_Click(object sender, EventArgs e)
         {
+            //Clear BMI result
             ClearBMI cBMI = new ClearBMI(ClearText);
             cBMI();
             cBMI = new ClearBMI(ClearDisplay);
@@ -90,7 +100,15 @@ namespace CalBuster
             Response.Redirect("SignIn.aspx");
         }
 
-       
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+            if (IsValid)
+            {
+                //Add session
+                User details = new User { userName = txtUserName.Text, password = txtPassword.Text};
+                Session.Add("userDetails", details);
+            }
+        }
         
     }
 }
