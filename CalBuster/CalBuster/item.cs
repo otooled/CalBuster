@@ -17,7 +17,7 @@ namespace CalBuster
         public double sodium { get; set; }
         public double fat { get; set; }
         public string typeOf { get; set; }
-        public int quantity { get; set; }
+        public decimal quantity { get; set; }
 
         public item()
         {

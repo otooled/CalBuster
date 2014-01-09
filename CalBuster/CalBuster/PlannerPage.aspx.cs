@@ -161,36 +161,52 @@ namespace CalBuster
                 TreeView1.Nodes[2].ChildNodes.Add(new TreeNode("Beef"));
                 TreeView1.Nodes[2].ChildNodes.Add(new TreeNode("Pork"));
                 TreeView1.Nodes[2].ChildNodes.Add(new TreeNode("Fish"));
-                
 
-                TreeView1.Nodes[2].ChildNodes[0].ChildNodes.Add(new TreeNode("1"));
-                TreeView1.Nodes[2].ChildNodes[0].ChildNodes.Add(new TreeNode("2"));
-                TreeView1.Nodes[2].ChildNodes[0].ChildNodes.Add(new TreeNode("3"));
+                var chicken = cd.Meal_tbl.Where(a => a.TypeOf == "chicken");
+                foreach (var item in chicken)
+                {
+                    TreeView1.Nodes[2].ChildNodes[0].ChildNodes.Add(new TreeNode(item.Name, item.meal_id.ToString()));
+                }
+                var Beef = cd.Meal_tbl.Where(a => a.TypeOf == "Beef");
+                foreach (var item in Beef)
+                {
+                    TreeView1.Nodes[2].ChildNodes[1].ChildNodes.Add(new TreeNode(item.Name, item.meal_id.ToString()));
+                }
+                var Pork = cd.Meal_tbl.Where(a => a.TypeOf == "Pork");
+                foreach (var item in Pork)
+                {
+                    TreeView1.Nodes[2].ChildNodes[2].ChildNodes.Add(new TreeNode(item.Name, item.meal_id.ToString()));
+                }
+                var Fish = cd.Meal_tbl.Where(a => a.TypeOf == "Fish");
+                foreach (var item in Fish)
+                {
+                    TreeView1.Nodes[2].ChildNodes[3].ChildNodes.Add(new TreeNode(item.Name, item.meal_id.ToString()));
+                }
 
                 TreeView1.Nodes[3].ChildNodes.Add(new TreeNode("Drinks"));
                 TreeView1.Nodes[3].ChildNodes.Add(new TreeNode("choclate"));
                 TreeView1.Nodes[3].ChildNodes.Add(new TreeNode("Cake"));
 
-                var drinks = cd.Meal_tbl.Where(a => a.TypeOf == "drinks");
+                var drinks = cd.FoodItem_tbl.Where(a => a.TypeOf == "drinks");
                 foreach (var item in drinks)
                 {
-                    TreeView1.Nodes[3].ChildNodes[0].ChildNodes.Add(new TreeNode(item.Name, item.meal_id.ToString()));
+                    TreeView1.Nodes[3].ChildNodes[0].ChildNodes.Add(new TreeNode(item.Name, item.Item_id.ToString()));
                 }
-                var choc = cd.Meal_tbl.Where(a => a.TypeOf == "choc");
-                foreach (var item in choc)
+                var sweets = cd.FoodItem_tbl.Where(a => a.TypeOf == "sweets");
+                foreach (var item in sweets)
                 {
-                    TreeView1.Nodes[3].ChildNodes[1].ChildNodes.Add(new TreeNode(item.Name, item.meal_id.ToString()));
+                    TreeView1.Nodes[3].ChildNodes[1].ChildNodes.Add(new TreeNode(item.Name, item.Item_id.ToString()));
                 }
-                var cake = cd.Meal_tbl.Where(a => a.TypeOf == "cake");
+                var cake = cd.FoodItem_tbl.Where(a => a.TypeOf == "cake");
                 foreach (var item in cake)
                 {
-                    TreeView1.Nodes[3].ChildNodes[2].ChildNodes.Add(new TreeNode(item.Name, item.meal_id.ToString()));
+                    TreeView1.Nodes[3].ChildNodes[2].ChildNodes.Add(new TreeNode(item.Name, item.Item_id.ToString()));
                 }
 
                 for (int i = 0; i < TreeView1.Nodes.Count; i++)                     // disable all nodes except leaf nodes
                 {
                     TreeView1.Nodes[i].SelectAction = TreeNodeSelectAction.None;
-                    for (int j = 0; j < TreeView1.Nodes[0].ChildNodes.Count; j++)
+                    for (int j = 0; j < TreeView1.Nodes[i].ChildNodes.Count; j++)
                     {
                         TreeView1.Nodes[i].ChildNodes[j].SelectAction = TreeNodeSelectAction.None;
                     }
@@ -309,7 +325,7 @@ namespace CalBuster
             {
                 food = calcAllDetails(meal);
             }
-            var r = cd.FoodItem_tbl.Where(n => n.Item_id == y && n.Name == nme).FirstOrDefault();
+            var r = cd.FoodItem_tbl.Where(n => n.Item_id == y && n.Name == nme).FirstOrDefault();   // check if its a meal or single food item
             int portions = Convert.ToInt32(txtPortions.Text);
             if (r != null) { food = new item { name = r.Name, id = r.Item_id, cal = (int)r.Calories * portions, carb = (double)r.Carbs * portions, fat = (double)r.Fat * portions, gPerItem = (int)r.GramPerPortion, protien = (double)r.Protein * portions, sodium = (double)r.Sodium * portions, sugar = (double)r.Sugar * portions }; }
 
@@ -338,21 +354,25 @@ namespace CalBuster
         {
             item food = new item();
             food.name = meal.Name;
-            var vg = from a in cd.FoodItem_tbl
+            double protien=0, carb=0, sugar=0, fat=0, sodium=0;
+            double cal = 0;
+            var vg = from a in cd.FoodItem_tbl                           //get each food item from this meal and their quantity
                      join b in cd.Link_tbl on a.Item_id equals b.Item_id
                      where b.Meal_id == meal.meal_id
                      select a;
-            foreach (var item in vg)
+            foreach (var item in vg)                                    // total prot,carbs... for each one
             {
-                var y = cd.Link_tbl.Select(a => a).Where(n => n.Item_id == item.Item_id && n.Meal_id == meal.meal_id).FirstOrDefault();
-                int qt = (int)y.Quantity;
-                food.protien += (double)item.Protein * qt;
-                food.carb += ((double)item.Carbs) * qt;
-                food.sugar += ((double)item.Sugar) * qt;
-                food.fat += ((double)item.Fat) * qt;
-                food.sodium += ((double)item.Sodium) * qt;
-                food.cal += ((int)item.Calories) * qt;
+                var y = cd.Link_tbl.Where(n => n.Item_id == item.Item_id && n.Meal_id == meal.meal_id).FirstOrDefault();
+                double qt = (double)y.Quantity;
+                protien += (double)item.Protein * qt;
+                carb += ((double)item.Carbs) * qt;
+                sugar += ((double)item.Sugar) * qt;
+                fat += ((double)item.Fat) * qt;
+                sodium += ((double)item.Sodium) * qt;
+                cal += ((double)item.Calories) * qt;
             }
+            food.protien = protien; food.carb = carb; food.sugar = sugar; food.fat = fat;
+            food.sodium = sodium; food.cal = (int)cal;
             return food;
         }
         protected void TreeV_SelectedNodeChanged(object sender, EventArgs e)

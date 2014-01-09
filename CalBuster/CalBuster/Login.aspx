@@ -17,32 +17,17 @@
         <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="highightTextbox"></asp:TextBox>
     </p>
     <p>
-<<<<<<< HEAD
-        <asp:Button ID="btnLogin" runat="server" Text="Login" CssClass="loginBtn" OnClick="btnLogin_Click" />
-       
+        <asp:Button ID="btnLogin" runat="server" Text="Login" CssClass="loginBtn" OnClick="btnLogin_Click" />      
     </p>
     <p>
-        <label>Forgot your <asp:HyperLink ID="hypUserName" runat="server" NavigateUrl="~/ForgottenDetails.aspx?purpose=userName">UserName</asp:HyperLink>
-            <label> or <asp:HyperLink ID="hypPassword" runat="server" NavigateUrl="~/ForgottenDetails.aspx?purpose=password">Password?</asp:HyperLink></label>
-=======
-        <asp:Button ID="btnLogin" runat="server" Text="Login" CssClass="loginBtn" />
-       
-    </p>
-    <p>
-        <label>Forgot your <asp:HyperLink ID="hypUserName" runat="server" NavigateUrl="~/ForgottenDetails.aspx">UserName</asp:HyperLink>
-            <label> or <asp:HyperLink ID="hypPassword" runat="server" NavigateUrl="~/ForgottenDetails.aspx">Password?</asp:HyperLink></label>
->>>>>>> 6c01be2cd7f9515c7e46e789a33770a7c005386d
-        </label>
-         
-        
+        <label>Forgot your <asp:HyperLink ID="hypUserName" runat="server" NavigateUrl="~/ForgottenDetails.aspx?purpose=userName">UserName</asp:HyperLink></label>
+        <label> or <asp:HyperLink ID="hypPassword" runat="server" NavigateUrl="~/ForgottenDetails.aspx?purpose=password">Password?</asp:HyperLink></label>
     </p>
     <asp:Label ID="lblNewUser" runat="server" Text="Not a member yet?  Click on the button below to join."
         CssClass="loginHeader"></asp:Label>
 
     <p>
-
         <asp:Button ID="btnJoin" runat="server" Text="Join Now!" CssClass="btnJoin" OnClick="btnJoin_Click" />
-
     </p>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">

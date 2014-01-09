@@ -27,8 +27,8 @@ namespace CalBuster
 
         protected void btnAddMeal_Click(object sender, EventArgs e)
         {
-            var typeOf = cd.FoodItem_tbl.Where(a => a.Item_id == Convert.ToInt32(hdfSelValue.Value)).Select(n => n.TypeOf).FirstOrDefault();
-            Meal_tbl din = new Meal_tbl { Name = txtName.Text, TypeOf = typeOf };
+            //var typeOf = cd.FoodItem_tbl.Where(a => a.Item_id == Convert.ToInt32(hdfSelValue.Value)).Select(n => n.TypeOf).FirstOrDefault();
+            Meal_tbl din = new Meal_tbl { Name = txtName.Text };
             cd.Meal_tbl.Add(din);
             cd.SaveChanges();
             foreach (var it in ingregients)
@@ -36,7 +36,7 @@ namespace CalBuster
                 var veg = cd.FoodItem_tbl.Where(a => a.Item_id == it.id && a.Name == it.name);
                 if (veg.Count() != 0)
                 {
-                    Link_tbl lk = new Link_tbl { Meal_id = din.meal_id, Item_id = it.id, Quantity = it.quantity };
+                    Link_tbl lk = new Link_tbl { Meal_id = din.meal_id, Item_id = it.id, Quantity= it.quantity };
                     cd.Link_tbl.Add(lk);
                 }
                 cd.SaveChanges();
@@ -48,7 +48,7 @@ namespace CalBuster
         protected void btnAddItem_Click(object sender, EventArgs e)
         {
             if (txtQuantity.Text == "") { return; }
-            item t = new item { id = Convert.ToInt32(hdfSelValue.Value), name = txtSelectedItem.Text, quantity = Convert.ToInt32(txtQuantity.Text) };
+            item t = new item { id = Convert.ToInt32(hdfSelValue.Value), name = txtSelectedItem.Text, quantity = Convert.ToDecimal(txtQuantity.Text) };
             ingregients.Add(t);
             string gg = string.Format("{0} portions of {1}   ", t.quantity, t.name);
             listToAdd.Items.Add(gg);

@@ -17,7 +17,7 @@ namespace CalBuster
         public int Id { get; set; }
         public Nullable<int> Meal_id { get; set; }
         public Nullable<int> Item_id { get; set; }
-        public Nullable<int> Quantity { get; set; }
+        public Nullable<decimal> Quantity { get; set; }
     
         public virtual FoodItem_tbl FoodItem_tbl { get; set; }
         public virtual Meal_tbl Meal_tbl { get; set; }

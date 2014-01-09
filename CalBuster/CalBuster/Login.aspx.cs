@@ -17,6 +17,16 @@ namespace CalBuster
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                //Create session
+                if (Session["userDetails"] != null)
+                {
+                    User values = (User)Session["userDetails"];
+                    txtUserName.Text = values.userName;
+                    txtPassword.Text = values.password;
+                }
+            }
         }
 
         protected void btnBmiResult_Click(object sender, EventArgs e)
@@ -93,6 +103,13 @@ namespace CalBuster
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
+            if (IsValid)
+            {
+                //Add session
+                User details = new User { userName = txtUserName.Text, password = txtPassword.Text };
+                Session.Add("userDetails", details);
+            }
+
             string hash=GetMd5Hash(txtPassword.Text);
             var dd = db.User_tbl.Where(a => a.UserName == txtUserName.Text && a.Password == hash).FirstOrDefault();
             if (dd != null)
@@ -107,17 +124,13 @@ namespace CalBuster
 
             using (MD5 md5Hash = MD5.Create())
             {
-
                 byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
-
                 foreach (byte b in data)
                 {
                     output = output + b.ToString("x2");
                 }
             }
             return output;
-        }
-       
-        
+        }       
     }
 }

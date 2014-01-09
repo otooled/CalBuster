@@ -111,10 +111,8 @@ namespace CalBuster
                 {
                     string timeGone = @"<script type='text/javascript'> if(confirm('Sorry, your link has expired!')) { document.location='Login.aspx?val=true';}</script>";
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "timeOut", timeGone, false);
-                    //Response.Redirect("Login.aspx");
                 }
             }
-
         }
     }
 }

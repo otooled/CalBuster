@@ -14,24 +14,22 @@
                 <ajaxtoolkit:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="lblDate"></ajaxtoolkit:CalendarExtender>
             </div>
         </div>
-            <%-- </form>--%>
-        <div id="searchForMeal" class="searchForMeal" runat="server"  >         
-                <%--<h1 id="keepTop" class="main-title">Add Food To Breakfast </h1>--%>
-                <asp:Label ID="lblTitle" CssClass="titled" runat="server" ></asp:Label>
-        <div>      
-                <h4>Search our food database by name:</h4>
+            
+        <div id="searchForMeal" class="searchForMeal" runat="server"  >               
+            <asp:Label ID="lblTitle" CssClass="titled" runat="server" ></asp:Label>
+            <div>      
+                <h4>Search the database by food name:</h4>
                 <p>
-                  <asp:TextBox ID="txtSearch" runat="server"></asp:TextBox>                                   
-                  <asp:Button ID="btnSubmit" runat="server"  Text="Search"   OnClick="btnSubmit_Click" class="alt"  />                                			
+                    <asp:TextBox ID="txtSearch" runat="server"></asp:TextBox>                                   
+                    <asp:Button ID="btnSubmit" runat="server"  Text="Search"   OnClick="btnSubmit_Click" class="alt"  />                                			
                     <ajaxtoolkit:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server"></ajaxtoolkit:ToolkitScriptManager>
-                    <ajaxtoolkit:AutoCompleteExtender ID="AutoCompleteExtender1" runat="server" TargetControlID="txtSearch" ServiceMethod="GetCompletionList" UseContextKey="True" ></ajaxtoolkit:AutoCompleteExtender>
-                </p>
-                
+                    <ajaxtoolkit:AutoCompleteExtender ID="AutoCompleteExtender1" runat="server" TargetControlID="txtSearch" ServiceMethod="GetCompletionList" UseContextKey="True" ></ajaxtoolkit:AutoCompleteExtender>               
+                </p>   
+                <p>Can't find your meal, you can make up your own <asp:HyperLink ID="HyperLink1" runat="server">Click here</asp:HyperLink> </p>
+             
             </div>
             <div id="portionSection" >
-                <div class="potionLabel" > <h3>Please select a portion </h3></div>
-                <%--<asp:Label class="potionLabel" runat="server" Text="Please select a portion"></asp:Label>--%>
-               
+                <div class="potionLabel" > <h3>Please select a portion </h3></div>             
                 <asp:TextBox ID="txtPortions" runat="server" class="txtPortions" >1</asp:TextBox>
                 <asp:Label ID="lblSevings" CssClass="lblSevings"  runat="server" Text="Serving of "></asp:Label>
                 <asp:Label ID="lblSelectedItem" CssClass="lblSelectedItem" runat="server"></asp:Label><br />
@@ -42,12 +40,12 @@
                         ExpandDepth="0" Font-Italic="True"  Font-Size="Medium" >               
                     </asp:TreeView>                                      
                 </div>
-            <asp:EntityDataSource 
+                <asp:EntityDataSource 
                     ID="EntityDataSource1" runat="server" ConnectionString="name=Cal_BusterEntities1" 
                     DefaultContainerName="Cal_BusterEntities1" EnableFlattening="False" EntitySetName="FoodItem_tbl"></asp:EntityDataSource>           
-            <asp:HiddenField ID="HiddenField1" runat="server" />
+                <asp:HiddenField ID="HiddenField1" runat="server" />
                 <asp:HiddenField ID="hidFoodId" runat="server" />
-        </div>  <%-- </form>--%>
+        </div>  
         
         <asp:Table ID="tblAdded" runat="server"> 
               
