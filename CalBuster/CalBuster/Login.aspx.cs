@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.Security;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace CalBuster
 {
@@ -15,6 +17,7 @@ namespace CalBuster
 
         protected void Page_Load(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             if (!IsPostBack)
             {
                 //Create session
@@ -25,6 +28,8 @@ namespace CalBuster
                     txtPassword.Text = values.password;
                 }
             }
+=======
+>>>>>>> 7f064d8957f6f5462d4b97fc81416a0e127c1bbc
         }
 
         protected void btnBmiResult_Click(object sender, EventArgs e)
@@ -102,6 +107,7 @@ namespace CalBuster
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             if (IsValid)
             {
                 //Add session
@@ -109,6 +115,33 @@ namespace CalBuster
                 Session.Add("userDetails", details);
             }
         }
+=======
+            string hash=GetMd5Hash(txtPassword.Text);
+            var dd = db.User_tbl.Where(a => a.UserName == txtUserName.Text && a.Password == hash).FirstOrDefault();
+            if (dd != null)
+            {
+                Response.Redirect("PlannerPage.aspx");
+            }
+        }
+
+        static string GetMd5Hash(string input)
+        {
+            string output = "";
+
+            using (MD5 md5Hash = MD5.Create())
+            {
+
+                byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
+
+                foreach (byte b in data)
+                {
+                    output = output + b.ToString("x2");
+                }
+            }
+            return output;
+        }
+       
+>>>>>>> 7f064d8957f6f5462d4b97fc81416a0e127c1bbc
         
     }
 }

@@ -76,24 +76,34 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddMealsToDb.aspx" />
     <Content Include="App_Data\Calorie_Buster.mdf" />
     <Content Include="App_Data\Calorie_Buster_log.ldf">
       <DependentUpon>Calorie_Buster.mdf</DependentUpon>
     </Content>
     <Content Include="CalMaterStyle.css" />
     <Content Include="dailyFood.css" />
+    <Content Include="ForgottenDetails.aspx" />
+    <Content Include="images\cuts.jpg" />
     <Content Include="images\img02.jpg" />
     <Content Include="jquery-1.9.1.js" />
     <Content Include="LoginSS.css" />
     <Content Include="Past_meals.aspx" />
     <Content Include="SignIn.css" />
+    <Content Include="ui.js" />
     <Content Include="Web.config" />
     <Content Include="Login.aspx" />
     <Content Include="SignIn.aspx" />
-    <Content Include="ForgottenDetails.aspx" />
     <Content Include="PlannerPage.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddMealsToDb.aspx.cs">
+      <DependentUpon>AddMealsToDb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddMealsToDb.aspx.designer.cs">
+      <DependentUpon>AddMealsToDb.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CalBuster.Master.cs">
       <DependentUpon>CalBuster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -104,6 +114,13 @@
     <Compile Include="Calculated_results.cs" />
     <Compile Include="FoodItem_tbl.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ForgottenDetails.aspx.cs">
+      <DependentUpon>ForgottenDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ForgottenDetails.aspx.designer.cs">
+      <DependentUpon>ForgottenDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="item.cs" />
     <Compile Include="Link_tbl.cs">
@@ -161,13 +178,6 @@
     <Compile Include="User.cs" />
     <Compile Include="User_tbl.cs">
       <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ForgottenDetails.aspx.cs">
-      <DependentUpon>ForgottenDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ForgottenDetails.aspx.designer.cs">
-      <DependentUpon>ForgottenDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="PlannerPage.aspx.cs">
       <DependentUpon>PlannerPage.aspx</DependentUpon>

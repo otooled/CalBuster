@@ -17,12 +17,25 @@
         <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="highightTextbox"></asp:TextBox>
     </p>
     <p>
+<<<<<<< HEAD
         <asp:Button ID="btnLogin" runat="server" Text="Login" CssClass="loginBtn" OnClick="btnLogin_Click" />
+=======
+<<<<<<< HEAD
+        <asp:Button ID="btnLogin" runat="server" Text="Login" CssClass="loginBtn" OnClick="btnLogin_Click" />
+       
+    </p>
+    <p>
+        <label>Forgot your <asp:HyperLink ID="hypUserName" runat="server" NavigateUrl="~/ForgottenDetails.aspx?purpose=userName">UserName</asp:HyperLink>
+            <label> or <asp:HyperLink ID="hypPassword" runat="server" NavigateUrl="~/ForgottenDetails.aspx?purpose=password">Password?</asp:HyperLink></label>
+=======
+        <asp:Button ID="btnLogin" runat="server" Text="Login" CssClass="loginBtn" />
+>>>>>>> 7f064d8957f6f5462d4b97fc81416a0e127c1bbc
        
     </p>
     <p>
         <label>Forgot your <asp:HyperLink ID="hypUserName" runat="server" NavigateUrl="~/ForgottenDetails.aspx">UserName</asp:HyperLink>
             <label> or <asp:HyperLink ID="hypPassword" runat="server" NavigateUrl="~/ForgottenDetails.aspx">Password?</asp:HyperLink></label>
+>>>>>>> 6c01be2cd7f9515c7e46e789a33770a7c005386d
         </label>
          
         
@@ -35,8 +48,6 @@
         <asp:Button ID="btnJoin" runat="server" Text="Join Now!" CssClass="btnJoin" OnClick="btnJoin_Click" />
 
     </p>
-
-
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">
     <div>
