@@ -58,6 +58,33 @@ namespace CalBuster {
         protected global::System.Web.UI.WebControls.TextBox txtSurame;
         
         /// <summary>
+        /// CompareValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
+        
+        /// <summary>
+        /// rfvSurname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvSurname;
+        
+        /// <summary>
+        /// cpvSurname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cpvSurname;
+        
+        /// <summary>
         /// rfvFirstName control.
         /// </summary>
         /// <remarks>
@@ -220,12 +247,12 @@ namespace CalBuster {
         protected global::System.Web.UI.WebControls.Button btnRegister;
         
         /// <summary>
-        /// vsRequiredFields control.
+        /// valSummary control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ValidationSummary vsRequiredFields;
+        protected global::System.Web.UI.WebControls.ValidationSummary valSummary;
     }
 }

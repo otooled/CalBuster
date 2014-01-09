@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -53,5 +54,7 @@ namespace CalBuster
             db.User_tbl.Add(us);
             db.SaveChanges();
         }
+
+        
     }
 }
