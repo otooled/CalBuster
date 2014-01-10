@@ -21,39 +21,28 @@ namespace CalBuster
         }
         //first attempt a query passmeals table
         protected void btnCall_Click(object sender, EventArgs e)
-        {
-            //Calorie_BusterEntities db = new Calorie_BusterEntities();
-            //var foods = db.FoodItem_tbl.Select(a => a.Name);
-            //List<string> food = new List<string>();
-            //foreach (var item in foods)
-            //{
-            //    food.Add(item);
-            //    tbxData.Text = item.ToString();
-
-            //}
+        {           
 
             Calorie_BusterEntities db = new Calorie_BusterEntities();
-            //var dates = db.PastMeal_tbl.s(a=> a.Date   );
+            
             var dates = db.PastMeal_tbl.Select(a => a).Where(n => n.User_id == 1);//FirstOrDefault();
-
-            //List<DateTime> date = new List<DateTime>();
+                        
             StringBuilder sb = new StringBuilder();
 
 
             foreach (var item in dates)
             {
-                //date.Add(item.);
-                // tbxData.Text = item.ToString();
-                sb.Append(item.PastMeal_id);
+                
+                /*sb.Append(item.PastMeal_id);
                 sb.Append(", ");
                 sb.Append(item.User_id);
                 sb.Append(", ");
                 sb.Append(item.Date);
-                sb.Append(System.Environment.NewLine);
+                sb.Append(System.Environment.NewLine);*/
 
 
             }
-            tbxData.Text = sb.ToString();
+            //tbxData.Text = sb.ToString();
         }
 
         //funtion to calculate all values protein caloires...... for a meal
@@ -70,17 +59,19 @@ namespace CalBuster
             //List<DateTime> date = new List<DateTime>();
             StringBuilder sb = new StringBuilder();
 
+            sb.Append("On the " + Calendar1.SelectedDate.ToShortDateString() + " you ate:");
+            sb.Append(System.Environment.NewLine);
+
             foreach (var item in mealsId)
             {
-                //date.Add(item.);
-                // tbxData.Text = item.ToString();
-                sb.Append(item.PastLink_id);
-                sb.Append(", ");
-                sb.Append(item.Meal_id);
+                
+               // sb.Append(item.PastLink_id);
+                //sb.Append(", ");
+                //sb.Append(item.Meal_id);
                 Meal_id = item.Meal_id;
-                sb.Append(", ");
-                sb.Append(item.Past_Meal_id);
-                sb.Append(System.Environment.NewLine);
+             //   sb.Append(", ");
+               // sb.Append(item.Past_Meal_id);
+                //sb.Append(System.Environment.NewLine);
 
 
             }
@@ -92,13 +83,13 @@ namespace CalBuster
             {
                 //date.Add(item.);
                 // tbxData.Text = item.ToString();
-                sb.Append(item.meal_id);
-                sb.Append(", ");
-                sb.Append(item.Name);
+                //sb.Append(item.meal_id);
+                //sb.Append(", ");
+                //sb.Append(item.Name);
                 //meal_id = item.Meal_id;
-                sb.Append(", ");
-                sb.Append(item.TypeOf);
-                sb.Append(System.Environment.NewLine);
+                //sb.Append(", ");
+                //sb.Append(item.TypeOf);
+                //sb.Append(System.Environment.NewLine);
 
             }
             // tbx_Meal.Text = sb.ToString();
@@ -109,17 +100,10 @@ namespace CalBuster
 
             foreach (var item in items)
             {
-                //date.Add(item.);
-                // tbxData.Text = item.ToString();
-                sb.Append(item.Meal_id);
-                sb.Append(", ");
-                sb.Append(item.Item_id);
+                
                 //meal_id = item.Meal_id;
                 list_of_food_items.Add((int)item.Item_id);
-                sb.Append(", ");
-                sb.Append(item.Quantity);
-                sb.Append(System.Environment.NewLine);
-
+                
             }
             //Calculated_results
             foreach (var item in list_of_food_items)
@@ -128,54 +112,41 @@ namespace CalBuster
 
                 foreach (var food_item in Food_itmes)
                 {
-                    //date.Add(item.);
-                    // tbxData.Text = item.ToString();
-                    sb.Append(food_item.Item_id);
-                    sb.Append(", ");
+                    
+                   /* sb.Append(food_item.Item_id);
+                    sb.Append(", ");  
+                    /*/
+                    //sb.Append(n.Quantity);
                     sb.Append(food_item.Name);
-                    //meal_id = item.Meal_id;
+                    
                     sb.Append(", ");
-                    sb.Append(food_item.Calories);
+                   
 
                     if (food_item.Calories != null)
                     {
                         Calculated_results.Calories += (int)food_item.Calories;
-                    }
-                    sb.Append(", ");
-                    sb.Append(food_item.Sodium);
+                    }                   
 
                     if (food_item.Sodium != null)
                     {
                         Calculated_results.Sodium += (float)food_item.Sodium;
-                    }
-                    sb.Append(System.Environment.NewLine);
-
-                    sb.Append(", ");
-                    sb.Append(food_item.Carbs);
+                    }                   
 
                     if (food_item.Carbs != null)
                     {
                         Calculated_results.Carbs += (float)food_item.Carbs;
-                    }
-
-                    sb.Append(", ");
-                    sb.Append(food_item.Sugar);
+                    }                   
 
                     if (food_item.Sugar != null)
                     {
                         Calculated_results.Sugar += (float)food_item.Sugar;
 
-                    }
-                    sb.Append(", ");
-                    sb.Append(food_item.Fat);
+                    }                    
 
                     if (food_item.Fat != null)
                     {
                         Calculated_results.Fat += (float)food_item.Fat;
-                    }
-
-                    sb.Append(", ");
-                    sb.Append(food_item.Protein);
+                    }                  
 
                     if (food_item.Protein != null)
                     {
@@ -185,24 +156,7 @@ namespace CalBuster
 
                 }
             }
-            sb.Append("total calories ");
-            sb.Append(Calculated_results.Calories);
-            sb.Append(System.Environment.NewLine);
-            sb.Append("total Sodium ");
-            sb.Append(Calculated_results.Sodium);
-            sb.Append(System.Environment.NewLine);
-            sb.Append("total carbs ");
-            sb.Append(Calculated_results.Carbs);
-            sb.Append(System.Environment.NewLine);
-            sb.Append("total sugar ");
-            sb.Append(Calculated_results.Sugar);
-            sb.Append(System.Environment.NewLine);
-            sb.Append("total Fat ");
-            sb.Append(Calculated_results.Fat);
-            sb.Append(System.Environment.NewLine);
-            sb.Append("total protein ");
-            sb.Append(Calculated_results.Protein);
-            sb.Append(System.Environment.NewLine);
+           
             tbx_Meal.Text = sb.ToString();
 
             return Calculated_results;
@@ -225,6 +179,8 @@ namespace CalBuster
         {
             Calorie_BusterEntities db = new Calorie_BusterEntities();
 
+            Calculated_results calcResults = new Calculated_results();
+
             var Past_meal_ids = db.PastMeal_tbl.Select(a => a).Where(n => (n.Date.Day == Calendar1.SelectedDate.Day) &&
                                                                           (n.Date.Month == Calendar1.SelectedDate.Month) &&
                                                                           (n.Date.Year == Calendar1.SelectedDate.Year));//FirstOrDefault();
@@ -237,27 +193,26 @@ namespace CalBuster
             {
 
 
-                //date.Add(item.);
-                // tbxData.Text = item.ToString();
+                
                 sb.Append(item.PastMeal_id);
                 sb.Append(", ");
                 sb.Append(item.User_id);
-                //meal_id = item.Meal_id;
-                // list_of_food_items.Add((datetime)item.Date);
+               
                 sb.Append(", ");
                 sb.Append(item.Date);
                 sb.Append(System.Environment.NewLine);
 
-                Calculated_results calcResults = calcualte_all_values(item.PastMeal_id);
+                calcResults = calcualte_all_values(item.PastMeal_id);
 
-                Past_Meals_Table.Rows[1].Cells[1].Text = calcResults.Calories.ToString();
-                Past_Meals_Table.Rows[1].Cells[2].Text = calcResults.Carbs.ToString();
-                Past_Meals_Table.Rows[1].Cells[3].Text = calcResults.Fat.ToString();
-                Past_Meals_Table.Rows[1].Cells[4].Text = calcResults.Protein.ToString();
-                Past_Meals_Table.Rows[1].Cells[5].Text = calcResults.Sugar.ToString();
+                
             }
             // tbx_Meal.Text ="checking for "+ Calendar1.SelectedDate.ToShortDateString() + ", " + sb.ToString();
-
+            Past_Meals_Table.Rows[1].Cells[0].Text = Calendar1.SelectedDate.ToShortDateString();
+            Past_Meals_Table.Rows[1].Cells[1].Text = calcResults.Calories.ToString();
+            Past_Meals_Table.Rows[1].Cells[2].Text = calcResults.Carbs.ToString();
+            Past_Meals_Table.Rows[1].Cells[3].Text = calcResults.Fat.ToString();
+            Past_Meals_Table.Rows[1].Cells[4].Text = calcResults.Protein.ToString();
+            Past_Meals_Table.Rows[1].Cells[5].Text = calcResults.Sugar.ToString();
         }
 
         public List<Calculated_results> GetSevenDays()
@@ -268,10 +223,14 @@ namespace CalBuster
 
             DateTime date = new DateTime(Calendar1.SelectedDate.Year, Calendar1.SelectedDate.Month, Calendar1.SelectedDate.Day);
 
+            DateTime noDateSelecte = new DateTime(1,1,1);
+            if (date.CompareTo(noDateSelecte) == 0)
+            {                
+                return sevenDayData;
+            }
+
             for (int i = 0; i < 7; i++)
             {
-
-
                 var Past_meal_ids = db.PastMeal_tbl.Select(a => a).Where(n => (n.Date.Day == date.Day) &&
                                                                               (n.Date.Month == date.Month) &&
                                                                               (n.Date.Year == date.Year));//FirstOrDefault();
@@ -280,12 +239,9 @@ namespace CalBuster
 
                 foreach (var item in Past_meal_ids)
                 {
-
                     Calculated_results calculateValue = calcualte_all_values(item.PastMeal_id);
                     calculateValue.Date = date;
                     sevenDayData.Add(calculateValue);
-
-
                 }
 
                 date = date.AddDays(-1);
@@ -298,6 +254,13 @@ namespace CalBuster
         public void PlotData(String strValue)
         {
             List<Calculated_results> results = GetSevenDays();
+
+            if (results.Count() == 0)
+            {
+                Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "No Date Selected", "<script>alert('You have no date selected!');</script>");
+                
+                return;
+            }
 
             Chart1.DataSource = results;
 
@@ -316,10 +279,7 @@ namespace CalBuster
             series1.MarkerColor = System.Drawing.Color.Red;
             series1.MarkerBorderColor = System.Drawing.Color.Red;
             series1.Color = System.Drawing.Color.Red;
-
-            //Chart1.ChartAreas[0].AxisX.Minimum = DateTime.Now.AddDays(-7).ToOADate();
-            //Chart1.ChartAreas[0].AxisX.Maximum = DateTime.Now.ToOADate();
-
+            
             Chart1.ChartAreas[0].AxisX.Minimum = Calendar1.SelectedDate.AddDays(-7).ToOADate();
             Chart1.ChartAreas[0].AxisX.Maximum = Calendar1.SelectedDate.ToOADate();
 
@@ -329,11 +289,7 @@ namespace CalBuster
             Chart1.ChartAreas[0].AxisX.Title = "Date";
 
             Chart1.ChartAreas[0].AxisX.Interval = 7;
-
-            //Chart1.ChartAreas[0].AxisX.TextOrientation = TextOrientation.Rotated90;
-
-
-
+            
             Chart1.DataBind();
 
         }
@@ -357,8 +313,5 @@ namespace CalBuster
         {
 
         }
-
-
-
     }
 }
