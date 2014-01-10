@@ -26,5 +26,17 @@ namespace CalBuster
 
         }
 
+        public void add(Calculated_results calResult)
+        {
+            Protein += calResult.Protein;
+            Carbs += calResult.Carbs;
+            Sugar += calResult.Sugar;
+            Fat += calResult.Fat;
+            Sodium += calResult.Sodium;
+            Calories += calResult.Calories;
+        }
+
+
+
     }
 }
