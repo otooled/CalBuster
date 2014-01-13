@@ -2,34 +2,44 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="dailyFood.css" rel="stylesheet" />
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    <div id="content" >
+<asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+   
 
-        <div id="titleDiv" runat="server" >  <h2>Daily Calorie Tracker </h2>
+    <div>
+    <div id="contenttt" >
+
+        <div id="titleDiv" runat="server" > <asp:Image ID="Image2" runat="server" CssClass="apple" ImageUrl="~/images/apple.jpg" /> <h2>Daily Calorie Tracker </h2>
+            
             <div class="calendar"  >
                 <asp:Button ID="Button1" runat="server" Text="&lt;&lt;" />
-                <%--<asp:Label ID="lblDate" runat="server" Text="26 November 2013"></asp:Label>--%>
-                <asp:TextBox ID="lblDate" runat="server" Width="220px"></asp:TextBox>
+                <asp:TextBox ID="lblDate" runat="server" Width="220px" ></asp:TextBox>
                 <asp:Button ID="Button2" runat="server" Text="&gt;&gt;" />
                 <ajaxtoolkit:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="lblDate"></ajaxtoolkit:CalendarExtender>
+                <div class="link"  ><asp:Label ID="lblLinkToPast" CssClass="LinkToPast" runat="server" Text="To view your past history, ">
+                    <asp:HyperLink ID="hpyLinkToPast" CssClass="linktoPastLink" runat="server" NavigateUrl="~/Past_meals.aspx">Click Here</asp:HyperLink>
+                </asp:Label></div>
+                <br/>
             </div>
         </div>
-            
-        <div id="searchForMeal" class="searchForMeal" runat="server"  >               
-            <asp:Label ID="lblTitle" CssClass="titled" runat="server" ></asp:Label>
-            <div>      
-                <h4>Search the database by food name:</h4>
+            <div id="searchForMeal" class="searchForMeal" runat="server"  >         
+                <asp:Label ID="lblTitle" CssClass="titled" runat="server" ></asp:Label>   
+                    <asp:Image ID="Image1" CssClass="img" runat="server"  ImageUrl="~/images/fork.jpg" />   
+                <h4>Search our food database by name:</h4>
                 <p>
+                    
                     <asp:TextBox ID="txtSearch" runat="server"></asp:TextBox>                                   
                     <asp:Button ID="btnSubmit" runat="server"  Text="Search"   OnClick="btnSubmit_Click" class="alt"  />                                			
                     <ajaxtoolkit:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server"></ajaxtoolkit:ToolkitScriptManager>
-                    <ajaxtoolkit:AutoCompleteExtender ID="AutoCompleteExtender1" runat="server" TargetControlID="txtSearch" ServiceMethod="GetCompletionList" UseContextKey="True" ></ajaxtoolkit:AutoCompleteExtender>               
-                </p>   
-                <p>Can't find your meal, you can make up your own <asp:HyperLink ID="HyperLink1" runat="server">Click here</asp:HyperLink> </p>
-             
+                    <ajaxtoolkit:AutoCompleteExtender ID="AutoCompleteExtender1" runat="server" TargetControlID="txtSearch" ServiceMethod="GetCompletionList" UseContextKey="True" ></ajaxtoolkit:AutoCompleteExtender>            
+                     
+                </p> 
+            <div id="lkp2">          
+                <p class="LinkToPast2">Choose from a meal listed below or add your own <asp:HyperLink ID="HyperLink1" CssClass="linkHyper" runat="server" NavigateUrl="~/AddMealsToDb.aspx">Here</asp:HyperLink></p>
             </div>
+   
             <div id="portionSection" >
-                <div class="potionLabel" > <h3>Please select a portion </h3></div>             
+                <div class="potionLabel" > <h3>Please select a portion </h3></div>
+              
                 <asp:TextBox ID="txtPortions" runat="server" class="txtPortions" >1</asp:TextBox>
                 <asp:Label ID="lblSevings" CssClass="lblSevings"  runat="server" Text="Serving of "></asp:Label>
                 <asp:Label ID="lblSelectedItem" CssClass="lblSelectedItem" runat="server"></asp:Label><br />
@@ -40,12 +50,12 @@
                         ExpandDepth="0" Font-Italic="True"  Font-Size="Medium" >               
                     </asp:TreeView>                                      
                 </div>
-                <asp:EntityDataSource 
+            <asp:EntityDataSource 
                     ID="EntityDataSource1" runat="server" ConnectionString="name=Cal_BusterEntities1" 
                     DefaultContainerName="Cal_BusterEntities1" EnableFlattening="False" EntitySetName="FoodItem_tbl"></asp:EntityDataSource>           
-                <asp:HiddenField ID="HiddenField1" runat="server" />
-                <asp:HiddenField ID="hidFoodId" runat="server" />
-        </div>  
+            <asp:HiddenField ID="HiddenField1" runat="server" />
+            <asp:HiddenField ID="hidFoodId" runat="server" />
+        </div> 
         
         <asp:Table ID="tblAdded" runat="server"> 
               
@@ -137,27 +147,12 @@
                 </asp:TableRow>
         </asp:Table>
          
-        <asp:Button ID="btnAddAllToDb" CssClass="alt" OnClick="btnAddAllToDb_Click"  runat="server" Text="Save All" />
+        <asp:Button ID="btnAddAllToDb" CssClass="sendToDb" OnClick="btnAddAllToDb_Click"  runat="server" Text="Save All" />
 
-       <%-- </form>--%>
-    
 </div>
-    <script type="text/javascript">
-        function startUp() {
-            $("#searchForMeal").hide();
-        }
-        function addMeal() {
-            $("#aaa").click(function () {
-                $("#searchForMeal").show();
-                $("#title").hide();
-            });
-            $("#goBack").click(function () {
-                $("#searchForMeal").hide();
-                $("#title").show();
-            });
-        }
-
-    </script>
-</asp:Content>
+    </div>
+     </asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+    </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">
 </asp:Content>

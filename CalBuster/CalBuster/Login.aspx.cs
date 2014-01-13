@@ -17,29 +17,16 @@ namespace CalBuster
 
         protected void Page_Load(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> c89d18a0c2e404e2d643744f4eb0beabfc6b814f
             if (!IsPostBack)
             {
                 //Create session
                 if (Session["userDetails"] != null)
                 {
-<<<<<<< HEAD
                     User values = (User)Session["userDetails"];
-=======
-                    User values = (User) Session["userDetails"];
->>>>>>> c89d18a0c2e404e2d643744f4eb0beabfc6b814f
-                    txtUserName.Text = values.userName;
                     txtPassword.Text = values.password;
                 }
             }
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 7f064d8957f6f5462d4b97fc81416a0e127c1bbc
->>>>>>> c89d18a0c2e404e2d643744f4eb0beabfc6b814f
+
         }
 
         protected void btnBmiResult_Click(object sender, EventArgs e)
@@ -117,25 +104,13 @@ namespace CalBuster
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-            if (IsValid)
-            {
-                //Add session
-                User details = new User { userName = txtUserName.Text, password = txtPassword.Text };
-                Session.Add("userDetails", details);
-            }
 
-=======
-<<<<<<< HEAD
             if (IsValid)
             {
                 //Add session
                 User details = new User { userName = txtUserName.Text, password = txtPassword.Text};
                 Session.Add("userDetails", details);
             }
-        }
-=======
->>>>>>> c89d18a0c2e404e2d643744f4eb0beabfc6b814f
             string hash=GetMd5Hash(txtPassword.Text);
             var dd = db.User_tbl.Where(a => a.UserName == txtUserName.Text && a.Password == hash).FirstOrDefault();
             if (dd != null)
@@ -157,13 +132,6 @@ namespace CalBuster
                 }
             }
             return output;
-<<<<<<< HEAD
-        }       
-=======
         }
-       
->>>>>>> 7f064d8957f6f5462d4b97fc81416a0e127c1bbc
-        
->>>>>>> c89d18a0c2e404e2d643744f4eb0beabfc6b814f
     }
 }

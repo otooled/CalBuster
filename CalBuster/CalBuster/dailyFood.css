@@ -3,7 +3,7 @@
 
 /* Content */
 
-#content {
+#contenttt {
 	/*background: #FBFBEF ;*/
 	width: 740px;
 	margin: 10px;
@@ -68,11 +68,15 @@
     width:55%;
     margin-top: 0px;
 }
+
 .titled {
     font-family: Georgia, "Times New Roman", Times, serif;
 	font-weight: normal;
 	color: #66A342;    
 	font-size: 2em;
+    float:left;
+    width:100%;
+    margin-bottom:10px;
 }
 #portionSection {
     width: 60%;
@@ -96,16 +100,79 @@
 .addButton {
     margin-top: 15px;
 }
-.addAllButton {
 
+.LinkToPast {
+    font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight: normal;
+	color: #66A342;
+    font-size:1.3em;
+    float:left;
+    margin:25px 90px 0px 0px;
 }
+.LinkToPast2 {
+    font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight: normal;
+	color: #66A342;
+    font-size:1.25em;
+    float:left;
+    margin-right:25px;
+    margin-bottom:10px;
+}
+.img {
+    margin-top:0px;
+    float: right;
+}
+.apple {
+    float:right;
+}
+
+        /*add meals to db section */
 .addMealLists {
     min-width:250px;
     margin-bottom:30px;
+    margin-left:12px;
 }
 .addMealLists2 {
     min-width:200px;
 }
+#steps {
+    width:100%;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+.label {
+    font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight: normal;
+	color: #66A342;
+    font-size:1.25em;
+}
+.step {
+    width:25%;
+    border: 1px solid #0a5282;
+    border-radius:8px;
+    background: #0a5282;
+    color: #fff;
+    padding: 5px 10px 5px 10px;   
+    font-size: 14px;
+    font-weight: normal;
+    text-align: center;
+}
+.num2 {
+    margin-left:200px;
+}
+.sendToDb {
+    background: #0a5282;
+    color: #fff;
+    padding: 5px 10px 5px 10px;   
+    font-size: 14px;
+    font-weight: normal;
+    text-align: center;
+    text-transform: capitalize;
+    margin-left:55px;
+    min-width:150px;
+    margin-bottom:20px;
+}
+
 
 
     /*forgottenDetails section*/
