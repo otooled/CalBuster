@@ -20,7 +20,7 @@ namespace CalBuster
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            txtFirstName.Focus();
         }
         static string GetMd5Hash(string input)
         {
@@ -55,6 +55,8 @@ namespace CalBuster
             db.SaveChanges();
         }
 
+       
+        
         
     }
 }
