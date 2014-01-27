@@ -1,5 +1,5 @@
-2014/01/26-18:48:25.082 1bf0 Recovering log #22
-2014/01/26-18:48:25.083 1bf0 Level-0 table #24: started
-2014/01/26-18:48:25.092 1bf0 Level-0 table #24: 48810 bytes OK
-2014/01/26-18:48:25.103 1bf0 Delete type=0 #22
-2014/01/26-18:48:25.104 1bf0 Delete type=3 #20
+2014/01/27-12:57:27.647 220c Recovering log #3
+2014/01/27-12:57:27.647 220c Level-0 table #5: started
+2014/01/27-12:57:27.647 220c Level-0 table #5: 73425 bytes OK
+2014/01/27-12:57:27.657 220c Delete type=0 #3
+2014/01/27-12:57:27.657 220c Delete type=3 #2

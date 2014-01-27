@@ -54,11 +54,26 @@ namespace CalBuster
                                   Gender = rdlGender.SelectedValue,
                                   Password = GetMd5Hash(txtConfirmPassword.Text),
                                   UserName = txtCreateUserName.Text,
-                                  //DOB = String.Format(txtDOB.Text);
+                                  DOB = Convert.ToDateTime(txtDOB.Text),
                                   //DOB = String.Format(txtDay.Text + txtMonth.Text + txtYear.Text)
                               };
             db.User_tbl.Add(us);
-            db.SaveChanges();
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (Exception)
+            {
+                
+                
+            }
+            
+            finally
+            {
+                string timeGone = @"<script type='text/javascript'> if(confirm('You can now log in with your chosen username and password.')) { document.location='Login.aspx?val=true';}</script>";
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "timeOut", timeGone, false);
+            }
+
         }
 
        

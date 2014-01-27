@@ -79,7 +79,7 @@
                  <asp:RequiredFieldValidator ID="rfvDOB" runat="server" ControlToValidate="txtDOB" Display="Dynamic" ErrorMessage="Date of birth required" SetFocusOnError="True"></asp:RequiredFieldValidator>
                  <asp:RegularExpressionValidator ID="rxvDOB" runat="server" ControlToValidate="txtDOB" ErrorMessage="Date must be DD/MM/YYYY" SetFocusOnError="True" ValidationExpression="^(((0[1-9]|[12]\d|3[01])\/(0[13578]|1[02])\/((19|[2-9]\d)\d{2}))|((0[1-9]|[12]\d|30)\/(0[13456789]|1[012])\/((19|[2-9]\d)\d{2}))|((0[1-9]|1\d|2[0-8])\/02\/((19|[2-9]\d)\d{2}))|(29\/02\/((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))$" Display="Dynamic"></asp:RegularExpressionValidator>
                 
-                <asp:RangeValidator ID="rgvDob" runat="server" ControlToValidate="txtDOB" Display="Dynamic" ErrorMessage="Must be over 18 and less than 80" SetFocusOnError="True"></asp:RangeValidator>
+                <asp:RangeValidator ID="rgvDob" runat="server" ControlToValidate="txtDOB" Display="Dynamic" ErrorMessage="Must be over 18 and less than 80" SetFocusOnError="True" Type="Date"></asp:RangeValidator>
                 
             </p>
             <p>
