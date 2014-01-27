@@ -30,21 +30,18 @@
     </p>
  
     <p>
-<<<<<<< HEAD
+
         <asp:Button ID="btnLogin" runat="server" Text="Login" CssClass="loginBtn" OnClick="btnLogin_Click" ValidationGroup="valLogin" />
         </p>
         <label>Forgot your <asp:HyperLink ID="hypUserName" runat="server" NavigateUrl="~/ForgottenDetails.aspx?purpose=userName">UserName</asp:HyperLink></label>
         <label> or <asp:HyperLink ID="hypPassword" runat="server" NavigateUrl="~/ForgottenDetails.aspx?purpose=password">Password?</asp:HyperLink></label>
     <p>
         
-=======
-        <asp:Button ID="btnLogin" runat="server" Text="Login" CssClass="loginBtn" OnClick="btnLogin_Click" />      
+    
     </p>
     <p>
-        <label>Forgot your <asp:HyperLink ID="hypUserName" runat="server" NavigateUrl="~/ForgottenDetails.aspx?purpose=userName">UserName</asp:HyperLink></label>
-        <label> or <asp:HyperLink ID="hypPassword" runat="server" NavigateUrl="~/ForgottenDetails.aspx?purpose=password">Password?</asp:HyperLink></label>
-    </p>
->>>>>>> f9cd82dfe103929189929bbce19421db6e84808d
+       
+
     <asp:Label ID="lblNewUser" runat="server" Text="Not a member yet?  Click on the button below to join."
         CssClass="loginHeader"></asp:Label>
     </p>

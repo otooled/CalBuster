@@ -17,24 +17,19 @@ namespace CalBuster
 
         protected void Page_Load(object sender, EventArgs e)
         {
-<<<<<<< HEAD
+
             //Highlight username textbox
             txtUserName.Focus();
 
-=======
->>>>>>> f9cd82dfe103929189929bbce19421db6e84808d
+
             if (!IsPostBack)
             {
                 //Create session
                 if (Session["userDetails"] != null)
                 {
-<<<<<<< HEAD
-
                     User values = (User)Session["userDetails"];
                     txtUserName.Text = values.userName;
-=======
-                    User values = (User)Session["userDetails"];
->>>>>>> f9cd82dfe103929189929bbce19421db6e84808d
+
                     txtPassword.Text = values.password;
                 }
             }
@@ -116,7 +111,7 @@ namespace CalBuster
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
+
 
             if (IsValid)
             {
@@ -125,15 +120,7 @@ namespace CalBuster
                 Session.Add("userDetails", details);
             }
 
-=======
 
-            if (IsValid)
-            {
-                //Add session
-                User details = new User { userName = txtUserName.Text, password = txtPassword.Text};
-                Session.Add("userDetails", details);
-            }
->>>>>>> f9cd82dfe103929189929bbce19421db6e84808d
             string hash=GetMd5Hash(txtPassword.Text);
             var dd = db.User_tbl.Where(a => a.UserName == txtUserName.Text && a.Password == hash).FirstOrDefault();
             if (dd != null)
@@ -156,26 +143,12 @@ namespace CalBuster
                 }
             }
             return output;
-<<<<<<< HEAD
+
 
         }
 
-        protected void csvUsername_ServerValidate(object source, ServerValidateEventArgs args)
-        {
-            if(txtUserName.Text == null)
-            {
-                args.IsValid = false;
-            }
-            else
-            {
-                    args.IsValid = true;
-                
-            }
-        }
+        
 
      }
-=======
-        }
-    }
->>>>>>> f9cd82dfe103929189929bbce19421db6e84808d
+
 }
