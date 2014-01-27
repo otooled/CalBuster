@@ -22,12 +22,30 @@ namespace CalBuster
         private List<item> lunchItems = new List<item>();
         private List<item> dinnerItems = new List<item>();
         private List<item> snacksItems = new List<item>();
+        private bool IsPageRefresh;
         string show = "";
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             Page.MaintainScrollPositionOnPostBack = true;
+            IsPageRefresh = false;
 
             if (Page.IsPostBack)
+            {
+                string h = ViewState["ViewStateId"].ToString();
+                string k = Session["SessionId"].ToString();
+                if (Session["SessionId"] != null)
+                {
+                    if (ViewState["ViewStateId"].ToString() != Session["SessionId"].ToString())     // check if its a postback from user clicking refresh
+                    {
+                        IsPageRefresh = true;
+                    }
+                    Session["SessionId"] = System.Guid.NewGuid().ToString();
+                    ViewState["ViewStateId"] = Session["SessionId"].ToString();
+                }
+            }
+            if (IsPageRefresh == true) { return; }
+            if (Page.IsPostBack && IsPageRefresh == false)
             {
                 show = (string)Session["show"];
                 if (show == "yes") { searchForMeal.Visible = true; titleDiv.Visible = false; }
@@ -88,7 +106,7 @@ namespace CalBuster
             TreeView1.RootNodeStyle.ImageUrl = "images/cuts.jpg";
             if (!Page.IsPostBack)
             {
-
+                
                 lblDate.Text = string.Format("{0} the {1} of {2} {3}", DateTime.Today.DayOfWeek, DateTime.Now.Day, DateTime.Now.ToString("MMMM"), DateTime.Today.Year);
                 searchForMeal.Visible = false;
                 Session.Clear();
@@ -211,7 +229,8 @@ namespace CalBuster
                         TreeView1.Nodes[i].ChildNodes[j].SelectAction = TreeNodeSelectAction.None;
                     }
                 }
-                
+                ViewState["ViewStateId"] = System.Guid.NewGuid().ToString();
+                Session["SessionId"] = ViewState["ViewStateId"].ToString();
             }
         }
 
@@ -312,6 +331,7 @@ namespace CalBuster
 
         protected void goBack_Click(object sender, EventArgs e)     //button to add selected food to daily record
         {
+            if (IsPageRefresh == true) { return; }
             if (type == "breakfast") { counter++; lunchCount++; dinnerCount++; snacksCount++; }
             else if (type == "lunch") { lunchCount++; dinnerCount++; snacksCount++; }
             else if (type == "Dinner") { dinnerCount++; snacksCount++; }

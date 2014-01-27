@@ -84,8 +84,16 @@
     <Content Include="CalMaterStyle.css" />
     <Content Include="dailyFood.css" />
     <Content Include="ForgottenDetails.aspx" />
+    <Content Include="images\apple.jpg" />
     <Content Include="images\cuts.jpg" />
+    <Content Include="images\fork.jpg" />
+    <Content Include="images\img01.jpg" />
+    <Content Include="images\num4.jpg" />
+    <Content Include="images\num3.jpg" />
+    <Content Include="images\num2.jpg" />
+    <Content Include="images\no1.jpg" />
     <Content Include="images\img02.jpg" />
+    <Content Include="images\num1.jpg" />
     <Content Include="jquery-1.9.1.js" />
     <Content Include="LoginSS.css" />
     <Content Include="Past_meals.aspx" />

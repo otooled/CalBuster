@@ -13,6 +13,7 @@ namespace CalBuster
         private List<item> ingregients = new List<item>();
         protected void Page_Load(object sender, EventArgs e)
         {
+            Page.MaintainScrollPositionOnPostBack = true;
             if (!Page.IsPostBack)
             {
                 lstDrygoods.SelectedIndex = 0;
@@ -28,26 +29,35 @@ namespace CalBuster
         protected void btnAddMeal_Click(object sender, EventArgs e)
         {
             //var typeOf = cd.FoodItem_tbl.Where(a => a.Item_id == Convert.ToInt32(hdfSelValue.Value)).Select(n => n.TypeOf).FirstOrDefault();
-            Meal_tbl din = new Meal_tbl { Name = txtName.Text };
-            cd.Meal_tbl.Add(din);
-            cd.SaveChanges();
-            foreach (var it in ingregients)
+            if (txtName.Text == "" || listToAdd.Items.Count < 1) { txtName.Focus(); return; }
+            try
             {
-                var veg = cd.FoodItem_tbl.Where(a => a.Item_id == it.id && a.Name == it.name);
-                if (veg.Count() != 0)
-                {
-                    Link_tbl lk = new Link_tbl { Meal_id = din.meal_id, Item_id = it.id, Quantity= it.quantity };
-                    cd.Link_tbl.Add(lk);
-                }
+                Meal_tbl din = new Meal_tbl { Name = txtName.Text };
+                cd.Meal_tbl.Add(din);
                 cd.SaveChanges();
+                foreach (var it in ingregients)
+                {
+                    var veg = cd.FoodItem_tbl.Where(a => a.Item_id == it.id && a.Name == it.name);
+                    if (veg.Count() != 0)
+                    {
+                        Link_tbl lk = new Link_tbl { Meal_id = din.meal_id, Item_id = it.id, Quantity = it.quantity };
+                        cd.Link_tbl.Add(lk);
+                    }
+                    cd.SaveChanges();
+                }
             }
-            ingregients.Clear();
-            listToAdd.Items.Clear();
+            catch { }
+            finally
+            {
+                ingregients.Clear();
+                listToAdd.Items.Clear();
+                Response.Redirect("PlannerPage.aspx");
+            }
         }
 
         protected void btnAddItem_Click(object sender, EventArgs e)
         {
-            if (txtQuantity.Text == "") { return; }
+            if (txtQuantity.Text == "") { txtQuantity.Focus(); return; }
             item t = new item { id = Convert.ToInt32(hdfSelValue.Value), name = txtSelectedItem.Text, quantity = Convert.ToDecimal(txtQuantity.Text) };
             ingregients.Add(t);
             string gg = string.Format("{0} portions of {1}   ", t.quantity, t.name);
@@ -58,6 +68,7 @@ namespace CalBuster
 
         protected void lstVeg_SelectedIndexChanged1(object sender, EventArgs e)
         {
+            txtQuantity.Focus();
             ListBox d = (ListBox)sender;
             txtSelectedItem.Text = d.SelectedItem.ToString();
             hdfSelValue.Value = d.SelectedValue;
@@ -66,5 +77,9 @@ namespace CalBuster
             //listToAdd.Items.Add(d.SelectedItem);
         }
 
+        protected void btnBackToPlanner_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("PlannerPage.aspx");
+        }
     }
 }
