@@ -56,6 +56,7 @@ namespace CalBuster
                                   Gender = rdlGender.SelectedValue,
                                   Password = GetMd5Hash(txtConfirmPassword.Text),
                                   UserName = txtCreateUserName.Text,
+                                  //DOB = String.Format(txtDOB.Text);
                                   //DOB = String.Format(txtDay.Text + txtMonth.Text + txtYear.Text)
                               };
             db.User_tbl.Add(us);

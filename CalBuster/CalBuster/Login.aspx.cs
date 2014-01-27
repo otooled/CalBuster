@@ -20,6 +20,7 @@ namespace CalBuster
 
             //Highlight username textbox
             txtUserName.Focus();
+
             if (!IsPostBack)
             {
                 //Create session
@@ -28,7 +29,9 @@ namespace CalBuster
 
                     User values = (User)Session["userDetails"];
                     txtUserName.Text = values.userName;
-                    
+
+                    txtPassword.Text = values.password;
+
                 }
             }
 
@@ -113,9 +116,10 @@ namespace CalBuster
             if (IsValid)
             {
                 //Add session
-                User details = new User { userName = txtUserName.Text, password = txtPassword.Text};
+                User details = new User { userName = txtUserName.Text, password = txtPassword.Text };
                 Session.Add("userDetails", details);
             }
+
             string hash=GetMd5Hash(txtPassword.Text);
             var dd = db.User_tbl.Where(a => a.UserName == txtUserName.Text && a.Password == hash).FirstOrDefault();
             if (dd != null)
@@ -139,20 +143,10 @@ namespace CalBuster
             }
             return output;
 
+
         }
 
-        protected void csvUsername_ServerValidate(object source, ServerValidateEventArgs args)
-        {
-            if(txtUserName.Text == null)
-            {
-                args.IsValid = false;
-            }
-            else
-            {
-                    args.IsValid = true;
-                
-            }
-        }
+        
 
      }
 }
