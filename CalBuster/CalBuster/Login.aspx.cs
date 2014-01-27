@@ -17,13 +17,18 @@ namespace CalBuster
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            //Highlight username textbox
+            txtUserName.Focus();
             if (!IsPostBack)
             {
                 //Create session
                 if (Session["userDetails"] != null)
                 {
+
                     User values = (User)Session["userDetails"];
-                    txtPassword.Text = values.password;
+                    txtUserName.Text = values.userName;
+                    
                 }
             }
 
@@ -117,6 +122,7 @@ namespace CalBuster
             {
                 Response.Redirect("PlannerPage.aspx");
             }
+            
         }
 
         static string GetMd5Hash(string input)
@@ -132,6 +138,21 @@ namespace CalBuster
                 }
             }
             return output;
+
         }
-    }
+
+        protected void csvUsername_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if(txtUserName.Text == null)
+            {
+                args.IsValid = false;
+            }
+            else
+            {
+                    args.IsValid = true;
+                
+            }
+        }
+
+     }
 }

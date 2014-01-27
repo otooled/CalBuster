@@ -180,4 +180,16 @@
 }
 #leftcolumn { width:60%;   float:left;
 }
+.siteDetails {
+    background-color: azure;
+    font-size: 18px;
+    width: 800px;
+    text-align: center;
+    border-radius: 20px;
+    
+}
+.bmiDiv {
+    position: absolute;
+    top: 450px;
+}
 
