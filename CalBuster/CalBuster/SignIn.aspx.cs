@@ -24,6 +24,8 @@ namespace CalBuster
             txtFirstName.Focus();
             rgvDob.MinimumValue = DateTime.Today.AddYears(-80).ToShortDateString();
             rgvDob.MaximumValue = DateTime.Today.AddYears(-18).ToShortDateString();
+            //rgvDob.MinimumValue = DateTime.Today.AddYears(-80).Date.ToString();
+            //rgvDob.MaximumValue = DateTime.Today.AddYears(-18).Date.ToString();
 
         }
         

@@ -39,12 +39,10 @@
         
     
     </p>
-    <p>
-       
-
+    
     <asp:Label ID="lblNewUser" runat="server" Text="Not a member yet?  Click on the button below to join."
         CssClass="loginHeader"></asp:Label>
-    </p>
+    
     <p>
         <asp:Button ID="btnJoin" runat="server" Text="Join Now!" CssClass="btnJoin" OnClick="btnJoin_Click" />
     </p>
