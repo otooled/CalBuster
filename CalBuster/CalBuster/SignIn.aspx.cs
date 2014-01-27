@@ -18,10 +18,15 @@ namespace CalBuster
 
         Calorie_BusterEntities db = new Calorie_BusterEntities();
 
+
         protected void Page_Load(object sender, EventArgs e)
         {
             txtFirstName.Focus();
+            rgvDob.MinimumValue = DateTime.Today.AddYears(-80).ToShortDateString();
+            rgvDob.MaximumValue = DateTime.Today.AddYears(-18).ToShortDateString();
+
         }
+        
         static string GetMd5Hash(string input)
         {
             string output = "";

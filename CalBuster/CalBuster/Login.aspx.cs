@@ -17,6 +17,8 @@ namespace CalBuster
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Highlight username textbox
+            txtUserName.Focus();
 
             if (!IsPostBack)
             {
@@ -121,6 +123,7 @@ namespace CalBuster
             {
                 Response.Redirect("PlannerPage.aspx");
             }
+            
         }
 
         static string GetMd5Hash(string input)
