@@ -88,6 +88,9 @@
     <Content Include="images\cuts.jpg" />
     <Content Include="images\fork.jpg" />
     <Content Include="images\img01.jpg" />
+    <Content Include="images\MainBanner.png" />
+    <Content Include="images\MainBanner1.png" />
+    <Content Include="images\MainBanner2.png" />
     <Content Include="images\num4.jpg" />
     <Content Include="images\num3.jpg" />
     <Content Include="images\num2.jpg" />

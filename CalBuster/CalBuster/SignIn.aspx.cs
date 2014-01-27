@@ -24,9 +24,7 @@ namespace CalBuster
             txtFirstName.Focus();
             rgvDob.MinimumValue = DateTime.Today.AddYears(-80).ToShortDateString();
             rgvDob.MaximumValue = DateTime.Today.AddYears(-18).ToShortDateString();
-            //rgvDob.MinimumValue = DateTime.Today.AddYears(-80).Date.ToString();
-            //rgvDob.MaximumValue = DateTime.Today.AddYears(-18).Date.ToString();
-
+           
         }
         
         static string GetMd5Hash(string input)
@@ -48,6 +46,7 @@ namespace CalBuster
 
         protected void btnRegister_Click(object sender, EventArgs e)
         {
+            //Add user details to user table
             User_tbl us = new User_tbl
                               {
                                   Fname = txtFirstName.Text,
@@ -57,7 +56,6 @@ namespace CalBuster
                                   Password = GetMd5Hash(txtConfirmPassword.Text),
                                   UserName = txtCreateUserName.Text,
                                   DOB = Convert.ToDateTime(txtDOB.Text),
-                                  //DOB = String.Format(txtDay.Text + txtMonth.Text + txtYear.Text)
                               };
             db.User_tbl.Add(us);
             try
