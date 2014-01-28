@@ -5,16 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head runat="server">
         <link href="CalMaterStyle.css" rel="stylesheet" />
-<<<<<<< HEAD
         <script src="jquery-1.9.1.js"></script>
         <script src="ui.js"></script>
         <script src="modernizr.custom.79639.js"></script>
         <script src="Scripts/bootstrap.js"></script>
         <script src="Scripts/jquery.dropdown.js"></script>
-        <link href="Scripts/drop.css" rel="stylesheet" />
-=======
+        <%--<link href="Scripts/drop.css" rel="stylesheet" />--%>
         <link rel="icon" type="image/jpg" href="images/favicon.jpg"/>
->>>>>>> 7360e21fbc1a64e1dbca46a78916a8467551edd3
         <title></title>
         <asp:ContentPlaceHolder ID="head" runat="server">
             </asp:ContentPlaceHolder>
