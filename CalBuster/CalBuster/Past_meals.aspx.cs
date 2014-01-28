@@ -17,7 +17,17 @@ namespace CalBuster
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Label mylbl = (Label)((MasterPage)this.Master).FindControl("userLoggedIn");
+            if (mylbl != null)
+            {
+                User user = new User();
+                if (Session["userDetails"] != null) { user = (((User)Session["userDetails"])); }
+                mylbl.Text = user.userName;
+            }
+            if (!Page.IsPostBack)
+            {
+                
+            }
         }
         //first attempt a query passmeals table
         protected void btnCall_Click(object sender, EventArgs e)

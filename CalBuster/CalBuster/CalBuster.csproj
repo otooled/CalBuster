@@ -82,21 +82,51 @@
       <DependentUpon>Calorie_Buster.mdf</DependentUpon>
     </Content>
     <Content Include="CalMaterStyle.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
     <Content Include="dailyFood.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="ForgottenDetails.aspx" />
     <Content Include="images\apple.jpg" />
     <Content Include="images\cuts.jpg" />
     <Content Include="images\fork.jpg" />
     <Content Include="images\img01.jpg" />
+    <Content Include="images\logout.png" />
     <Content Include="images\num4.jpg" />
     <Content Include="images\num3.jpg" />
     <Content Include="images\num2.jpg" />
     <Content Include="images\no1.jpg" />
     <Content Include="images\img02.jpg" />
     <Content Include="images\num1.jpg" />
+    <Content Include="images\setting.png" />
+    <Content Include="images\user_male_1-512.png" />
     <Content Include="jquery-1.9.1.js" />
     <Content Include="LoginSS.css" />
+    <Content Include="modernizr.custom.79639.js" />
     <Content Include="Past_meals.aspx" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="Scripts\jquery-1.4.4-vsdoc.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\drop.css" />
+    <Content Include="Scripts\jquery-1.4.4.js" />
+    <Content Include="Scripts\jquery-1.4.4.min.js" />
+    <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\jquery.dropdown.js" />
+    <Content Include="Scripts\jquery.ui.autocomplete.js" />
+    <Content Include="Scripts\jquery.ui.autocomplete.min.js" />
+    <Content Include="Scripts\jquery.ui.core.js" />
+    <Content Include="Scripts\jquery.ui.core.min.js" />
+    <Content Include="Scripts\jquery.ui.position.js" />
+    <Content Include="Scripts\jquery.ui.position.min.js" />
+    <Content Include="Scripts\jquery.ui.widget.js" />
+    <Content Include="Scripts\jquery.ui.widget.min.js" />
     <Content Include="SignIn.css" />
     <Content Include="ui.js" />
     <Content Include="Web.config" />
@@ -215,6 +245,7 @@
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
     <Content Include="packages.config" />
+    <Content Include="Scripts\jquery-1.9.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

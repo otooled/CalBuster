@@ -14,10 +14,11 @@ namespace CalBuster
     {
         //database 
         Calorie_BusterEntities db = new Calorie_BusterEntities();
-
+        
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            ((MasterPage)this.Master).FindControl("botbg").Visible = false;
+            ((MasterPage)this.Master).FindControl("userLogout").Visible = false;
             //Highlight username textbox
             txtUserName.Focus();
 

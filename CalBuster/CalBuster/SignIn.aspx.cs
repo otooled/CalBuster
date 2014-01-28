@@ -24,9 +24,8 @@ namespace CalBuster
             txtFirstName.Focus();
             rgvDob.MinimumValue = DateTime.Today.AddYears(-80).ToShortDateString();
             rgvDob.MaximumValue = DateTime.Today.AddYears(-18).ToShortDateString();
-            //rgvDob.MinimumValue = DateTime.Today.AddYears(-80).Date.ToString();
-            //rgvDob.MaximumValue = DateTime.Today.AddYears(-18).Date.ToString();
-
+            ((MasterPage)this.Master).FindControl("botbg").Visible = false;
+            ((MasterPage)this.Master).FindControl("userLogout").Visible = false;
         }
         
         static string GetMd5Hash(string input)
@@ -56,7 +55,7 @@ namespace CalBuster
                                   Gender = rdlGender.SelectedValue,
                                   Password = GetMd5Hash(txtConfirmPassword.Text),
                                   UserName = txtCreateUserName.Text,
-                                  //DOB = String.Format(txtDOB.Text);
+                                  DOB = Convert.ToDateTime(txtDOB.Text),
                                   //DOB = String.Format(txtDay.Text + txtMonth.Text + txtYear.Text)
                               };
             db.User_tbl.Add(us);

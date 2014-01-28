@@ -4,52 +4,52 @@
     <link href="LoginSS.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="siteDetails">Recommended daily calorie intake varies from person to person, but there are guidelines for 
-        calorie requirements you can use as a starting point.
+    
+            <div class="siteDetails">Recommended daily calorie intake varies from person to person, but there are guidelines for 
+                calorie requirements you can use as a starting point.
        
-    <p></p>
-        CalBuster can help you track your daily calorie in-take to help you keep a healthy and balanced diet.
-        <p></p>  Login or join us now!
-    </div>
-    <p></p>
-    <div>
-        <asp:Label ID="lblLoginHeading" runat="server" Text="Login to CalBuster" CssClass="loginHeader"></asp:Label>
-    </div>
-    <p></p>
-    <asp:Label ID="lblUsername" runat="server" Text="Username"></asp:Label>
-    <br />
-    <asp:TextBox ID="txtUserName" runat="server" CssClass="highightTextbox"></asp:TextBox>
+                <p></p>
+                CalBuster can help you track your daily calorie in-take to help you keep a healthy and balanced diet.
+                <p></p>  Login or join us now!
+            </div>
+            <p></p>
+    <div id="everything">
+        <div id="leftcolumn">                        
+        <%--<div id="loginHeading" class="loginHeaderDiv">--%>
+            <div>
+                <asp:Label ID="lblLoginHeading" runat="server" Text="Login to CalBuster" CssClass="loginHeader"></asp:Label>
+            </div>
+            <p></p>
+            <asp:Label ID="lblUsername" runat="server" Text="Username"></asp:Label>
+            <br />
+            <asp:TextBox ID="txtUserName" runat="server" CssClass="highightTextbox"></asp:TextBox>
     
-    <asp:RequiredFieldValidator ID="rfvUsername" runat="server" ControlToValidate="txtUserName" Display="Dynamic" ErrorMessage="Username required" SetFocusOnError="True" ValidationGroup="valLogin"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="rfvUsername" runat="server" ControlToValidate="txtUserName" Display="Dynamic" ErrorMessage="Username required" SetFocusOnError="True" ValidationGroup="valLogin"></asp:RequiredFieldValidator>
     
-    <p>
-        <asp:Label ID="lblPassword" runat="server" Text="Password"></asp:Label>
-        <br />
-        <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="highightTextbox"></asp:TextBox>
-        <asp:RequiredFieldValidator ID="rfvPassword" runat="server" ControlToValidate="txtPassword" Display="Dynamic" ErrorMessage="Password required" SetFocusOnError="True" ValidationGroup="valLogin"></asp:RequiredFieldValidator>
-    </p>
+            <p>
+                <asp:Label ID="lblPassword" runat="server" Text="Password"></asp:Label>
+                <br />
+                <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="highightTextbox"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="rfvPassword" runat="server" ControlToValidate="txtPassword" Display="Dynamic" ErrorMessage="Password required" SetFocusOnError="True" ValidationGroup="valLogin"></asp:RequiredFieldValidator>
+            </p>
  
-    <p>
-
-        <asp:Button ID="btnLogin" runat="server" Text="Login" CssClass="loginBtn" OnClick="btnLogin_Click" ValidationGroup="valLogin" />
-        </p>
-        <label>Forgot your <asp:HyperLink ID="hypUserName" runat="server" NavigateUrl="~/ForgottenDetails.aspx?purpose=userName">UserName</asp:HyperLink></label>
-        <label> or <asp:HyperLink ID="hypPassword" runat="server" NavigateUrl="~/ForgottenDetails.aspx?purpose=password">Password?</asp:HyperLink></label>
-    <p>
-        
+            <p>
+                <asp:Button ID="btnLogin" runat="server" Text="Login" CssClass="loginBtn" OnClick="btnLogin_Click" ValidationGroup="valLogin" />
+            </p>
+            <label>Forgot your <asp:HyperLink ID="hypUserName" runat="server" NavigateUrl="~/ForgottenDetails.aspx?purpose=userName">UserName</asp:HyperLink></label>
+            <label> or <asp:HyperLink ID="hypPassword" runat="server" NavigateUrl="~/ForgottenDetails.aspx?purpose=password">Password?</asp:HyperLink></label>
+            <p>   </p>
     
-    </p>
+            <asp:Label ID="lblNewUser" runat="server" Text="Not a member yet?  Click on the button below to join."
+                CssClass="loginHeader"></asp:Label>
     
-    <asp:Label ID="lblNewUser" runat="server" Text="Not a member yet?  Click on the button below to join."
-        CssClass="loginHeader"></asp:Label>
+            <p>
+                <asp:Button ID="btnJoin" runat="server" Text="Join Now!" CssClass="btnJoin" OnClick="btnJoin_Click" />
+            </p>
+        </div>
+   
+    <div id="rightcolumn" >
     
-    <p>
-        <asp:Button ID="btnJoin" runat="server" Text="Join Now!" CssClass="btnJoin" OnClick="btnJoin_Click" />
-    </p>
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">
-    <div class="bmiDiv">
-
 
         <asp:Label ID="lblBMIHeader" runat="server" Text="Get your BMI now" CssClass="loginHeader"></asp:Label>
         <br />
@@ -78,6 +78,8 @@
         <asp:Label ID="lblDisplayBMI" runat="server" Text="Your calculated BMI"></asp:Label>
         <p>&nbsp;</p>
 
+  
+    </div>
     </div>
 </asp:Content>
 

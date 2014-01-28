@@ -71,11 +71,11 @@ hr {
 	height: 50px;
 	margin: 0 auto;
 	padding: 0;
-	/*background: url(images/img01.jpg) no-repeat left top;*/
-    
+	/*background: url(images/img01.jpg) no-repeat left top;*/    
 }
 
 #header {
+    position:relative;
 	width: 800px;
 	height: 200px;
 	margin: 0 auto;
@@ -105,8 +105,37 @@ hr {
 
 #header a {
 	text-decoration: none;
-	color: #F79F1A;
+	color: #FFFFFF;
 }
+#botbg ul {  
+    position:absolute;
+    bottom:0px;
+    right:0px;
+}
+
+#botbg ul li{   
+	display: block;
+	float: right;
+	line-height: 42px;
+	margin: 5px;
+	min-width: 80px;
+	font-size:18px;
+	color: #FFFFFF;  
+}
+#userLogout {
+    float:right;
+    margin-right:12px;
+}
+.iconPics {
+    height:35px;
+    width:35px;
+}
+.iconPics2 {
+    height:18px;
+    width:18px;
+    margin-right:12px;
+}
+
 
 /* Page */
 

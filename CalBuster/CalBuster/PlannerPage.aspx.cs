@@ -32,6 +32,13 @@ namespace CalBuster
 
             if (Page.IsPostBack)
             {
+                Label mylbl = (Label)((MasterPage)this.Master).FindControl("userLoggedIn");
+                if (mylbl != null)
+                {
+                    User user = new User();
+                    if (Session["userDetails"] != null) { user = (((User)Session["userDetails"])); }
+                    mylbl.Text = user.userName;
+                }
                 string h = ViewState["ViewStateId"].ToString();
                 string k = Session["SessionId"].ToString();
                 if (Session["SessionId"] != null)
@@ -47,6 +54,13 @@ namespace CalBuster
             if (IsPageRefresh == true) { return; }
             if (Page.IsPostBack && IsPageRefresh == false)
             {
+                Label mylbl = (Label)((MasterPage)this.Master).FindControl("userLoggedIn");
+                if (mylbl != null)
+                {
+                    User user = new User();
+                    if (Session["userDetails"] != null) { user = (((User)Session["userDetails"])); }
+                    mylbl.Text = user.userName;
+                }
                 show = (string)Session["show"];
                 if (show == "yes") { searchForMeal.Visible = true; titleDiv.Visible = false; }
                 else { searchForMeal.Visible = false; titleDiv.Visible = true; }
@@ -104,9 +118,25 @@ namespace CalBuster
 
             TreeView1.ExpandDepth = 0;
             TreeView1.RootNodeStyle.ImageUrl = "images/cuts.jpg";
+            //if (!Page.IsPostBack && IsPageRefresh == false)
+            //{
+            //    Label mylbl = (Label)((MasterPage)this.Master).FindControl("userLoggedIn");
+            //    if (mylbl != null)
+            //    {
+            //        User user = new User();
+            //        if (Session["userDetails"] != null) { user = (((User)Session["userDetails"])); }
+            //        mylbl.Text = user.userName;
+            //    }
+            //}
             if (!Page.IsPostBack)
             {
-                
+                Label mylbl = (Label)((MasterPage)this.Master).FindControl("userLoggedIn");
+                if (mylbl != null)
+                {
+                    User user = new User();
+                    if (Session["userDetails"] != null) { user = (((User)Session["userDetails"])); }
+                    mylbl.Text = user.userName;
+                }
                 lblDate.Text = string.Format("{0} the {1} of {2} {3}", DateTime.Today.DayOfWeek, DateTime.Now.Day, DateTime.Now.ToString("MMMM"), DateTime.Today.Year);
                 searchForMeal.Visible = false;
                 Session.Clear();
