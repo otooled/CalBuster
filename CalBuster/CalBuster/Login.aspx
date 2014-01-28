@@ -55,19 +55,19 @@
         <br />
         <br />
         <asp:Label ID="lblHeight" runat="server" Text="Height:" CssClass="highightTextbox"></asp:Label>
-        <asp:TextBox ID="txtHeightFeet" runat="server" placeholder="Feet" CssClass="bmiTextBox" TextMode="Number" Width="50px"></asp:TextBox>
-        <asp:TextBox ID="txtHeightInces" runat="server" placeholder="Inches" CssClass="bmiTextBox" TextMode="Number" Width="50px"></asp:TextBox>
+        <asp:TextBox ID="txtHeightFeet" runat="server" placeholder="Feet" CssClass="bmiTextBox" TextMode="Number" Width="50px" ToolTip="Feet must be between 4 and 7"></asp:TextBox>
+        <asp:TextBox ID="txtHeightInces" runat="server" placeholder="Inches" CssClass="bmiTextBox" TextMode="Number" Width="50px" ToolTip="Inches must be between 0 and 11"></asp:TextBox>
 
         <asp:RequiredFieldValidator ID="rfvHeight" runat="server" ControlToValidate="txtHeightFeet" Display="Dynamic" ErrorMessage="Feet required" SetFocusOnError="True" ValidationGroup="valBmi" CssClass="BMIValidator"></asp:RequiredFieldValidator>
         <asp:RequiredFieldValidator ID="rfvHeightIns" runat="server" ControlToValidate="txtHeightInces" Display="Dynamic" ErrorMessage="Inches required" SetFocusOnError="True" ValidationGroup="valBmi" CssClass="BMIValidator"></asp:RequiredFieldValidator>
 
-        <asp:RangeValidator ID="rvHeightInches" runat="server" ControlToValidate="txtHeightInces" ErrorMessage="RangeValidator" MaximumValue="12" MinimumValue="0" Type="Integer" CssClass="BMIValidator" Display="Dynamic">Inches must be between 0 and 12</asp:RangeValidator>
+        <asp:RangeValidator ID="rvHeightInches" runat="server" ControlToValidate="txtHeightInces" ErrorMessage="RangeValidator" MaximumValue="12" MinimumValue="0" Type="Integer" CssClass="BMIValidator" Display="Dynamic">Incorrect height</asp:RangeValidator>
 
-        <asp:RangeValidator ID="rvHeightFeet" runat="server" ControlToValidate="txtHeightFeet" CssClass="BMIValidator" Display="Dynamic" ErrorMessage="RangeValidator" MaximumValue="7" MinimumValue="4" Type="Integer">Feet must be between 4 and 7 </asp:RangeValidator>
+        <asp:RangeValidator ID="rvHeightFeet" runat="server" ControlToValidate="txtHeightFeet" CssClass="BMIValidator" Display="Dynamic" ErrorMessage="RangeValidator" MaximumValue="7" MinimumValue="4" Type="Integer">Incorrect height</asp:RangeValidator>
 
         <p></p>
         <asp:Label ID="lblWeight" runat="server" Text="Weight:"></asp:Label>
-        <asp:TextBox ID="txtWeight" runat="server" placeholder="Enter weight in pounds" TextMode="Number" CssClass="bmiTextBox" Width="150px"></asp:TextBox>
+        <asp:TextBox ID="txtWeight" runat="server" placeholder="lbs" TextMode="Number" CssClass="bmiTextBox" ToolTip="Enter weight in pounds"></asp:TextBox>
         <asp:RequiredFieldValidator ID="rfvWeight" runat="server" ControlToValidate="txtWeight" Display="Dynamic" ErrorMessage="Weight required" SetFocusOnError="True" ValidationGroup="valBmi" CssClass="BMIValidator"></asp:RequiredFieldValidator>
         <asp:RangeValidator ID="rvWeight" runat="server" ControlToValidate="txtWeight" CssClass="BMIValidator" ErrorMessage="Cannot calculate this weight" MaximumValue="500" MinimumValue="50" Type="Integer" Display="Dynamic" SetFocusOnError="True"></asp:RangeValidator>
 
