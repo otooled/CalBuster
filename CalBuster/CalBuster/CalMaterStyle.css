@@ -105,7 +105,7 @@ hr {
 
 #header a {
 	text-decoration: none;
-	color: #FFFFFF;
+	color: black;
 }
 #botbg ul {  
     position:absolute;
@@ -135,7 +135,7 @@ hr {
     width:18px;
     margin-right:12px;
 }
-
+                         /*bootstrap section*/
 .dropdown {
         position: absolute;
         z-index: 9999999;
@@ -236,7 +236,6 @@ hr {
         margin: 5px 0;
 }
 
-/* Icon Examples - icons courtesy of http://p.yusukekamiyamane.com/ */
 .dropdown.has-icons LI > A {
         padding-left: 30px;
         background-position: 8px center;

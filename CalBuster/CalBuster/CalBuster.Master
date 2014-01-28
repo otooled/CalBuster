@@ -37,8 +37,8 @@
 
         <div id="page">
             <span id="userLogout" runat="server">
-                <img src="images/user_male_1-512.png" class="iconPics" />
-            <asp:Label ID="userLoggedIn" class="example" data-dropdown="#dropdown-1" runat="server" Text="Label">mkmkmkmk</asp:Label>
+                <a href="#"><img src="images/user_male_1-512.png" class="iconPics" />
+            <asp:Label ID="userLoggedIn" class="example" data-dropdown="#dropdown-1" runat="server" Text="Label"></asp:Label></a>
             </span>
             
             <div id="dropdown-1" class="dropdown dropdown-tip">
