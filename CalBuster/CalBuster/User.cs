@@ -9,6 +9,7 @@ namespace CalBuster
     {
        public string userName { get; set; }
        public string password { get; set; }
+       public int userId { get; set; }
 
        //default constructor
        public User()

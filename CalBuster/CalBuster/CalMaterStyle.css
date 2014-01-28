@@ -103,17 +103,18 @@ hr {
 	text-transform: lowercase;
 }
 
-#header a {
+#links a {
 	text-decoration: none;
 	color: black;
 }
-#botbg ul {  
-    position:absolute;
-    bottom:0px;
-    right:0px;
+
+#links {
+    height:25px;
+    width:800px;
+    margin: 0 auto;
 }
 
-#botbg ul li{   
+#links ul li{   
 	display: block;
 	float: right;
 	line-height: 42px;
@@ -122,9 +123,8 @@ hr {
 	font-size:18px;
 	color: #FFFFFF;  
 }
-#userLogout {
-    float:right;
-    margin-right:12px;
+#userLog {
+    vertical-align:central;
 }
 .iconPics {
     height:35px;
@@ -256,7 +256,6 @@ hr {
 	width: 800px;
 	margin: 0 auto;
 	padding-top: 30px;
-	background: url(images/img03.jpg) no-repeat left top;
 }
 
 /* Content */

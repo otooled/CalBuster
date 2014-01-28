@@ -31,22 +31,13 @@ namespace CalBuster {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// botbg control.
+        /// links control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl botbg;
-        
-        /// <summary>
-        /// userLogout control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl userLogout;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl links;
         
         /// <summary>
         /// userLoggedIn control.

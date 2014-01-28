@@ -23,23 +23,22 @@
 
     <div id="topbg">&nbsp;</div>
     <div id="header">
-        <div id="botbg" runat="server">        
-            	<ul>
-                	<li><a href="PlannerPage.aspx">Planner</a></li>               	 
-                	<li><a href="Past_meals.aspx">Past Meals</a></li>                      
-            	</ul>            	
-        </div>	              
+              
     </div>
-        
+     <div id="links" runat="server">        
+                <ul>
+                    <li id="userLog"><a href="#"><img src="images/user_male_1-512.png" class="iconPics" />
+                        <asp:Label id="userLoggedIn"  data-dropdown="#dropdown-1" runat="server"></asp:Label></a></li>
+                	<li><a href="PlannerPage.aspx">Planner</a></li>               	 
+                	<li><a href="Past_meals.aspx">Past Meals</a></li>
+                                          
+            	</ul>    	
+            </div>      
         
 <!-- end header -->
 <!-- start page -->
 
         <div id="page">
-            <span id="userLogout" runat="server">
-                <a href="#"><img src="images/user_male_1-512.png" class="iconPics" />
-            <asp:Label ID="userLoggedIn" class="example" data-dropdown="#dropdown-1" runat="server" Text="Label"></asp:Label></a>
-            </span>
             
             <div id="dropdown-1" class="dropdown dropdown-tip">
                 <ul class="dropdown-menu">

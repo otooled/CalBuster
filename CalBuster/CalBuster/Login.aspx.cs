@@ -17,8 +17,8 @@ namespace CalBuster
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            ((MasterPage)this.Master).FindControl("botbg").Visible = false;
-            ((MasterPage)this.Master).FindControl("userLogout").Visible = false;
+            ((MasterPage)this.Master).FindControl("links").Visible = false;
+            
             //Highlight username textbox
             txtUserName.Focus();
 
@@ -113,11 +113,11 @@ namespace CalBuster
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-
+            User details;
             if (IsValid)
             {
                 //Add session
-                User details = new User { userName = txtUserName.Text, password = txtPassword.Text };
+                details = new User { userName = txtUserName.Text, password = txtPassword.Text };
                 Session.Add("userDetails", details);
             }
 
@@ -125,6 +125,11 @@ namespace CalBuster
             var dd = db.User_tbl.Where(a => a.UserName == txtUserName.Text && a.Password == hash).FirstOrDefault();
             if (dd != null)
             {
+                if (Session["userDetails"] != null)
+                {
+                    User m = (User)Session["userDetails"];
+                    m.userId = dd.User_id;
+                }
                 Response.Redirect("PlannerPage.aspx");
             }
             else

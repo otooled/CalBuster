@@ -15,9 +15,10 @@ namespace CalBuster
         private int lunchCount = 3;
         private int dinnerCount = 5;
         private int snacksCount = 7;
+        private int userNo;
         //Cal_BusterEntities1 cd = new Cal_BusterEntities1();
         Calorie_BusterEntities cd = new Calorie_BusterEntities();
-
+        
         private List<item> brekyItems = new List<item>();
         private List<item> lunchItems = new List<item>();
         private List<item> dinnerItems = new List<item>();
@@ -26,7 +27,15 @@ namespace CalBuster
         string show = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            Label lbl = (Label)((MasterPage)this.Master).FindControl("userLoggedIn");       // set user name label at the top
+            if (lbl != null)
+            {
+                User user = new User();
+                if (Session["userDetails"] != null) { user = (((User)Session["userDetails"])); }
+                lbl.Text = user.userName;
+                userNo = user.userId;
+            }
+
             Page.MaintainScrollPositionOnPostBack = true;
             IsPageRefresh = false;
 
@@ -374,6 +383,8 @@ namespace CalBuster
             if (meal != null)
             {
                 food = calcAllDetails(meal);
+                food.id = y;
+                
             }
             var r = cd.FoodItem_tbl.Where(n => n.Item_id == y && n.Name == nme).FirstOrDefault();   // check if its a meal or single food item
             int portions = Convert.ToInt32(txtPortions.Text);
@@ -434,45 +445,51 @@ namespace CalBuster
 
         protected void btnAddAllToDb_Click(object sender, EventArgs e)
         {
-            PastMeal_tbl pm = new PastMeal_tbl { User_id = 1, Date = DateTime.Now };
+            PastMeal_tbl pm = new PastMeal_tbl { User_id = 3, Date = DateTime.Now };
             cd.PastMeal_tbl.Add(pm);
-            cd.SaveChanges();
-            if (brekyItems.Count() != 0)
+            try { cd.SaveChanges(); }
+            catch { };
+            PastLink_tbl pl;
+            try
             {
-                foreach (var item in brekyItems)
+                if (brekyItems.Count() != 0)
                 {
-                    PastLink_tbl pl = new PastLink_tbl { Meal_id = item.id, Past_Meal_id = pm.PastMeal_id };
-                    cd.PastLink_tbl.Add(pl);
-                    cd.SaveChanges();
+                    foreach (var item in brekyItems)
+                    {
+                        pl = new PastLink_tbl { Meal_id = item.id, Past_Meal_id = pm.PastMeal_id };
+                        cd.PastLink_tbl.Add(pl);
+                        cd.SaveChanges();
+                    }
+                }
+                if (lunchItems.Count() != 0)
+                {
+                    foreach (var item in lunchItems)
+                    {
+                        pl = new PastLink_tbl { Meal_id = item.id, Past_Meal_id = pm.PastMeal_id };
+                        cd.PastLink_tbl.Add(pl);
+                        cd.SaveChanges();
+                    }
+                }
+                if (dinnerItems.Count() != 0)
+                {
+                    foreach (var item in dinnerItems)
+                    {
+                        pl = new PastLink_tbl { Meal_id = item.id, Past_Meal_id = pm.PastMeal_id };
+                        cd.PastLink_tbl.Add(pl);
+                        cd.SaveChanges();
+                    }
+                }
+                if (snacksItems.Count() != 0)
+                {
+                    foreach (var item in snacksItems)
+                    {
+                        pl = new PastLink_tbl { Meal_id = item.id, Past_Meal_id = pm.PastMeal_id };
+                        cd.PastLink_tbl.Add(pl);
+                        cd.SaveChanges();
+                    }
                 }
             }
-            if (lunchItems.Count() != 0)
-            {
-                foreach (var item in lunchItems)
-                {
-                    PastLink_tbl pl = new PastLink_tbl { Meal_id = item.id, Past_Meal_id = pm.PastMeal_id };
-                    cd.PastLink_tbl.Add(pl);
-                    cd.SaveChanges();
-                }
-            }
-            if (dinnerItems.Count() != 0)
-            {
-                foreach (var item in dinnerItems)
-                {
-                    PastLink_tbl pl = new PastLink_tbl { Meal_id = item.id, Past_Meal_id = pm.PastMeal_id };
-                    cd.PastLink_tbl.Add(pl);
-                    cd.SaveChanges();
-                }
-            }
-            if (snacksItems.Count() != 0)
-            {
-                foreach (var item in snacksItems)
-                {
-                    PastLink_tbl pl = new PastLink_tbl { Meal_id = item.id, Past_Meal_id = pm.PastMeal_id };
-                    cd.PastLink_tbl.Add(pl);
-                    cd.SaveChanges();
-                }
-            }
+            catch {  }
         }
     }
 }
