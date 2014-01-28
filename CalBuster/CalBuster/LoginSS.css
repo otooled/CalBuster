@@ -1,5 +1,5 @@
-﻿body {
-    }
+﻿/*body {
+    }*/
 
 .loginBtn {
 	
@@ -62,7 +62,7 @@
 }
 .heightInches {
     width: 50px;
-    position: absolute;
+    /*position: absolute;*/
     right: 180px;
     top: 13px;
 }
@@ -143,14 +143,14 @@
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#8cb82b', endColorstr='#9dce2c');
 	background-color:#8cb82b;
 }.btnRegForgot:active  {
-	position:relative;
+	/*position:relative;*/
 	top:1px;
 }
  .signInLabel {
-     margin:0 0 0 150px;position: relative;
+     margin:0 0 0 150px;/*position: relative;*/
  }
  .signInTextBox {
-     margin:0 0 0 70px;position: absolute;
+     margin:0 0 0 70px;/*position: absolute;*/
  }
  .registerVal {
      border: red;
@@ -176,7 +176,7 @@
     background-color: seashell;
     width: 400px;
 }
-#rightcolumn { width:30%;  margin-right:100px; float:right;
+#rightcolumn { width:30%;  margin-right:50px; float:right;margin-bottom:100px;
 }
 #leftcolumn { width:60%;   float:left;
 }
@@ -188,8 +188,14 @@
     border-radius: 20px;
     
 }
-.bmiDiv {
+#everything {
+    width:100%;
+    
+     overflow:auto;
+}
+/*.bmiDiv {
     position: absolute;
     top: 450px;
-}
+}*/
+
 

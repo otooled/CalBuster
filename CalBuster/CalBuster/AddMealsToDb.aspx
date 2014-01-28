@@ -63,6 +63,7 @@
         <asp:Button ID="btnAddMeal" runat="server" OnClick="btnAddMeal_Click" class="sendToDb" Text="Submit" />
         <asp:Button ID="btnBackToPlanner" OnClick="btnBackToPlanner_Click" runat="server"  class="sendToDb" Text="Back To Planner" />
     </div>  
+
     </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 </asp:Content>

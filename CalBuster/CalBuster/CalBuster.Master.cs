@@ -9,6 +9,12 @@ namespace CalBuster
 {
     public partial class CalBuster : System.Web.UI.MasterPage
     {
+        public string userNme
+        {
+            get { return this.userLoggedIn.Text; }
+            set { this.userLoggedIn.Text = value; }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
 

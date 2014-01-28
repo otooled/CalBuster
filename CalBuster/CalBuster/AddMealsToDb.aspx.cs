@@ -16,6 +16,13 @@ namespace CalBuster
             Page.MaintainScrollPositionOnPostBack = true;
             if (!Page.IsPostBack)
             {
+                Label mylbl = (Label)((MasterPage)this.Master).FindControl("userLoggedIn");
+                if (mylbl != null)
+                {
+                    User user = new User();
+                    if (Session["userDetails"] != null) { user = (((User)Session["userDetails"])); }
+                    mylbl.Text = user.userName;
+                }
                 lstDrygoods.SelectedIndex = 0;
                 lstmeat.SelectedIndex = 0;
                 lstVeg.SelectedIndex = 0;

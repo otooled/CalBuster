@@ -5,6 +5,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head runat="server">
         <link href="CalMaterStyle.css" rel="stylesheet" />
+        <script src="jquery-1.9.1.js"></script>
+        <script src="ui.js"></script>
+        <script src="modernizr.custom.79639.js"></script>
+        <script src="Scripts/bootstrap.js"></script>
+        <script src="Scripts/jquery.dropdown.js"></script>
+        <%--<link href="Scripts/drop.css" rel="stylesheet" />--%>
         <link rel="icon" type="image/jpg" href="images/favicon.jpg"/>
         <title></title>
         <asp:ContentPlaceHolder ID="head" runat="server">
@@ -12,46 +18,54 @@
     </head>
 <body>
     <form id="form1" runat="server">
+        
 <!-- start header -->
 
-<div id="topbg">&nbsp;</div>
-<div id="header">
-	<%--<h1>simplegreen</h1>
-	<p> design By Free CSS Templates</p>--%>                    <%--this is a test comment--%>
-</div>
+    <div id="topbg">&nbsp;</div>
+    <div id="header">
+        <div id="botbg" runat="server">        
+            	<ul>
+                	<li><a href="PlannerPage.aspx">Planner</a></li>               	 
+                	<li><a href="Past_meals.aspx">Past Meals</a></li>                      
+            	</ul>            	
+        </div>	              
+    </div>
+        
+        
 <!-- end header -->
 <!-- start page -->
 
         <div id="page">
-            <div class="bgtop">
-                <div class="bgbtm">
-                    <!-- start content -->
-
-                    <div id="leftcolumn">
-                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                            <div id="loginHeading" class="loginHeaderDiv">
-                                  
-                            </div>
-                        </asp:ContentPlaceHolder>
-                       
-                    </div>
-                     <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server" >       
-                     </asp:ContentPlaceHolder>
-                </div>
-                
-            </div>
-           
-        </div>
-         <div id="rightcolumn" >
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder3" runat="server" >
+            <span id="userLogout" runat="server">
+                <img src="images/user_male_1-512.png" class="iconPics" />
+            <asp:Label ID="userLoggedIn" class="example" data-dropdown="#dropdown-1" runat="server" Text="Label">mkmkmkmk</asp:Label>
+            </span>
             
-        </asp:ContentPlaceHolder>
-                </div>
-      
-       
+            <div id="dropdown-1" class="dropdown dropdown-tip">
+                <ul class="dropdown-menu">
+                    <li><a href="SignIn.aspx"><img src="images/setting.png" class="iconPics2" />Change details</a></li>
+                    <li><a href="Login.aspx"><img src="images/logout.png" class="iconPics2" />   Log out</a></li>
+                    
+                </ul>
+            </div>
+
+            <div class="bgtop">
+                
+                <!-- start content -->
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>   
+
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server" >       
+                        </asp:ContentPlaceHolder>
+
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder3" runat="server">
+                        </asp:ContentPlaceHolder>   
+                <!-- end content -->
+            </div>
+        </div>           
     </form>
     <div id="footer">
-	<p>&copy;2007 All Rights Reserved &nbsp;&bull;&nbsp; Design by <a href="http://www.freecsstemplates.org/">Free CSS Templates</a> &nbsp;&bull;&nbsp; Icons by <a href="http://www.famfamfam.com/">FAMFAMFAM</a>.</p>
+	    <p>&copy;2014 All Rights Reserved &nbsp;&bull;&nbsp; CalBuster  </p>
     </div>
 </body>
 </html>
