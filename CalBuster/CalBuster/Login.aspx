@@ -72,7 +72,8 @@
         <asp:RangeValidator ID="rvWeight" runat="server" ControlToValidate="txtWeight" CssClass="BMIValidator" ErrorMessage="Cannot calculate this weight" MaximumValue="500" MinimumValue="50" Type="Integer" Display="Dynamic" SetFocusOnError="True"></asp:RangeValidator>
 
         <p>
-            <asp:Button ID="btnBmiResult" runat="server" Text="Get your BMI" CssClass="loginBtn" OnClick="btnBmiResult_Click" ValidationGroup="valBmi" />
+            <asp:Button ID="btnBmiResult" runat="server" Text="Calculate BMI" CssClass="loginBtn" OnClick="btnBmiResult_Click" ValidationGroup="valBmi" />
+            
             <asp:Button ID="btnClear" runat="server" Text="Clear" OnClick="btnClear_Click" CssClass="loginBtn" />
         </p>
         <asp:Label ID="lblDisplayBMI" runat="server" Text="Your calculated BMI"></asp:Label>
