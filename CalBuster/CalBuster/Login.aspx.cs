@@ -127,6 +127,10 @@ namespace CalBuster
             {
                 Response.Redirect("PlannerPage.aspx");
             }
+            else
+            {
+                Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "Incorrect Login details", "<script>alert('Your username/password is incorrect.');</script>");
+            }
             
         }
 
