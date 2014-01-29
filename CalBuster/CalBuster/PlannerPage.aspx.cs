@@ -60,7 +60,7 @@ namespace CalBuster
                 }
             }
             if (IsPageRefresh == true) { return; }
-            if (Page.IsPostBack && IsPageRefresh == false)
+            if (Page.IsPostBack && IsPageRefresh == false)      // if its a postback, not a page refresh or first time load
             {
                
                 show = (string)Session["show"];
@@ -121,21 +121,21 @@ namespace CalBuster
             TreeView1.ExpandDepth = 0;
             TreeView1.RootNodeStyle.ImageUrl = "images/cuts.jpg";
             
-            if (!Page.IsPostBack)
+            if (!Page.IsPostBack)       // set up page for page load
             {
                 
                 lblDate.Text = string.Format("{0} the {1} of {2} {3}", DateTime.Today.DayOfWeek, DateTime.Now.Day, DateTime.Now.ToString("MMMM"), DateTime.Today.Year);
                 searchForMeal.Visible = false;
                 Session.Clear();
 
-                User details = new User { userName = userNme, userId= userNo };
+                User details = new User { userName = userNme, userId= userNo };     // add user name + id back to session 
                 Session.Add("userDetails", details);
 
-                brekyItems.Clear();
+                brekyItems.Clear();                             // clear out all list collections
                 lunchItems.Clear();
                 dinnerItems.Clear();
                 snacksItems.Clear();
-                for (int i = 1; i < 6; i++)                     // set total to 0
+                for (int i = 1; i < 6; i++)                     // set totals to 0
                 {
                     TotalsRow.Cells[i].Text = "";
                 }
@@ -146,7 +146,7 @@ namespace CalBuster
                 Session.Add("totalSugar", 0.0);
                 lunchItems.Clear();
                 brekyItems.Clear();
-                TreeView1.Nodes.Add(new TreeNode("Breakfast"));
+                TreeView1.Nodes.Add(new TreeNode("Breakfast"));                 // start populating the tree veiw
                 TreeView1.Nodes.Add(new TreeNode("Lunch"));
                 TreeView1.Nodes.Add(new TreeNode("Dinner"));
                 TreeView1.Nodes.Add(new TreeNode("Snacks"));
@@ -242,86 +242,86 @@ namespace CalBuster
                     TreeView1.Nodes[3].ChildNodes[2].ChildNodes.Add(new TreeNode(item.Name, item.Item_id.ToString()));
                 }
 
-                for (int i = 0; i < TreeView1.Nodes.Count; i++)                     // disable all nodes except leaf nodes
+                for (int i = 0; i < TreeView1.Nodes.Count; i++)                     // disable all nodes except leaf nodes 
                 {
-                    TreeView1.Nodes[i].SelectAction = TreeNodeSelectAction.None;
+                    TreeView1.Nodes[i].SelectAction = TreeNodeSelectAction.None;        //nested loop to access child nodes
                     for (int j = 0; j < TreeView1.Nodes[i].ChildNodes.Count; j++)
                     {
                         TreeView1.Nodes[i].ChildNodes[j].SelectAction = TreeNodeSelectAction.None;
                     }
                 }
-                ViewState["ViewStateId"] = System.Guid.NewGuid().ToString();
+                ViewState["ViewStateId"] = System.Guid.NewGuid().ToString();   // save the Page id to session to check later if the page load is a postback or from the refresh button 
                 Session["SessionId"] = ViewState["ViewStateId"].ToString();
             }
         }
 
-        [System.Web.Services.WebMethodAttribute(), System.Web.Script.Services.ScriptMethodAttribute()]
+        [System.Web.Services.WebMethodAttribute(), System.Web.Script.Services.ScriptMethodAttribute()]  // method to search for names containing substring
         public static string[] GetCompletionList(string prefixText, int count, string contextKey)
         {
             //Cal_BusterEntities1 db = new Cal_BusterEntities1();
             Calorie_BusterEntities db = new Calorie_BusterEntities();
-            var foods = db.FoodItem_tbl.Select(a => a.Name);
+            var foods = db.FoodItem_tbl.Select(a => a.Name);            // looks at all food names
             List<string> food = new List<string>();
-            foreach (var item in foods)
+            foreach (var item in foods)                                 // adds them to a collection of strings 
             {
                 food.Add(item);
             }
             return (from m in food where m.StartsWith(prefixText, StringComparison.CurrentCultureIgnoreCase) select m).Take(count).ToArray();
         }
 
-        protected void btnSubmit_Click(object sender, EventArgs e)
+        protected void btnSubmit_Click(object sender, EventArgs e)      // method to search db for food item by name
         {
             string word = txtSearch.Text;
 
             var y = cd.FoodItem_tbl.Where(a => a.Name.Contains(txtSearch.Text)).FirstOrDefault();
             item mm = new item { id = y.Item_id, name = y.Name };
-            hidFoodId.Value = mm.id.ToString();
+            hidFoodId.Value = mm.id.ToString();                     // save the food id 
             lblSelectedItem.Text = mm.name;
         }
 
-        protected void btnAdd_Click(object sender, EventArgs e)
+        protected void btnAdd_Click(object sender, EventArgs e)     // link to access food search div
         {
             LinkButton bt = (LinkButton)sender;
-            if (bt.ID == "lnkBtnBreakfast") { counter = 2; type = "breakfast"; }
-            else if (bt.ID == "lnkBtnLunch") { lunchCount = 4; type = "lunch"; }
-            else if (bt.ID == "lnkBtnDinner") { dinnerCount = 6; type = "Dinner"; }
+            if (bt.ID == "lnkBtnBreakfast") { counter = 2; type = "breakfast"; }    // check which button(meal type) was clicked
+            else if (bt.ID == "lnkBtnLunch") { lunchCount = 4; type = "lunch"; }    // set the counter to know which row in the table to insert values
+            else if (bt.ID == "lnkBtnDinner") { dinnerCount = 6; type = "Dinner"; } // and set the type of meal
             else if (bt.ID == "LnkBtnSnacks") { snacksCount = 8; type = "Snacks"; }
-            lblTitle.Text = "Add food to your " + type + " catagory";
-            searchForMeal.Visible = true;
+            lblTitle.Text = "Add food to your " + type + " catagory";               // type meal in the title
+            searchForMeal.Visible = true;                                           // show the add food div
             titleDiv.Visible = false;
             show = "yes";
             Session.Add("show", show);
             Session.Add("type", type);
         }
 
-        private void addRowCalCountOnPostBack(item one, int cc)
+        private void addRowCalCountOnPostBack(item one, int cc) // method to add a meal/food item when its a postback
         {
-            TableRow row = new TableRow();
+            TableRow row = new TableRow();      // new row with 6 cells
             for (int i = 0; i < 6; i++)
             {
                 TableCell tc = new TableCell();
                 tc.CssClass = "alt2";
                 row.Cells.Add(tc);
             }
-            row.Cells[0].CssClass = "lside";
-            row.Cells[0].Text = one.name.ToString();
+            row.Cells[0].CssClass = "lside";                // add style to new row
+            row.Cells[0].Text = one.name.ToString();        // add food values
             row.Cells[1].Text = one.cal.ToString();
             row.Cells[2].Text = one.carb.ToString();
             row.Cells[3].Text = one.fat.ToString();
             row.Cells[4].Text = one.protien.ToString();
             row.Cells[5].Text = one.sugar.ToString();
             tblAdded.Rows.AddAt(cc, row);
-
-            if (Session["totalCal"] != null) { TotalsRow.Cells[1].Text = ((int)Session["totalCal"]).ToString(); }
+                                                                            
+            if (Session["totalCal"] != null) { TotalsRow.Cells[1].Text = ((int)Session["totalCal"]).ToString(); }           // keep a count of totals in session
             if (Session["totalCarb"] != null) { TotalsRow.Cells[2].Text = ((double)Session["totalCarb"]).ToString(); }
             if (Session["totalFat"] != null) { TotalsRow.Cells[3].Text = ((double)Session["totalFat"]).ToString(); }
             if (Session["totalProtien"] != null) { TotalsRow.Cells[4].Text = ((double)Session["totalProtien"]).ToString(); }
             if (Session["totalSugar"] != null) { TotalsRow.Cells[5].Text = ((double)Session["totalSugar"]).ToString(); }
         }
 
-        private void addRowCalCount(item one, int cc)
+        private void addRowCalCount(item one, int cc)   // method to add a meal/food item into the table at the specified row(cc)
         {
-            TableRow row = new TableRow();
+            TableRow row = new TableRow();      // new row
             for (int i = 0; i < 6; i++)
             {
                 TableCell tc = new TableCell();
@@ -336,7 +336,7 @@ namespace CalBuster
             row.Cells[4].Text = one.protien.ToString();
             row.Cells[5].Text = one.sugar.ToString();
             tblAdded.Rows.AddAt(cc, row);
-
+                                                            // save totals
             if (Session["totalCal"] != null) { TotalsRow.Cells[1].Text = (((int)Session["totalCal"]) + (one.cal)).ToString(); }
             Session.Add("totalCal", (Convert.ToInt32(TotalsRow.Cells[1].Text)));
             if (Session["totalCarb"] != null) { TotalsRow.Cells[2].Text = (((double)Session["totalCarb"]) + (one.carb)).ToString(); }
@@ -352,8 +352,8 @@ namespace CalBuster
 
         protected void goBack_Click(object sender, EventArgs e)     //button to add selected food to daily record
         {
-            if (IsPageRefresh == true) { return; }
-            if (type == "breakfast") { counter++; lunchCount++; dinnerCount++; snacksCount++; }
+            if (IsPageRefresh == true) { return; }          // if user pressed refresh, break
+            if (type == "breakfast") { counter++; lunchCount++; dinnerCount++; snacksCount++; } // move all rows above the row to insert up
             else if (type == "lunch") { lunchCount++; dinnerCount++; snacksCount++; }
             else if (type == "Dinner") { dinnerCount++; snacksCount++; }
             else if (type == "Snacks") { snacksCount++; }
@@ -361,39 +361,39 @@ namespace CalBuster
             item food = new item();
             string nme = lblSelectedItem.Text;
             int y = Convert.ToInt32(hidFoodId.Value);
-            var meal = cd.Meal_tbl.Where(n => n.meal_id == y && n.Name == nme).FirstOrDefault();
+            var meal = cd.Meal_tbl.Where(n => n.meal_id == y && n.Name == nme).FirstOrDefault(); // check if its a meal
             if (meal != null)
             {
                 food = calcAllDetails(meal);
                 food.id = y;
                 
             }
-            var r = cd.FoodItem_tbl.Where(n => n.Item_id == y && n.Name == nme).FirstOrDefault();   // check if its a meal or single food item
+            var r = cd.FoodItem_tbl.Where(n => n.Item_id == y && n.Name == nme).FirstOrDefault();   // check if its a single food item
             int portions = Convert.ToInt32(txtPortions.Text);
             if (r != null) { food = new item { name = r.Name, id = r.Item_id, cal = (int)r.Calories * portions, carb = (double)r.Carbs * portions, fat = (double)r.Fat * portions, gPerItem = (int)r.GramPerPortion, protien = (double)r.Protein * portions, sodium = (double)r.Sodium * portions, sugar = (double)r.Sugar * portions }; }
 
-            searchForMeal.Visible = false;
+            searchForMeal.Visible = false;      // close search div
             titleDiv.Visible = true;
             show = (string)Session["show"];
             show = "no";
             Session.Add("show", show);
-            if (type == "breakfast") { addRowCalCount(food, counter); brekyItems.Add(food); }
+            if (type == "breakfast") { addRowCalCount(food, counter); brekyItems.Add(food); }           // add food item to collection depending on type 
             else if (type == "lunch") { addRowCalCount(food, lunchCount); lunchItems.Add(food); }
             else if (type == "Dinner") { addRowCalCount(food, dinnerCount); dinnerItems.Add(food); }
             else if (type == "Snacks") { addRowCalCount(food, snacksCount); snacksItems.Add(food); }
 
-            Session.Add("counter", counter);
+            Session.Add("counter", counter);            // save all the row number markers
             Session.Add("lunchCount", lunchCount);
             Session.Add("dinnerCount", dinnerCount);
             Session.Add("snacksCount", snacksCount);
 
-            Session.Add("brekyItems", brekyItems);
+            Session.Add("brekyItems", brekyItems);      // save food collections through reloads
             Session.Add("lunchItems", lunchItems);
             Session.Add("dinnerItems", dinnerItems);
             Session.Add("snacksItems", snacksItems);
         }
 
-        private item calcAllDetails(Meal_tbl meal)
+        private item calcAllDetails(Meal_tbl meal)      // meals have numerous food items that their values need to be totaled
         {
             item food = new item();
             food.name = meal.Name;
@@ -416,26 +416,25 @@ namespace CalBuster
             }
             food.protien = protien; food.carb = carb; food.sugar = sugar; food.fat = fat;
             food.sodium = sodium; food.cal = (int)cal;
-            return food;
+            return food;        // returns an 'item' with all totals
         }
 
-        protected void TreeV_SelectedNodeChanged(object sender, EventArgs e)
-        {
-            
+        protected void TreeV_SelectedNodeChanged(object sender, EventArgs e)    // displays selected meal
+        {           
             lblSelectedItem.Text = TreeView1.SelectedNode.Text;
             hidFoodId.Value = TreeView1.SelectedValue.ToString();
         }
 
-        protected void btnAddAllToDb_Click(object sender, EventArgs e)
+        protected void btnAddAllToDb_Click(object sender, EventArgs e)          // record all meals/food items
         {
-            PastMeal_tbl pm = new PastMeal_tbl { User_id = userNo, Date = DateTime.Now };
+            PastMeal_tbl pm = new PastMeal_tbl { User_id = userNo, Date = DateTime.Now }; 
             cd.PastMeal_tbl.Add(pm);
             try { cd.SaveChanges(); }
             catch { };
-            PastLink_tbl pl;
+            PastLink_tbl pl;                        
             try
-            {
-                if (brekyItems.Count() != 0)
+            {                                                       // save all meals into past link table by meal id and past meals id
+                if (brekyItems.Count() != 0)                            
                 {
                     foreach (var item in brekyItems)
                     {
@@ -474,28 +473,28 @@ namespace CalBuster
             }
             catch {  }
 
-            if (Session["totalCal"] != null) 
+            if (Session["totalCal"] != null)                                // check total calories for this entry to trigger delegate event
             {
                 string bb = cd.User_tbl.Where(a => a.User_id == userNo).Select(n => n.UserName).FirstOrDefault();
                 int tot = (((int)Session["totalCal"]));
                 if (tot < 2000)
                 {
-                    var others = cd.User_tbl.Where(a => a.joinUp == true);
+                    var others = cd.User_tbl.Where(a => a.joinUp == true);      // get a list of members
                     foreach (var item in others)
                     {
-                        if (item.User_id != userNo)
+                        if (item.User_id != userNo)                         // all members except this one 
                         {
-                            EventProcess ev = new EventProcess();
-                            ev.Process(item.Email, item.UserName, bb);
+                            EventProcess ev = new EventProcess();           
+                            ev.Process(item.Email, item.UserName, bb);      // send them an email
                         }
                         else
                         {
                             EventProcess ev = new EventProcess();
-                            ev.Process(item.Email, "today's achiever" , bb);
+                            ev.Process(item.Email, "today's achiever" , bb);    // send this one a seperate message
                         }
                     }                   
                 }
-            }
+            }                               // confirm submitted details
             
             string timeGone = @"<script type='text/javascript'> if(confirm('Your information has been saved to the database.')) { }</script>";
             ScriptManager.RegisterStartupScript(this, this.GetType(), "timeOut", timeGone, false);
