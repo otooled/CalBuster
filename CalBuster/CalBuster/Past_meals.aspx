@@ -17,7 +17,7 @@
         <asp:TableRow ID="TableRow3" runat="server" class="meal_header">
             <asp:TableCell ID="tcCalendar" VerticalAlign="Top" class="firstalt" runat="server">
 
-                <asp:Calendar ID="Calendar1" runat="server" OnSelectionChanged="Calendar1_SelectionChanged"></asp:Calendar></asp:TableCell>
+                <asp:Calendar ID="Calendar1" runat="server" OnDayRender="Calendar1_DayRender"  OnSelectionChanged="Calendar1_SelectionChanged"></asp:Calendar></asp:TableCell>
 
              <asp:TableCell ID="tcSummary" VerticalAlign="Top" class="firstalt" runat="server">
 
@@ -30,14 +30,17 @@
                 <!--<br />-->
                 <asp:TextBox ID="tbx_Meal" runat="server" Height="170px" TextMode="MultiLine" Width="265px"></asp:TextBox>
                 <!--<br />-->
-                <!--<asp:Button ID="JoinQuery" runat="server" OnClick="JoinQuery_Click" Text="JoinQuery" />-->
 
             </asp:TableCell>
 
             <asp:TableCell VerticalAlign="Top" runat="server">
-                <asp:Button ID="btnPlot" runat="server" Text="Plot" OnClick="btnPlot_Click" />
-                <asp:Button ID="btnPlotCalories" runat="server" OnClick="Button2_Click" Text="Calories" />
-                <asp:Button ID="btnPlotFat" runat="server" OnClick="btnPlotFat_Click" Text="Fat" />
+               
+                
+                <asp:Button ID="btnPlotCalories" runat="server" OnClick="btnPlotCalories_Click" Text="Calories" />
+               <asp:Button ID="btnPlotCarbs" runat="server" OnClick="btnPlotCarbs_Click" Text="Carbs" />
+               <asp:Button ID="Button2" runat="server" OnClick="btnPlotFat_Click" Text="Fat" />
+               <asp:Button ID="btnPlotProtein" runat="server" OnClick="btnPlotProtein_Click" Text="Protein" />
+               <asp:Button ID="btnPlotSugar" runat="server" OnClick="btnPlotSugar_Click" Text="Sugar" />
 
 
                 <asp:Chart ID="Chart1" runat="server">

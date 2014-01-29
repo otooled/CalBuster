@@ -139,24 +139,6 @@ namespace CalBuster {
         protected global::System.Web.UI.WebControls.TextBox tbx_Meal;
         
         /// <summary>
-        /// JoinQuery control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button JoinQuery;
-        
-        /// <summary>
-        /// btnPlot control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPlot;
-        
-        /// <summary>
         /// btnPlotCalories control.
         /// </summary>
         /// <remarks>
@@ -166,13 +148,40 @@ namespace CalBuster {
         protected global::System.Web.UI.WebControls.Button btnPlotCalories;
         
         /// <summary>
-        /// btnPlotFat control.
+        /// btnPlotCarbs control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPlotFat;
+        protected global::System.Web.UI.WebControls.Button btnPlotCarbs;
+        
+        /// <summary>
+        /// Button2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button2;
+        
+        /// <summary>
+        /// btnPlotProtein control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPlotProtein;
+        
+        /// <summary>
+        /// btnPlotSugar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPlotSugar;
         
         /// <summary>
         /// Chart1 control.

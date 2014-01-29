@@ -33,7 +33,7 @@ namespace CalBuster
 
             Calorie_BusterEntities db = new Calorie_BusterEntities();
             
-            var dates = db.PastMeal_tbl.Select(a => a).Where(n => n.User_id == 1);//FirstOrDefault();
+            var dates = db.PastMeal_tbl.Select(a => a).Where(n => n.User_id == 3);//FirstOrDefault();
                         
             StringBuilder sb = new StringBuilder();
 
@@ -205,6 +205,30 @@ namespace CalBuster
 
 
         }
+
+        //protected void Calendar1_DayRender(object sender, DayRenderEventArgs e)
+        //{
+        //    if (e.Day.Date 
+        //}
+
+
+        protected void Calendar1_DayRender(object sender, DayRenderEventArgs e)
+        {
+            if (e.Day.Date > DateTime.Now)
+            {
+                //If e.Day.Date < BeginningOfDateRange
+                e.Cell.BackColor = System.Drawing.Color.WhiteSmoke;
+                e.Day.IsSelectable = false;
+            }
+            //End If
+
+
+        }
+
+
+
+
+
         //useing calender date to select meal id and calcualte protien, calories.... for that meal
         protected void Calendar1_SelectionChanged(object sender, EventArgs e)
         {
@@ -342,12 +366,9 @@ namespace CalBuster
 
         }
 
-        protected void JoinQuery_Click(object sender, EventArgs e)
-        {
-            PlotData("Calories");
-        }
+      
 
-        protected void Button2_Click(object sender, EventArgs e)
+        protected void btnPlotCalories_Click(object sender, EventArgs e)
         {
             PlotData("Calories");
         }
@@ -357,9 +378,19 @@ namespace CalBuster
             PlotData("Fat");
         }
 
-        protected void btnPlot_Click(object sender, EventArgs e)
+        protected void btnPlotSugar_Click(object sender, EventArgs e)
         {
-
+            PlotData("Sugar");
         }
+
+        protected void btnPlotCarbs_Click(object sender, EventArgs e)
+        {
+            PlotData("Carbs");
+        }
+        protected void btnPlotProtein_Click(object sender, EventArgs e)
+        {
+            PlotData("Protein");
+        }
+
     }
 }
