@@ -84,7 +84,7 @@ namespace CalBuster
                                   Gender = rdlGender.SelectedValue,
                                   Password = GetMd5Hash(txtConfirmPassword.Text),
                                   UserName = txtCreateUserName.Text,
-                                  //DOB = Convert.ToDateTime(txtDOB.Text)
+                                  DOB = Convert.ToDateTime(txtDOB.Text),
                                   //DOB = String.Format(txtDay.Text + txtMonth.Text + txtYear.Text)
                               };
             if (chbJoinUp.Checked) { us.joinUp = true; }
