@@ -42,7 +42,7 @@
             
             <div id="dropdown-1" class="dropdown dropdown-tip">
                 <ul class="dropdown-menu">
-                    <li><a href="SignIn.aspx"><img src="images/setting.png" class="iconPics2" />Change details</a></li>
+                    <li><a href="SignIn.aspx?purpose=change"><img src="images/setting.png" class="iconPics2" />Change details</a></li>
                     <li><a href="Login.aspx"><img src="images/logout.png" class="iconPics2" />   Log out</a></li>
                     
                 </ul>

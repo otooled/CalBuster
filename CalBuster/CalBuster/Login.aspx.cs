@@ -28,12 +28,10 @@ namespace CalBuster
                 //Create session
                 if (Session["userDetails"] != null)
                 {
-
                     User values = (User)Session["userDetails"];
                     txtUserName.Text = values.userName;
 
                     txtPassword.Text = values.password;
-
                 }
             }
 
@@ -132,7 +130,7 @@ namespace CalBuster
                     User m = (User)Session["userDetails"];
                     m.userId = dd.User_id;
                 }
-                Response.Redirect("PlannerPage.aspx",false);
+                Response.Redirect("PlannerPage.aspx");
             }
             else
             {

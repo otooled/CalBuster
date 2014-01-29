@@ -36,7 +36,7 @@
          <asp:Label ID="lblPassword" runat="server" Text="*Create Password" CssClass="labels"></asp:Label>
             <br/>
             <asp:TextBox ID="txtCreatePassword" runat="server" CssClass="highightTextbox" TextMode="Password"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="rfvPassword1" runat="server" ControlToValidate="txtCreatePassword" Display="Dynamic" ErrorMessage="Password Required" SetFocusOnError="True" CssClass="texVal"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="rfvPassword1" runat="server" ControlToValidate="txtCreatePassword" Display="Dynamic" ErrorMessage="Password Required" SetFocusOnError="True" CssClass="texVal" Enabled="False"></asp:RequiredFieldValidator>
             </p>
                 <p>
          <asp:Label ID="lblConfirmPassword" runat="server" Text="*Confirm Password" CssClass="labels"></asp:Label>
@@ -44,7 +44,7 @@
             
             <br/>
             <asp:TextBox ID="txtConfirmPassword" runat="server" CssClass="highightTextbox" TextMode="Password"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rfvConPassword" runat="server" ControlToValidate="txtConfirmPassword" Display="Dynamic" ErrorMessage="Must re-enter password" CssClass="texVal"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfvConPassword" runat="server" ControlToValidate="txtConfirmPassword" Display="Dynamic" ErrorMessage="Must re-enter password" CssClass="texVal" Enabled="False"></asp:RequiredFieldValidator>
                     <asp:CompareValidator ID="cpvConPassword" runat="server" ControlToCompare="txtCreatePassword" ControlToValidate="txtConfirmPassword" Display="Dynamic" ErrorMessage="Passwords do not match" SetFocusOnError="True" CssClass="texVal"></asp:CompareValidator>
             </p>
         <p>
@@ -58,7 +58,7 @@
          <asp:Label ID="lblConfirmEmail" runat="server" Text="*Re-enter email adress" CssClass="labels"></asp:Label>
             <br/>
             <asp:TextBox ID="txtConfirmEmail" runat="server" CssClass="highightTextbox"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="rfvConEmail" runat="server" ControlToValidate="txtConfirmEmail" Display="Dynamic" ErrorMessage="Email confirmation required" CssClass="texVal"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="rfvConEmail" runat="server" ControlToValidate="txtConfirmEmail" Display="Dynamic" ErrorMessage="Email confirmation required" CssClass="texVal" Enabled="False"></asp:RequiredFieldValidator>
             <asp:CompareValidator ID="cpvConEmail" runat="server" ControlToCompare="txtEmail" ControlToValidate="txtConfirmEmail" Display="Dynamic" ErrorMessage="Email addresses must match" SetFocusOnError="True" CssClass="texVal"></asp:CompareValidator>
             <asp:RegularExpressionValidator ID="rgvEmailCon" runat="server" ControlToValidate="txtConfirmEmail" Display="Dynamic" ErrorMessage="Not a valid email address" SetFocusOnError="True" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" CssClass="texVal"></asp:RegularExpressionValidator>
             </p>
@@ -68,7 +68,7 @@
                 <asp:ListItem Text="Male"></asp:ListItem>
                 <asp:ListItem Text="Female"></asp:ListItem>
             </asp:RadioButtonList>
-            <asp:RequiredFieldValidator ID="rfvGender" runat="server" ControlToValidate="rdlGender" Display="Dynamic" ErrorMessage="Gender must be selected" SetFocusOnError="True" CssClass="texVal"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="rfvGender" runat="server" ControlToValidate="rdlGender" Display="Dynamic" ErrorMessage="Gender must be selected" SetFocusOnError="True" CssClass="texVal" Enabled="False"></asp:RequiredFieldValidator>
         </p>
         
             <p>
@@ -76,7 +76,7 @@
             <br/>
                 
             <asp:TextBox ID="txtDOB" runat="server" placeholder="DD/MM/YYYY" CssClass="highightTextbox" TextMode="Date"></asp:TextBox>
-                 <asp:RequiredFieldValidator ID="rfvDOB" runat="server" ControlToValidate="txtDOB" Display="Dynamic" ErrorMessage="Date of birth required" SetFocusOnError="True" CssClass="texVal"></asp:RequiredFieldValidator>
+                 <asp:RequiredFieldValidator ID="rfvDOB" runat="server" ControlToValidate="txtDOB" Display="Dynamic" ErrorMessage="Date of birth required" SetFocusOnError="True" CssClass="texVal" Enabled="False"></asp:RequiredFieldValidator>
                  <asp:RegularExpressionValidator ID="rxvDOB" runat="server" ControlToValidate="txtDOB" ErrorMessage="Date must be DD/MM/YYYY" SetFocusOnError="True" ValidationExpression="^(((0[1-9]|[12]\d|3[01])\/(0[13578]|1[02])\/((19|[2-9]\d)\d{2}))|((0[1-9]|[12]\d|30)\/(0[13456789]|1[012])\/((19|[2-9]\d)\d{2}))|((0[1-9]|1\d|2[0-8])\/02\/((19|[2-9]\d)\d{2}))|(29\/02\/((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))$" Display="Dynamic" CssClass="texVal"></asp:RegularExpressionValidator>
                 
                 <asp:RangeValidator ID="rgvDob" runat="server" ControlToValidate="txtDOB" Display="Dynamic" ErrorMessage="Must be over 18 and less than 80" SetFocusOnError="True" Type="Date" CssClass="texVal"></asp:RangeValidator>
@@ -90,7 +90,7 @@
                 <br/>
                 
                 <asp:Button ID="btnRegister" runat="server" Text="Register your details" CssClass="btnRegForgot" OnClick="btnRegister_Click"  />
-                
+                <asp:Button ID="btnChangeDets" runat="server" Text="Submit Changes" CssClass="btnRegForgot" Onclick="btnChangeDets_Click"  />
             </p>
         <p></p>
             <asp:ValidationSummary ID="valSummary" runat="server" HeaderText="Please ensure the following details are correct:" ShowMessageBox="True" ShowModelStateErrors="False" ShowSummary="False" />
