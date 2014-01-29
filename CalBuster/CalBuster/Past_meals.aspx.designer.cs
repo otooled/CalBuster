@@ -94,42 +94,6 @@ namespace CalBuster {
         protected global::System.Web.UI.WebControls.TableCell tcSummary;
         
         /// <summary>
-        /// btnCall control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCall;
-        
-        /// <summary>
-        /// tbxData control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbxData;
-        
-        /// <summary>
-        /// btn_meal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_meal;
-        
-        /// <summary>
-        /// tbx_Past_meal_Id control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbx_Past_meal_Id;
-        
-        /// <summary>
         /// tbx_Meal control.
         /// </summary>
         /// <remarks>

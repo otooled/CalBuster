@@ -21,12 +21,7 @@
 
              <asp:TableCell ID="tcSummary" VerticalAlign="Top" class="firstalt" runat="server">
 
-                <!-- <asp:Button ID="btnCall" runat="server" Text="Button" OnClick="btnCall_Click" />
-                 <asp:TextBox ID="tbxData" runat="server" Height="77px" Width="299px" TextMode="MultiLine"></asp:TextBox>
-
-                 <asp:Button ID="btn_meal" runat="server" Text="Button" OnClick="btn_meal_Click" />
-            <br />
-            <asp:TextBox ID="tbx_Past_meal_Id" runat="server"></asp:TextBox>-->
+                
                 <!--<br />-->
                 <asp:TextBox ID="tbx_Meal" runat="server" Height="170px" TextMode="MultiLine" Width="265px"></asp:TextBox>
                 <!--<br />-->
