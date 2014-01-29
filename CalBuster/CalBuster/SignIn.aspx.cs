@@ -17,17 +17,14 @@ namespace CalBuster
     {
 
         Calorie_BusterEntities db = new Calorie_BusterEntities();
-
-
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             txtFirstName.Focus();
             rgvDob.MinimumValue = DateTime.Today.AddYears(-80).ToShortDateString();
             rgvDob.MaximumValue = DateTime.Today.AddYears(-18).ToShortDateString();
 
-            ((MasterPage)this.Master).FindControl("botbg").Visible = false;
-            ((MasterPage)this.Master).FindControl("userLogout").Visible = false;
-
+            ((MasterPage)this.Master).FindControl("links").Visible = false;
         }
         
         static string GetMd5Hash(string input)
@@ -50,6 +47,7 @@ namespace CalBuster
         protected void btnRegister_Click(object sender, EventArgs e)
         {
             //Add user details to user table
+            
             User_tbl us = new User_tbl
                               {
                                   Fname = txtFirstName.Text,
@@ -59,9 +57,9 @@ namespace CalBuster
                                   Password = GetMd5Hash(txtConfirmPassword.Text),
                                   UserName = txtCreateUserName.Text,
                                   DOB = Convert.ToDateTime(txtDOB.Text),
-
                                   //DOB = String.Format(txtDay.Text + txtMonth.Text + txtYear.Text)
                               };
+            if (chbJoinUp.Checked) { us.joinUp = true; }
             db.User_tbl.Add(us);
             try
             {
@@ -75,6 +73,7 @@ namespace CalBuster
             
             finally
             {
+                
                 string timeGone = @"<script type='text/javascript'> if(confirm('You can now log in with your chosen username and password.')) { document.location='Login.aspx?val=true';}</script>";
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "timeOut", timeGone, false);
             }

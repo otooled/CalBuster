@@ -16,6 +16,8 @@ namespace CalBuster
         private int dinnerCount = 5;
         private int snacksCount = 7;
         private int userNo;
+        private string userNme;
+        	
         //Cal_BusterEntities1 cd = new Cal_BusterEntities1();
         Calorie_BusterEntities cd = new Calorie_BusterEntities();
         
@@ -25,34 +27,31 @@ namespace CalBuster
         private List<item> snacksItems = new List<item>();
         private bool IsPageRefresh;
         string show = "";
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            Label lbl = (Label)((MasterPage)this.Master).FindControl("userLoggedIn");       // set user name label at the top
-            if (lbl != null)
+            if (Session["userDetails"] != null)
             {
-                User user = new User();
-                if (Session["userDetails"] != null) { user = (((User)Session["userDetails"])); }
-                lbl.Text = user.userName;
-                userNo = user.userId;
+                User nn = ((User)Session["userDetails"]);
+                userNo = nn.userId;
+                userNme = nn.userName;
+                Label lbl = (Label)((MasterPage)this.Master).FindControl("userLoggedIn");       // set user name label at the top
+                if (lbl != null)
+                {
+                    lbl.Text = nn.userName;
+                }
             }
-
             Page.MaintainScrollPositionOnPostBack = true;
             IsPageRefresh = false;
 
             if (Page.IsPostBack)
             {
-                Label mylbl = (Label)((MasterPage)this.Master).FindControl("userLoggedIn");
-                if (mylbl != null)
-                {
-                    User user = new User();
-                    if (Session["userDetails"] != null) { user = (((User)Session["userDetails"])); }
-                    mylbl.Text = user.userName;
-                }
+                
                 string h = ViewState["ViewStateId"].ToString();
                 string k = Session["SessionId"].ToString();
                 if (Session["SessionId"] != null)
                 {
-                    if (ViewState["ViewStateId"].ToString() != Session["SessionId"].ToString())     // check if its a postback from user clicking refresh
+                    if (ViewState["ViewStateId"].ToString() != Session["SessionId"].ToString())  // check if its a postback from user clicking refresh
                     {
                         IsPageRefresh = true;
                     }
@@ -63,13 +62,7 @@ namespace CalBuster
             if (IsPageRefresh == true) { return; }
             if (Page.IsPostBack && IsPageRefresh == false)
             {
-                Label mylbl = (Label)((MasterPage)this.Master).FindControl("userLoggedIn");
-                if (mylbl != null)
-                {
-                    User user = new User();
-                    if (Session["userDetails"] != null) { user = (((User)Session["userDetails"])); }
-                    mylbl.Text = user.userName;
-                }
+               
                 show = (string)Session["show"];
                 if (show == "yes") { searchForMeal.Visible = true; titleDiv.Visible = false; }
                 else { searchForMeal.Visible = false; titleDiv.Visible = true; }
@@ -127,28 +120,17 @@ namespace CalBuster
 
             TreeView1.ExpandDepth = 0;
             TreeView1.RootNodeStyle.ImageUrl = "images/cuts.jpg";
-            //if (!Page.IsPostBack && IsPageRefresh == false)
-            //{
-            //    Label mylbl = (Label)((MasterPage)this.Master).FindControl("userLoggedIn");
-            //    if (mylbl != null)
-            //    {
-            //        User user = new User();
-            //        if (Session["userDetails"] != null) { user = (((User)Session["userDetails"])); }
-            //        mylbl.Text = user.userName;
-            //    }
-            //}
+            
             if (!Page.IsPostBack)
             {
-                Label mylbl = (Label)((MasterPage)this.Master).FindControl("userLoggedIn");
-                if (mylbl != null)
-                {
-                    User user = new User();
-                    if (Session["userDetails"] != null) { user = (((User)Session["userDetails"])); }
-                    mylbl.Text = user.userName;
-                }
+                
                 lblDate.Text = string.Format("{0} the {1} of {2} {3}", DateTime.Today.DayOfWeek, DateTime.Now.Day, DateTime.Now.ToString("MMMM"), DateTime.Today.Year);
                 searchForMeal.Visible = false;
                 Session.Clear();
+
+                User details = new User { userName = userNme, userId= userNo };
+                Session.Add("userDetails", details);
+
                 brekyItems.Clear();
                 lunchItems.Clear();
                 dinnerItems.Clear();
@@ -436,6 +418,7 @@ namespace CalBuster
             food.sodium = sodium; food.cal = (int)cal;
             return food;
         }
+
         protected void TreeV_SelectedNodeChanged(object sender, EventArgs e)
         {
             
@@ -445,7 +428,7 @@ namespace CalBuster
 
         protected void btnAddAllToDb_Click(object sender, EventArgs e)
         {
-            PastMeal_tbl pm = new PastMeal_tbl { User_id = 3, Date = DateTime.Now };
+            PastMeal_tbl pm = new PastMeal_tbl { User_id = userNo, Date = DateTime.Now };
             cd.PastMeal_tbl.Add(pm);
             try { cd.SaveChanges(); }
             catch { };
@@ -490,6 +473,34 @@ namespace CalBuster
                 }
             }
             catch {  }
-        }
+
+            if (Session["totalCal"] != null) 
+            {
+                string bb = cd.User_tbl.Where(a => a.User_id == userNo).Select(n => n.UserName).FirstOrDefault();
+                int tot = (((int)Session["totalCal"]));
+                if (tot < 2000)
+                {
+                    var others = cd.User_tbl.Where(a => a.joinUp == true);
+                    foreach (var item in others)
+                    {
+                        if (item.User_id != userNo)
+                        {
+                            EventProcess ev = new EventProcess();
+                            ev.Process(item.Email, item.UserName, bb);
+                        }
+                        else
+                        {
+                            EventProcess ev = new EventProcess();
+                            ev.Process(item.Email, "today's achiever" , bb);
+                        }
+                    }                   
+                }
+            }
+            
+            string timeGone = @"<script type='text/javascript'> if(confirm('Your information has been saved to the database.')) { }</script>";
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "timeOut", timeGone, false);
+        }        	
     }
 }
+
+

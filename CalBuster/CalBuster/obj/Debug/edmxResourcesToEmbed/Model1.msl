@@ -69,6 +69,7 @@
     <EntitySetMapping Name="User_tbl">
       <EntityTypeMapping TypeName="Calorie_BusterModel.User_tbl">
         <MappingFragment StoreEntitySet="User_tbl">
+          <ScalarProperty Name="joinUp" ColumnName="joinUp" />
           <ScalarProperty Name="DOB" ColumnName="DOB" />
           <ScalarProperty Name="Gender" ColumnName="Gender" />
           <ScalarProperty Name="Email" ColumnName="Email" />

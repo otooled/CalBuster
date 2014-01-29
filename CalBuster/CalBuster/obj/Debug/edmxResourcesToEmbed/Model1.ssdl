@@ -100,6 +100,7 @@
     <Property Name="Email" Type="varchar" MaxLength="50" />
     <Property Name="Gender" Type="varchar" MaxLength="10" />
     <Property Name="DOB" Type="date" />
+    <Property Name="joinUp" Type="bit" />
   </EntityType>
   <Association Name="FK_Link_tbl_FoodItem_tbl">
     <End Role="FoodItem_tbl" Type="Calorie_BusterModel.Store.FoodItem_tbl" Multiplicity="0..1" />

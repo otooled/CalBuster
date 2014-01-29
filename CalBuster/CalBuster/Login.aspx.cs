@@ -15,6 +15,7 @@ namespace CalBuster
         //database 
         Calorie_BusterEntities db = new Calorie_BusterEntities();
         
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             ((MasterPage)this.Master).FindControl("links").Visible = false;
@@ -119,6 +120,7 @@ namespace CalBuster
                 //Add session
                 details = new User { userName = txtUserName.Text, password = txtPassword.Text };
                 Session.Add("userDetails", details);
+                
             }
 
             string hash=GetMd5Hash(txtPassword.Text);
@@ -130,7 +132,7 @@ namespace CalBuster
                     User m = (User)Session["userDetails"];
                     m.userId = dd.User_id;
                 }
-                Response.Redirect("PlannerPage.aspx");
+                Response.Redirect("PlannerPage.aspx",false);
             }
             else
             {
@@ -152,11 +154,6 @@ namespace CalBuster
                 }
             }
             return output;
-
-
         }
-
-        
-
      }
 }

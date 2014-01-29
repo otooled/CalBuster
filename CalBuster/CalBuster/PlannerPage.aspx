@@ -16,7 +16,7 @@
                 <asp:Button ID="Button2" runat="server" Text="&gt;&gt;" />
                 <ajaxtoolkit:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="lblDate"></ajaxtoolkit:CalendarExtender>
                 <div class="link"  ><asp:Label ID="lblLinkToPast" CssClass="LinkToPast" runat="server" Text="To view your past history, ">
-                    <asp:HyperLink ID="hpyLinkToPast" CssClass="linktoPastLink" runat="server" NavigateUrl="~/Past_meals.aspx">Click Here</asp:HyperLink>
+                    <asp:HyperLink ID="hpyLinkToPast"  CssClass="linktoPastLink" runat="server" NavigateUrl="~/Past_meals.aspx">Click Here</asp:HyperLink>
                 </asp:Label></div>
                 <br/>
             </div>

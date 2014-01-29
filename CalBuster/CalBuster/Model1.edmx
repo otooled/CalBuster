@@ -105,6 +105,7 @@
           <Property Name="Email" Type="varchar" MaxLength="50" />
           <Property Name="Gender" Type="varchar" MaxLength="10" />
           <Property Name="DOB" Type="date" />
+          <Property Name="joinUp" Type="bit" />
         </EntityType>
         <Association Name="FK_Link_tbl_FoodItem_tbl">
           <End Role="FoodItem_tbl" Type="Calorie_BusterModel.Store.FoodItem_tbl" Multiplicity="0..1" />
@@ -280,6 +281,7 @@
           <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Gender" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Type="DateTime" Name="DOB" Precision="0" />
+          <Property Type="Boolean" Name="joinUp" />
         </EntityType>
         <Association Name="FK_Link_tbl_FoodItem_tbl">
           <End Role="FoodItem_tbl" Type="Calorie_BusterModel.FoodItem_tbl" Multiplicity="0..1" />
@@ -415,6 +417,7 @@
           <EntitySetMapping Name="User_tbl">
             <EntityTypeMapping TypeName="Calorie_BusterModel.User_tbl">
               <MappingFragment StoreEntitySet="User_tbl">
+                <ScalarProperty Name="joinUp" ColumnName="joinUp" />
                 <ScalarProperty Name="DOB" ColumnName="DOB" />
                 <ScalarProperty Name="Gender" ColumnName="Gender" />
                 <ScalarProperty Name="Email" ColumnName="Email" />

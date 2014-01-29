@@ -73,10 +73,7 @@
 
         <p>
             <asp:Button ID="btnBmiResult" runat="server" Text="Calculate BMI" CssClass="loginBtn" OnClick="btnBmiResult_Click" ValidationGroup="valBmi" />
-<<<<<<< HEAD
-=======
-            
->>>>>>> 14da019d13bdd13707086c5b35bba6684f1fc0a8
+
             <asp:Button ID="btnClear" runat="server" Text="Clear" OnClick="btnClear_Click" CssClass="loginBtn" />
         </p>
         <asp:Label ID="lblDisplayBMI" runat="server" Text="Your calculated BMI"></asp:Label>

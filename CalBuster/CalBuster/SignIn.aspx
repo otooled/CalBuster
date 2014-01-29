@@ -84,6 +84,9 @@
             </p>
             <p>
                
+                <asp:CheckBox ID="chbJoinUp" runat="server" />
+                <asp:Label ID="Label1" runat="server" Text="Check to join the CalBuster Slimming Club"></asp:Label>
+               
                 <br/>
                 
                 <asp:Button ID="btnRegister" runat="server" Text="Register your details" CssClass="btnRegForgot" OnClick="btnRegister_Click"  />

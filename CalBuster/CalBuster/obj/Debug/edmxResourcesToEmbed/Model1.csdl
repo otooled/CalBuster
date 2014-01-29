@@ -110,6 +110,7 @@
     <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Type="String" Name="Gender" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Type="DateTime" Name="DOB" Precision="0" />
+    <Property Type="Boolean" Name="joinUp" />
   </EntityType>
   <Association Name="FK_Link_tbl_FoodItem_tbl">
     <End Role="FoodItem_tbl" Type="Calorie_BusterModel.FoodItem_tbl" Multiplicity="0..1" />

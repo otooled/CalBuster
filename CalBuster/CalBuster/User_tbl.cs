@@ -27,6 +27,7 @@ namespace CalBuster
         public string Email { get; set; }
         public string Gender { get; set; }
         public Nullable<System.DateTime> DOB { get; set; }
+        public Nullable<bool> joinUp { get; set; }
     
         public virtual ICollection<PastMeal_tbl> PastMeal_tbl { get; set; }
     }

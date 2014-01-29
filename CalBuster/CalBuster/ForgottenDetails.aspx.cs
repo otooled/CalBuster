@@ -19,8 +19,7 @@ namespace CalBuster
         Calorie_BusterEntities db = new Calorie_BusterEntities();
         protected void Page_Load(object sender, EventArgs e)
         {
-            ((MasterPage)this.Master).FindControl("botbg").Visible = false;
-            ((MasterPage)this.Master).FindControl("userLogout").Visible = false;
+            ((MasterPage)this.Master).FindControl("links").Visible = false;
             purpose = Request.QueryString["purpose"];
             if (purpose == "userName" || purpose == "password")
             {
