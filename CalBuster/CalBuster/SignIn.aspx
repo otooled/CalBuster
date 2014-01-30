@@ -84,8 +84,8 @@
             </p>
             <p>
                
-                <asp:CheckBox ID="chbJoinUp" runat="server" />
-                <asp:Label ID="Label1" runat="server" Text="Check to join the CalBuster Slimming Club"></asp:Label>
+                <asp:CheckBox ID="chbJoinUp" runat="server" ToolTip="Emails will be sent to the Slimming Club when daily target is met." />
+                <asp:Label ID="Label1" runat="server" Text="Check to join the CalBuster Slimming Club" ToolTip="Emails will be sent to the Slimming Club when daily target is met."></asp:Label>
                
                 <br/>
                 
