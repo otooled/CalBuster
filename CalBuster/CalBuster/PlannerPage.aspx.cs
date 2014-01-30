@@ -5,6 +5,10 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+using System.Web.Security;
+using System.Security.Cryptography;
+using System.Text;
+
 namespace CalBuster
 {
     public partial class PlannerPage : System.Web.UI.Page
@@ -274,9 +278,16 @@ namespace CalBuster
             string word = txtSearch.Text;
 
             var y = cd.FoodItem_tbl.Where(a => a.Name.Contains(txtSearch.Text)).FirstOrDefault();
-            item mm = new item { id = y.Item_id, name = y.Name };
-            hidFoodId.Value = mm.id.ToString();                     // save the food id 
-            lblSelectedItem.Text = mm.name;
+            if (y != null) 
+            {
+                item mm = new item { id = y.Item_id, name = y.Name };
+                hidFoodId.Value = mm.id.ToString();                     // save the food id 
+                lblSelectedItem.Text = mm.name;
+            }
+            
+            else{
+                Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "Incorrect Login details", "<script>alert('Sorry, unavailable');</script>");
+            }
         }
 
         protected void btnAdd_Click(object sender, EventArgs e)     // link to access food search div
@@ -352,6 +363,7 @@ namespace CalBuster
 
         protected void goBack_Click(object sender, EventArgs e)     //button to add selected food to daily record
         {
+            if (lblSelectedItem.Text == "" ) { return; }
             if (IsPageRefresh == true) { return; }          // if user pressed refresh, break
             if (type == "breakfast") { counter++; lunchCount++; dinnerCount++; snacksCount++; } // move all rows above the row to insert up
             else if (type == "lunch") { lunchCount++; dinnerCount++; snacksCount++; }
